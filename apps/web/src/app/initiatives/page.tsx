@@ -13,9 +13,9 @@ export default function InitiativesPage() {
         <p className="eyebrow">Public-interest direction</p>
         <h1 id="initiatives-title">How Zion approaches initiatives</h1>
         <p className="page-intro">
-          An &quot;initiative&quot; is a proposed piece of public-interest software Zion
-          might build. None is published or under active development yet in this
-          repository — this page describes the approach, not a product.
+          An &quot;initiative&quot; is a piece of public-interest software Zion builds as a
+          working portfolio demonstration. One demonstration slice is available below;
+          everything else remains an approach, not a product.
         </p>
       </section>
 
@@ -52,12 +52,32 @@ export default function InitiativesPage() {
         </div>
       </section>
 
+      <section aria-labelledby="current-title">
+        <div className="section-heading">
+          <p className="eyebrow">Demonstrations</p>
+          <h2 id="current-title">Current initiative demonstrations</h2>
+        </div>
+        <div className="card-grid">
+          <article>
+            <h3>
+              <a href="/initiatives/haven">Haven — health-access navigation</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> A
+              non-diagnostic, synthetic-scenario demonstration of concern navigation with
+              deterministic 911/988 emergency and crisis routing, plain-language guidance
+              cards, and curated official resources.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section className="status-section" aria-labelledby="status-title">
         <h2 id="status-title">Current status</h2>
         <p>
-          <StatusBadge status="planned" /> No specific initiative has a name, scope, or
-          timeline in this repository yet. What exists today is the shared foundation
-          described on the <a href="/projects">Projects</a> page.
+          <StatusBadge status="planned" /> Other initiatives have no name, scope, or
+          timeline in this repository yet. The shared foundation is described on the{" "}
+          <a href="/projects">Projects</a> page.
         </p>
       </section>
     </PageShell>
