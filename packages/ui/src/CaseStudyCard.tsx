@@ -43,7 +43,12 @@ export function CaseStudyCard({
       <p className="case-study-card__summary">{summary}</p>
       {children}
       {detailsHref ? (
-        <a className="case-study-card__link" href={detailsHref}>
+        <a
+          className="case-study-card__link"
+          href={detailsHref}
+          target={detailsHref.startsWith("http") ? "_blank" : undefined}
+          rel={detailsHref.startsWith("http") ? "noopener noreferrer" : undefined}
+        >
           {detailsLabel ?? "View evidence"}
         </a>
       ) : null}

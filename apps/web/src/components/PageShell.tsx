@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export type PageId = "home" | "initiatives" | "projects" | "evidence" | "about";
+export type PageId = "home" | "initiatives" | "projects" | "labs" | "evidence" | "about";
 
 interface NavItem {
   id: PageId;
@@ -13,6 +13,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: "home", href: "/", label: "Home" },
   { id: "initiatives", href: "/initiatives", label: "Initiatives" },
   { id: "projects", href: "/projects", label: "Projects" },
+  { id: "labs", href: "/labs", label: "Labs" },
   { id: "evidence", href: "/evidence", label: "Evidence" },
   { id: "about", href: "/about", label: "About Justin" },
 ];
@@ -52,6 +53,8 @@ export function PageShell({ active, children }: PageShellProps) {
         <a
           className="repository-link"
           href="https://github.com/grey-ghost-1/zion-software-initiative"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           View source
         </a>

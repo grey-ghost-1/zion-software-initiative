@@ -15,7 +15,9 @@ organizations, memberships, and audit events, and a typed TypeScript API
 client. There are no live product workflows, production deployments, real
 users, partnerships, or measured field outcomes. See
 [GitHub issue #1](https://github.com/grey-ghost-1/zion-software-initiative/issues/1)
-for the scope this layer implements.
+for the foundation scope this layer implements, and
+[GitHub issue #5](https://github.com/grey-ghost-1/zion-software-initiative/issues/5)
+for the static prior-work archive added alongside it.
 
 The proposed initiatives are still only proposed, not built:
 
@@ -30,9 +32,13 @@ report.
 
 ## What's implemented
 
-- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, Evidence, and
+- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, Labs, Evidence, and
   About Justin pages behind one accessible shared layout (skip link, semantic
   landmarks, current-page navigation) using a shared beach-palette token set.
+- **Prior-work archive** (`apps/web/src/app/labs`): a static Zion Labs page
+  backed by checked-in JSON from the Batcomputer Portfolio snapshot, featuring
+  four flagships and nineteen grouped secondary labs with no runtime GitHub
+  calls and no asset reuse.
 - **Reusable UI primitives** (`packages/ui`): a truthful `StatusBadge`
   (`implemented` / `in-development` / `planned`) and a `CaseStudyCard` for
   impact and engineering case studies.

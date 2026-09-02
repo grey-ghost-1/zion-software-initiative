@@ -24,7 +24,7 @@ describe("Projects page", () => {
     expect(
       screen.getByText(/no measured field impact, partner, or user to report/i),
     ).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    for (const forbidden of ["Harbor", "Haven", "Beacon"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });

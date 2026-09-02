@@ -21,7 +21,7 @@ describe("Initiatives page", () => {
       screen.getByText(/none is published or under active development yet/i),
     ).toBeVisible();
     expect(screen.getByText("Planned")).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    for (const forbidden of ["Harbor", "Haven", "Beacon"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });
