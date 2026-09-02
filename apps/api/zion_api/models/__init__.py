@@ -11,6 +11,11 @@ from zion_api.db import audit_guard as audit_guard  # noqa: F401  (registers eve
 from zion_api.models.audit_event import AuditEvent
 from zion_api.models.auth_token import AuthToken
 from zion_api.models.enums import Role
+from zion_api.models.haven import (
+    HavenGuidanceCard,
+    HavenNavigationPlan,
+    HavenResource,
+)
 from zion_api.models.membership import Membership
 from zion_api.models.organization import Organization
 from zion_api.models.user import User
@@ -18,6 +23,9 @@ from zion_api.models.user import User
 __all__ = [
     "AuditEvent",
     "AuthToken",
+    "HavenGuidanceCard",
+    "HavenNavigationPlan",
+    "HavenResource",
     "Membership",
     "Organization",
     "Role",

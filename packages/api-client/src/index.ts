@@ -1,6 +1,15 @@
 import { ZionApiError } from "./errors";
 import type {
   ApiErrorBody,
+  HavenGuidanceCardListResponse,
+  HavenNavigationRequest,
+  HavenNavigationResponse,
+  HavenPlanCloseResponse,
+  HavenPlanCreateResponse,
+  HavenPlanListResponse,
+  HavenPlanReviewRequest,
+  HavenPlanReviewResponse,
+  HavenResourceListResponse,
   LivenessResponse,
   LoginRequest,
   LoginResponse,
@@ -12,6 +21,25 @@ import type {
 export type { ApiErrorBody } from "./types";
 export { ZionApiError } from "./errors";
 export type {
+  HavenConcernCategory,
+  HavenConcernDuration,
+  HavenEmergencyGuidance,
+  HavenGuidanceCard,
+  HavenGuidanceCardListResponse,
+  HavenNavigationRequest,
+  HavenNavigationResponse,
+  HavenPlan,
+  HavenPlanCloseResponse,
+  HavenPlanCreateResponse,
+  HavenPlanListResponse,
+  HavenPlanReviewRequest,
+  HavenPlanReviewResponse,
+  HavenPlanStatus,
+  HavenResource,
+  HavenResourceListResponse,
+  HavenReviewReasonCode,
+  HavenRoutingOutcome,
+  HavenSeverity,
   LivenessResponse,
   LoginRequest,
   LoginResponse,
@@ -75,6 +103,69 @@ export class ZionApiClient {
     return this.request<OrganizationMembersResponse>(
       "GET",
       `/admin/organizations/${encodeURIComponent(organizationSlug)}/members`,
+      { accessToken },
+    );
+  }
+
+  /* --------------------------- Haven endpoints --------------------------- */
+
+  listHavenGuidanceCards(): Promise<HavenGuidanceCardListResponse> {
+    return this.request<HavenGuidanceCardListResponse>("GET", "/haven/guidance-cards");
+  }
+
+  listHavenResources(): Promise<HavenResourceListResponse> {
+    return this.request<HavenResourceListResponse>("GET", "/haven/resources");
+  }
+
+  /** Ephemeral public demo navigation; the API stores nothing about it. */
+  submitHavenNavigation(payload: HavenNavigationRequest): Promise<HavenNavigationResponse> {
+    return this.request<HavenNavigationResponse>("POST", "/haven/navigations", { body: payload });
+  }
+
+  createHavenPlan(
+    organizationSlug: string,
+    payload: HavenNavigationRequest,
+    accessToken: string,
+  ): Promise<HavenPlanCreateResponse> {
+    return this.request<HavenPlanCreateResponse>(
+      "POST",
+      `/haven/organizations/${encodeURIComponent(organizationSlug)}/plans`,
+      { body: payload, accessToken },
+    );
+  }
+
+  listHavenPlans(
+    organizationSlug: string,
+    accessToken: string,
+  ): Promise<HavenPlanListResponse> {
+    return this.request<HavenPlanListResponse>(
+      "GET",
+      `/haven/organizations/${encodeURIComponent(organizationSlug)}/plans`,
+      { accessToken },
+    );
+  }
+
+  reviewHavenPlan(
+    organizationSlug: string,
+    planId: string,
+    payload: HavenPlanReviewRequest,
+    accessToken: string,
+  ): Promise<HavenPlanReviewResponse> {
+    return this.request<HavenPlanReviewResponse>(
+      "POST",
+      `/haven/organizations/${encodeURIComponent(organizationSlug)}/plans/${encodeURIComponent(planId)}/review`,
+      { body: payload, accessToken },
+    );
+  }
+
+  closeHavenPlan(
+    organizationSlug: string,
+    planId: string,
+    accessToken: string,
+  ): Promise<HavenPlanCloseResponse> {
+    return this.request<HavenPlanCloseResponse>(
+      "POST",
+      `/haven/organizations/${encodeURIComponent(organizationSlug)}/plans/${encodeURIComponent(planId)}/close`,
       { accessToken },
     );
   }

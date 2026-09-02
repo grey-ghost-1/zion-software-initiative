@@ -14,14 +14,15 @@ describe("Initiatives page", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 
-  it("describes the approach truthfully without naming an unbuilt product", () => {
+  it("links the Haven demonstration without naming unbuilt products", () => {
     render(<InitiativesPage />);
 
     expect(
-      screen.getByText(/none is published or under active development yet/i),
-    ).toBeVisible();
+      screen.getByRole("link", { name: /haven — health-access navigation/i }),
+    ).toHaveAttribute("href", "/initiatives/haven");
+    expect(screen.getByText("Working demonstration")).toBeVisible();
     expect(screen.getByText("Planned")).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    for (const forbidden of ["Harbor", "Beacon", "Labs"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });
