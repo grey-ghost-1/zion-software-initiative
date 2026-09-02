@@ -1,0 +1,34 @@
+{
+  "$schema": "./inventory.schema.json",
+  "version": 1,
+  "claims": [
+    {
+      "id": "accessible-landing-shell",
+      "claim": "The web app renders a static foundation landing shell with semantic landmarks, a skip link, and explicit status disclosures.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/page.tsx",
+      "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "beach-palette-tokens",
+      "claim": "A shared token package defines the initial ocean, sky, white, sand, and seafoam palette.",
+      "status": "implemented",
+      "evidence": "packages/config/tokens.css",
+      "verified_by": "apps/web production build"
+    },
+    {
+      "id": "minimal-liveness-contract",
+      "claim": "The API exposes a fixed, non-leaking liveness response.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/routes/health.py",
+      "verified_by": "apps/api/tests/test_health.py"
+    },
+    {
+      "id": "foundation-readiness-contract",
+      "claim": "The API reports HTTP 503 and ready false while only the repository foundation exists.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/routes/health.py",
+      "verified_by": "apps/api/tests/test_health.py"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# Dependencies and virtual environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Framework and tool output
+.next/
+out/
+build/
+dist/
+coverage/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment files (examples remain tracked)
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local platform state
+.vercel/
+*.pem
+npm-debug.log*
