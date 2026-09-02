@@ -4,20 +4,20 @@ import { PageShell } from "@/components/PageShell";
 import { HarborWorkflow } from "./HarborWorkflow";
 
 export const metadata: Metadata = {
-  title: "Harbor · Zion Software Initiative",
-  description: "A synthetic, explainable care-coordination engineering demonstration.",
+  title: "Community Aid Hub · Zion Software Initiative",
+  description: "A synthetic, explainable care coordination demonstration for the vulnerable.",
 };
 
 export default function HarborPage() {
   return (
-    <PageShell active="harbor">
+    <PageShell active="initiatives">
       <section className="page-hero harbor-hero" aria-labelledby="harbor-title">
         <p className="eyebrow">Harbor vertical slice</p>
-        <h1 id="harbor-title">Care coordination, demonstrated with care</h1>
+        <h1 id="harbor-title">Community Aid Hub: care for the vulnerable</h1>
         <p className="page-intro">
-          Harbor is a bounded synthetic prototype for reviewing assistance requests,
-          resource capacity, volunteer plans, and an audit trail without collecting
-          real vulnerable-person data or making autonomous decisions.
+          Community Aid Hub is a bounded synthetic prototype for reviewing assistance
+          requests, resource capacity, volunteer plans, and an audit trail without
+          collecting real vulnerable-person data or making autonomous decisions.
         </p>
         <p><StatusBadge status="implemented" label="Synthetic prototype implemented" /></p>
       </section>

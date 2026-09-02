@@ -3,7 +3,7 @@ import { StatusBadge } from "@zion/ui";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Beacon · Zion Software Initiative",
+  title: "Humanitarian Automation Pipeline · Zion Software Initiative",
 };
 
 const STEPS = [
@@ -54,12 +54,14 @@ export default function BeaconPage() {
     <PageShell active="initiatives">
       <section className="page-hero" aria-labelledby="beacon-title">
         <p className="eyebrow">Initiative demonstration</p>
-        <h1 id="beacon-title">Beacon: a deterministic, human-approved readiness workflow</h1>
+        <h1 id="beacon-title">
+          Humanitarian Automation Pipeline: AI infrastructure, automation, and empowerment
+        </h1>
         <p className="page-intro">
           <StatusBadge status="implemented" label="Working demonstration" /> One synthetic
-          coastal-storm scenario runs through a typed, observable workflow: fixture ingestion,
-          geospatial and provenance validation, versioned policy checks, an explainable supply
-          allocation proposal, and an explicit human approval gate.
+          readiness scenario runs through a typed, observable workflow: fixture ingestion,
+          validation, provenance checks, versioned policy checks, an explainable proposal,
+          and an explicit human approval gate.
         </p>
         <p className="page-intro">
           <strong>Disclosure:</strong> everything on this page and in the Beacon API is a
@@ -78,10 +80,10 @@ export default function BeaconPage() {
           <article>
             <h3>Impact track</h3>
             <p>
-              When a synthetic storm advisory arrives, Beacon validates where the data came from
+              When a synthetic advisory arrives, the pipeline validates where the data came from
               and how fresh it is, proposes how limited synthetic supplies could be shared across
-              synthetic community zones, explains every line of that proposal, and then stops: a
-              human coordinator must approve or reject before anything is recorded as final.
+              community zones, explains every line of that proposal, and then stops: a human
+              coordinator must approve or reject before anything is recorded as final.
             </p>
           </article>
           <article>

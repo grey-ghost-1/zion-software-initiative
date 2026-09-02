@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export type PageId = "home" | "initiatives" | "harbor" | "projects" | "labs" | "evidence" | "about";
+export type PageId = "home" | "initiatives" | "projects" | "evidence";
 
 interface NavItem {
   id: PageId;
@@ -12,11 +12,8 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { id: "home", href: "/", label: "Home" },
   { id: "initiatives", href: "/initiatives", label: "Initiatives" },
-  { id: "harbor", href: "/harbor", label: "Harbor" },
   { id: "projects", href: "/projects", label: "Projects" },
-  { id: "labs", href: "/labs", label: "Labs" },
   { id: "evidence", href: "/evidence", label: "Evidence" },
-  { id: "about", href: "/about", label: "About Justin" },
 ];
 
 interface PageShellProps {

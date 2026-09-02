@@ -1,40 +1,34 @@
 # Zion Software Initiative
 
-Zion is an independent social-impact software initiative hub and a recruiter-facing
-engineering portfolio for **Justin Wimmer**, an entry-level full-stack/backend
-developer. The repository is not connected to the Batcomputer project or its
-branding.
+Zion is a software platform rooted in peace, justice, and human goodwill. The
+repository is not connected to the Batcomputer project or its branding.
 
 ## Current status
 
-**Shared foundation, stage one, plus the first prototype slices.** This layer
+**Shared foundation, stage one, plus the three Zion avenues.** This layer
 provides an accessible Next.js shell, a modular FastAPI service with
 authentication and role-based access control, a PostgreSQL-backed schema (via
 SQLAlchemy 2 + Alembic) for synthetic users, organizations, memberships, and
-audit events, a typed TypeScript API client, the static Zion Labs prior-work
-archive, the Harbor synthetic coordination workflow, the Haven non-diagnostic
-health-access navigation demo, and the Beacon synthetic coastal-storm readiness
-workflow demo. There are no live product workflows, production deployments,
-real users, partnerships, or measured field outcomes. See
+audit events, a typed TypeScript API client, and the Community Aid Hub, Health
+Navigator, and Humanitarian Automation Pipeline demonstrations. There are no
+live product workflows, production deployments, real users, partnerships, or
+measured field outcomes. See
 [GitHub issue #1](https://github.com/grey-ghost-1/zion-software-initiative/issues/1)
 for the foundation scope and [GitHub issue #5](https://github.com/grey-ghost-1/zion-software-initiative/issues/5)
 for the archive evidence.
 
-Harbor, Haven, and Beacon are the implemented initiative prototypes. No other
-initiative directions are implemented here yet.
+Harbor, Haven, and Beacon are the implemented Zion demonstrations, surfaced on
+the site as Community Aid Hub, Health Navigator, and Humanitarian Automation
+Pipeline. No other initiative directions are implemented here yet.
 
 No demo is currently deployed. Harbor is software evidence, not an available
 coordination product or evidence of impact.
 
 ## What's implemented
 
-- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, Labs, Evidence, and
-  About Justin pages behind one accessible shared layout (skip link, semantic
-  landmarks, current-page navigation) using a shared beach-palette token set.
-- **Prior-work archive** (`apps/web/src/app/labs`): a static Zion Labs page
-  backed by checked-in JSON from the Batcomputer Portfolio snapshot, featuring
-  four flagships and nineteen grouped secondary labs with no runtime GitHub
-  calls and no asset reuse.
+- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, and Evidence
+  pages behind one accessible shared layout (skip link, semantic landmarks,
+  current-page navigation) using a shared beach-palette token set.
 - **Reusable UI primitives** (`packages/ui`): a truthful `StatusBadge`
   (`implemented` / `in-development` / `planned`) and a `CaseStudyCard` for
   impact and engineering case studies.
@@ -54,9 +48,6 @@ coordination product or evidence of impact.
   database.
 - **Typed TS client** (`packages/api-client`): covers every implemented
   endpoint above with types mirrored from the API schemas.
-- **Labs archive** (`apps/web/src/app/labs`): a static Zion Labs page backed by
-  checked-in JSON from the Batcomputer Portfolio snapshot, featuring four
-  flagships and nineteen grouped secondary labs with no runtime GitHub calls.
 - **Harbor** (`apps/api/zion_api/routes/harbor.py`, `apps/web/src/app/harbor`):
   synthetic needs/resources, transparent deterministic matching, coordinator
   triage and override reasons, atomic capacity reservation, volunteer plan

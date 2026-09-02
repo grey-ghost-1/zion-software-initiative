@@ -4,7 +4,7 @@ import { PageShell } from "@/components/PageShell";
 import { HavenDemo } from "./HavenDemo";
 
 export const metadata: Metadata = {
-  title: "Haven · Zion Software Initiative",
+  title: "Health Navigator · Zion Software Initiative",
 };
 
 export default function HavenPage() {
@@ -12,12 +12,12 @@ export default function HavenPage() {
     <PageShell active="initiatives">
       <section className="page-hero" aria-labelledby="haven-title">
         <p className="eyebrow">Initiative demonstration</p>
-        <h1 id="haven-title">Haven: health-access navigation</h1>
+        <h1 id="haven-title">Health Navigator: healing &amp; health access</h1>
         <p className="page-intro">
-          <StatusBadge status="implemented" label="Working demonstration" /> Haven is a
-          working portfolio demonstration of non-diagnostic health-access navigation:
-          synthetic, ephemeral scenarios only — never real patients, medical records, or
-          advice.
+          <StatusBadge status="implemented" label="Working demonstration" /> Health
+          Navigator is a working demonstration of non-diagnostic health-access
+          navigation: synthetic, ephemeral scenarios only — never real patients,
+          medical records, or advice.
         </p>
         <p className="page-intro">
           <strong>Haven is not a medical service.</strong> It does not provide diagnosis,
@@ -56,7 +56,7 @@ export default function HavenPage() {
             variant="impact"
             title="Why navigation, not diagnosis"
             status="implemented"
-            summary="Many people delay care because instructions are confusing, costs are unclear, or they do not know where to start. Haven demonstrates plain-language explanation cards, deterministic routing to next steps, and curated official resources — while refusing to diagnose, dose, or predict."
+            summary="Many people delay care because instructions are confusing, costs are unclear, or they do not know where to start. Health Navigator demonstrates plain-language explanation cards, deterministic routing to next steps, and curated official resources — while refusing to diagnose, dose, or predict."
           >
             <ul>
               <li>

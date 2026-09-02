@@ -22,7 +22,7 @@ export const NO_MONITORING_NOTE =
   "or contact any service on your behalf. You must reach out directly.";
 
 export const NON_DIAGNOSTIC_DISCLAIMER =
-  "Haven is a portfolio demonstration, not a medical service. It does not provide " +
+  "Haven is a demonstration, not a medical service. It does not provide " +
   "diagnosis, treatment, or medical advice. For medical questions, talk with a " +
   "licensed clinician.";
 

@@ -10,10 +10,10 @@ export default function ProjectsPage() {
   return (
     <PageShell active="projects">
       <section className="page-hero" aria-labelledby="projects-title">
-        <p className="eyebrow">Engineering portfolio</p>
+        <p className="eyebrow">Zion platform</p>
         <h1 id="projects-title">What has actually been built</h1>
         <p className="page-intro">
-          Each entry below is a real, inspectable piece of this repository — not a
+          Each entry below is a real, inspectable piece of the Zion platform — not a
           plan. Every claim links to the code and tests that back it up on the{" "}
           <a href="/evidence">Evidence</a> page.
         </p>
@@ -80,8 +80,7 @@ export default function ProjectsPage() {
           status="implemented"
           summary="A Next.js App Router shell with semantic landmarks, a skip link,
             keyboard-visible focus states, and a shared beach-palette design token
-            set, serving both a public-interest reader and a recruiter reviewing
-            engineering work."
+            set for the Zion site."
           detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/apps/web/src/app/page.tsx"
           detailsLabel="Browse apps/web"
         />

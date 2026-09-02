@@ -11,11 +11,11 @@ export default function InitiativesPage() {
     <PageShell active="initiatives">
       <section className="page-hero" aria-labelledby="initiatives-title">
         <p className="eyebrow">Public-interest direction</p>
-        <h1 id="initiatives-title">How Zion approaches initiatives</h1>
+        <h1 id="initiatives-title">Three original avenues of Zion</h1>
         <p className="page-intro">
-          An &quot;initiative&quot; is a proposed piece of public-interest software Zion
-          might build. Two synthetic demonstrations exist so far; the rest of this
-          page describes the approach every initiative must follow.
+          Zion is built around three original avenues of impact. Each avenue is
+          synthetic here, but the structure is designed to prove that software can
+          heal, protect, and uplift.
         </p>
       </section>
 
@@ -60,23 +60,34 @@ export default function InitiativesPage() {
         <div className="card-grid">
           <article>
             <h3>
-              <a href="/initiatives/haven">Haven — health-access navigation</a>
+              <a href="/harbor">Care for the Vulnerable</a>
             </h3>
             <p>
-              <StatusBadge status="implemented" label="Working demonstration" /> A
-              non-diagnostic, synthetic-scenario demonstration of concern navigation with
-              deterministic 911/988 emergency and crisis routing, plain-language guidance
-              cards, and curated official resources.
+              <StatusBadge status="implemented" label="Working demonstration" /> Community
+              Aid Hub — Harbor — shows needs, matching, triage, capacity checks,
+              volunteer plans, and audit timelines.
             </p>
           </article>
           <article>
             <h3>
-              <a href="/initiatives/beacon">Beacon — coastal-storm readiness workflow</a>
+              <a href="/initiatives/haven">Healing &amp; Health Access</a>
             </h3>
             <p>
-              <StatusBadge status="implemented" label="Working demonstration" /> A
-              synthetic, deterministic workflow demo with typed steps, policy and
-              provenance checks, explainable allocation, and required human approval.
+              <StatusBadge status="implemented" label="Working demonstration" /> Health
+              Navigator and Care Routing Directory — Haven — simplify navigation with
+              non-diagnostic guidance, emergency and crisis routing, plain-language
+              cards, and curated resources.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="/initiatives/beacon">AI Infrastructure, Automation &amp; Empowerment</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> Humanitarian
+              Automation Pipeline and AI Empowerment &amp; Education Suite — Beacon —
+              automate coordination with typed steps, policy and provenance checks,
+              explainable allocation, and required human approval.
             </p>
           </article>
         </div>
@@ -85,10 +96,10 @@ export default function InitiativesPage() {
       <section className="status-section" aria-labelledby="status-title">
         <h2 id="status-title">Current status</h2>
         <p>
-          <StatusBadge status="implemented" label="Working demonstration" /> Haven and
-          Beacon are the implemented initiative demonstrations. Haven shows
-          non-diagnostic health-access navigation; Beacon shows the synthetic
-          coastal-storm readiness workflow. The shared foundation is described on the{" "}
+          <StatusBadge status="implemented" label="Working demonstration" /> Harbor,
+          Haven, and Beacon are the implemented Zion demonstrations. They map to
+          care for the vulnerable, healing &amp; health access, and AI infrastructure,
+          automation &amp; empowerment. The shared foundation is described on the{" "}
           <a href="/projects">Projects</a> page.
         </p>
       </section>
