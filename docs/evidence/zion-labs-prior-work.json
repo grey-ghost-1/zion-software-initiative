@@ -1,0 +1,855 @@
+{
+  "schemaVersion": 1,
+  "attribution": {
+    "creator": "Justin Wimmer",
+    "origin": "Originally published in the Batcomputer Portfolio.",
+    "reuseLicense": null
+  },
+  "sourceSnapshot": {
+    "repo": "grey-ghost-1/Batcomputer-Portfolio",
+    "defaultBranch": "main",
+    "commit": "148ffe12f60d586d3b7e4769ae1c617e98c31289",
+    "auditedAt": "2026-08-26",
+    "inventoryUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json",
+    "ciRunUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/actions/runs/33112674630"
+  },
+  "validationSnapshot": {
+    "projectCount": 23,
+    "flagshipCount": 4,
+    "secondaryCount": 19,
+    "secondaryByCategory": {
+      "defensive security": 5,
+      "IT support": 5,
+      "networking/systems": 5,
+      "software/automation": 4
+    },
+    "retainedLegacyFolders": 20,
+    "ciTotals": [
+      {
+        "label": "site/showcase",
+        "tests": 42
+      },
+      {
+        "label": "platform",
+        "tests": 10
+      },
+      {
+        "label": "Orbital",
+        "tests": 8
+      },
+      {
+        "label": "algorithm",
+        "tests": 7
+      },
+      {
+        "label": "Alfred",
+        "tests": 377
+      }
+    ],
+    "passingTotal": 444
+  },
+  "projects": [
+    {
+      "id": "network-scanner",
+      "name": "Network Scanner",
+      "slug": "network-scanner",
+      "tier": "secondary",
+      "category": "defensive security",
+      "relationship": "retained legacy folder",
+      "summary": "Checks a single host's TCP ports with a short timeout and JSON output.",
+      "features": [
+        "single-host TCP checks",
+        "comma-separated port input",
+        "0.3-second socket timeout",
+        "JSON output"
+      ],
+      "limitations": [
+        "sequential only",
+        "no CIDR expansion",
+        "no service identification"
+      ],
+      "source": {
+        "path": "Cybersecurity/network-scanner/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Cybersecurity/network-scanner/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/network-scanner.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed against loopback; performs bounded TCP connection attempts and writes no files."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "owasp-juice-shop-testing",
+      "name": "OWASP Juice Shop Testing",
+      "slug": "owasp-juice-shop-testing",
+      "tier": "secondary",
+      "category": "defensive security",
+      "relationship": "retained legacy folder",
+      "summary": "Compares a local probe string and response string to illustrate reflection risk.",
+      "features": [
+        "local probe string input",
+        "local response string input",
+        "unescaped reflection check"
+      ],
+      "limitations": [
+        "no Juice Shop connection",
+        "no exploit execution",
+        "single reflection concept only"
+      ],
+      "source": {
+        "path": "Cybersecurity/owasp-juice-shop-testing/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Cybersecurity/owasp-juice-shop-testing/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/owasp-juice-shop-testing.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed with defaults; deterministic and side-effect free."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "password-cracking-lab",
+      "name": "Password Cracking Lab",
+      "slug": "password-cracking-lab",
+      "tier": "secondary",
+      "category": "defensive security",
+      "relationship": "retained legacy folder",
+      "summary": "Hashes a training value and matches it against a tiny in-memory dictionary.",
+      "features": [
+        "local training-value hashing",
+        "three-word in-memory dictionary comparison",
+        "match result"
+      ],
+      "limitations": [
+        "no Hashcat",
+        "no brute force",
+        "no external password data"
+      ],
+      "source": {
+        "path": "Cybersecurity/password-cracking-lab/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Cybersecurity/password-cracking-lab/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/password-cracking-lab.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed with defaults; deterministic and side-effect free."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "siem-log-analyzer",
+      "name": "SIEM Log Analyzer",
+      "slug": "siem-log-analyzer",
+      "tier": "secondary",
+      "category": "defensive security",
+      "relationship": "retained legacy folder",
+      "summary": "Counts failed-password events for user/IP pairs in a user-supplied log.",
+      "features": [
+        "failed-password regex",
+        "user/IP pair counting",
+        "threshold filtering"
+      ],
+      "limitations": [
+        "requires a user-supplied log",
+        "no timestamp parsing",
+        "no event correlation or persistence"
+      ],
+      "source": {
+        "path": "Cybersecurity/siem-log-analyzer/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Cybersecurity/siem-log-analyzer/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/siem-log-analyzer.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local-fixture",
+        "notes": "Executed against a temporary three-line log; reads the file and writes nothing."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "vulnerability-assessment-toolkit",
+      "name": "Vulnerability Assessment Toolkit",
+      "slug": "vulnerability-assessment-toolkit",
+      "tier": "secondary",
+      "category": "defensive security",
+      "relationship": "retained legacy folder",
+      "summary": "Matches local inventory JSON against local advisories by exact product and version.",
+      "features": [
+        "local inventory JSON loading",
+        "local advisory JSON loading",
+        "exact product/version matching"
+      ],
+      "limitations": [
+        "requires user-supplied JSON",
+        "no NVD/CVE API",
+        "no installed-software discovery or CVSS processing"
+      ],
+      "source": {
+        "path": "Cybersecurity/vulnerability-assessment-toolkit/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Cybersecurity/vulnerability-assessment-toolkit/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/vulnerability-assessment-toolkit.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local-fixture",
+        "notes": "Executed against temporary inventory and advisory JSON files; offline and read-only."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "device-troubleshooting-toolkit",
+      "name": "Device Troubleshooting Toolkit",
+      "slug": "device-troubleshooting-toolkit",
+      "tier": "secondary",
+      "category": "IT support",
+      "relationship": "retained legacy folder",
+      "summary": "Classifies device health from CPU, memory, and disk percentages.",
+      "features": [
+        "CPU/memory/disk numeric inputs",
+        "fixed threshold classification",
+        "JSON issue list"
+      ],
+      "limitations": [
+        "CLI only",
+        "supplied values only",
+        "no driver, network, or live-system inspection"
+      ],
+      "source": {
+        "path": "IT Support/device-troubleshooting-toolkit/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/IT%20Support/device-troubleshooting-toolkit/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/device-troubleshooting-toolkit.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed with explicit values; pure calculation with no side effects."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "messaging-rcs-diagnostic-simulator",
+      "name": "Messaging RCS Diagnostic Simulator",
+      "slug": "messaging-rcs-diagnostic-simulator",
+      "tier": "secondary",
+      "category": "IT support",
+      "relationship": "retained legacy folder",
+      "summary": "Simulates an RCS or SMS fallback result from message text and availability flags.",
+      "features": [
+        "message text input",
+        "RCS availability flag",
+        "deterministic RCS/SMS fallback result"
+      ],
+      "limitations": [
+        "no telecom protocol",
+        "no carrier or device interaction",
+        "canned latency values"
+      ],
+      "source": {
+        "path": "IT Support/messaging-rcs-diagnostic-simulator/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/IT%20Support/messaging-rcs-diagnostic-simulator/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/messaging-rcs-diagnostic-simulator.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed in fallback mode; deterministic and side-effect free."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "network-diagnostic-utility",
+      "name": "Network Diagnostic Utility",
+      "slug": "network-diagnostic-utility",
+      "tier": "secondary",
+      "category": "IT support",
+      "relationship": "retained legacy folder",
+      "summary": "Resolves a host and runs one bounded ping for a simple reachability check.",
+      "features": [
+        "IPv4 DNS resolution",
+        "one bounded OS ping",
+        "reachability result"
+      ],
+      "limitations": [
+        "no traceroute",
+        "no parsed latency",
+        "no repeated monitoring or remediation"
+      ],
+      "source": {
+        "path": "IT Support/network-diagnostic-utility/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/IT%20Support/network-diagnostic-utility/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/network-diagnostic-utility.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-loopback",
+        "notes": "Executed against localhost; spawns a system ping process and performs local DNS/ICMP activity."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "support-automation-scripts",
+      "name": "Support Automation Scripts",
+      "slug": "support-automation-scripts",
+      "tier": "secondary",
+      "category": "IT support",
+      "relationship": "retained legacy folder",
+      "summary": "Plans a read-only log collection run from a local directory.",
+      "features": [
+        "non-recursive log discovery",
+        "dry-run collection plan",
+        "zero-change result"
+      ],
+      "limitations": [
+        "no file collection",
+        "no cleanup or configuration checks",
+        "no persisted report"
+      ],
+      "source": {
+        "path": "IT Support/support-automation-scripts/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/IT%20Support/support-automation-scripts/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/support-automation-scripts.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed against a temporary directory; read-only and writes nothing."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "system-health-checker",
+      "name": "System Health Checker",
+      "slug": "system-health-checker",
+      "tier": "secondary",
+      "category": "IT support",
+      "relationship": "retained legacy folder",
+      "summary": "Reports disk-space health against a fixed free-space threshold.",
+      "features": [
+        "disk usage lookup",
+        "10 GB free-space threshold",
+        "health state output"
+      ],
+      "limitations": [
+        "disk space only",
+        "no update, driver, CPU, memory, network, or SMART checks"
+      ],
+      "source": {
+        "path": "IT Support/system-health-checker/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/IT%20Support/system-health-checker/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/system-health-checker.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed against a temporary directory; read-only disk query."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "api-based-network-inventory-tool",
+      "name": "API-Based Network Inventory Tool",
+      "slug": "api-based-network-inventory-tool",
+      "tier": "secondary",
+      "category": "networking/systems",
+      "relationship": "retained legacy folder",
+      "summary": "Loads JSON, upserts devices into SQLite, and prints stored rows.",
+      "features": [
+        "local JSON loading",
+        "SQLite table creation",
+        "device upsert",
+        "stored-row output"
+      ],
+      "limitations": [
+        "requires user-supplied JSON",
+        "no API request",
+        "no discovery, topology, or remote database"
+      ],
+      "source": {
+        "path": "Network/api-based-network-inventory-tool/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Network/api-based-network-inventory-tool/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/api-based-network-inventory-tool.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local-fixture",
+        "notes": "Executed with temporary JSON; created inventory.db in the isolated validation directory."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "automated-device-configuration-utility",
+      "name": "Automated Device Configuration Utility",
+      "slug": "automated-device-configuration-utility",
+      "tier": "secondary",
+      "category": "networking/systems",
+      "relationship": "retained legacy folder",
+      "summary": "Builds a per-device command plan from target JSON without connecting.",
+      "features": [
+        "local target JSON loading",
+        "repeated command input",
+        "plan-only per-device output"
+      ],
+      "limitations": [
+        "requires user-supplied JSON",
+        "no SSH or device connection",
+        "no push, validation, backup, rollback, or logging"
+      ],
+      "source": {
+        "path": "Network/automated-device-configuration-utility/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Network/automated-device-configuration-utility/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/automated-device-configuration-utility.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local-fixture",
+        "notes": "Executed with a temporary loopback target record; read-only and made no connection."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "network-monitoring-dashboard",
+      "name": "Network Monitoring Dashboard",
+      "slug": "network-monitoring-dashboard",
+      "tier": "secondary",
+      "category": "networking/systems",
+      "relationship": "retained legacy folder",
+      "summary": "Summarizes two built-in device records as healthy or alert JSON.",
+      "features": [
+        "DeviceStatus dataclass",
+        "two built-in sample records",
+        "healthy/alert JSON summary"
+      ],
+      "limitations": [
+        "no SNMP",
+        "no polling or dashboard",
+        "no live data, history, or alert delivery"
+      ],
+      "source": {
+        "path": "Network/network-monitoring-dashboard/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Network/network-monitoring-dashboard/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/network-monitoring-dashboard.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed with built-in sample data; deterministic and side-effect free."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "ping-latency-analyzer",
+      "name": "Ping Latency Analyzer",
+      "slug": "ping-latency-analyzer",
+      "tier": "secondary",
+      "category": "networking/systems",
+      "relationship": "retained legacy folder",
+      "summary": "Runs bounded OS pings for sequential host input and returns raw output.",
+      "features": [
+        "sequential host input",
+        "bounded two-packet OS ping",
+        "reachability and raw output"
+      ],
+      "limitations": [
+        "not multithreaded or continuous",
+        "no packet-loss or latency parsing",
+        "no storage or charts"
+      ],
+      "source": {
+        "path": "Network/ping-latency-analyzer/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Network/ping-latency-analyzer/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/ping-latency-analyzer.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-loopback",
+        "notes": "Executed against loopback; spawns a system ping process and sends local ICMP traffic."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "subnet-calculator",
+      "name": "Subnet Calculator",
+      "slug": "subnet-calculator",
+      "tier": "secondary",
+      "category": "networking/systems",
+      "relationship": "retained legacy folder",
+      "summary": "Calculates IPv4 or IPv6 network, broadcast, netmask, and host ranges.",
+      "features": [
+        "IPv4/IPv6 CIDR parsing",
+        "network/broadcast/netmask output",
+        "address and usable-host boundaries"
+      ],
+      "limitations": [
+        "calculation only",
+        "no discovery, persistence, reservation, or configuration changes"
+      ],
+      "source": {
+        "path": "Network/subnet-calculator/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Network/subnet-calculator/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/subnet-calculator.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed with IPv4 CIDR input; deterministic and side-effect free."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "alfred-ai-assistant",
+      "name": "Alfred AI Assistant",
+      "slug": "alfred-ai-assistant",
+      "tier": "flagship",
+      "category": "assistant",
+      "relationship": "featured flagship",
+      "summary": "A local loopback FastAPI assistant with optional Ollama, chat, research, and approval-gated typed actions plus a separate deterministic public showcase.",
+      "features": [
+        "loopback-only typed FastAPI service",
+        "versioned original household-manager persona",
+        "broad safe general chat through optional Ollama and OpenAI-compatible providers",
+        "bounded conversation history and honest deterministic provider fallback",
+        "pre-provider refusal of approval-bypass, destructive, credential-theft, and malware requests",
+        "bounded cited website knowledge",
+        "keyless Wikipedia and optional Brave cited research",
+        "SSRF-hardened fixed-source retrieval",
+        "redacted read-only system inspection",
+        "typed approval-gated desktop actions",
+        "payload-bound owner/session approvals with expiry and replay defense",
+        "strict approved-root path confinement and app/URL allowlists",
+        "SQLite proposal and audit history",
+        "accessible local console",
+        "separate controlled public showcase with fixed cited answers",
+        "synthetic propose-preview-approve-result-audit scenarios",
+        "strict Flask CSP and browser security headers"
+      ],
+      "limitations": [
+        "full assistant remains a local native service and is not hosted or containerized",
+        "public showcase has no model, web research, repository reads, system inspection, real desktop adapters, or durable audit",
+        "desktop execution disabled by default",
+        "no arbitrary browsing, shell, deletion, screen control, voice assistant, durable personal memory, or external productivity integrations",
+        "broad web search and model reasoning require separately configured providers in the local edition"
+      ],
+      "source": {
+        "path": "alfred-assistant/alfred/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/alfred-assistant/alfred/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/alfred-ai-assistant.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local-safety-and-public-showcase",
+        "notes": "Dedicated mocked local tests cover API/UI contracts, providers, citations, injection resistance, SSRF, redaction, confinement, ownership, expiry, tampering, replay, disabled execution, allowlists, and temporary-directory-only mutations. Public showcase tests cover routes, fixed claims and citations, no-adapter/network behavior, XSS-safe rendering, state isolation/reset, explicit approval, synthetic audits, responsive/accessibility hooks, security headers, and links."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "file-automation-toolkit",
+      "name": "File Automation Toolkit",
+      "slug": "file-automation-toolkit",
+      "tier": "secondary",
+      "category": "software/automation",
+      "relationship": "retained legacy folder",
+      "summary": "Discovers files by extension and prints dry-run destination groups.",
+      "features": [
+        "immediate file discovery",
+        "extension grouping",
+        "dry-run destination output"
+      ],
+      "limitations": [
+        "no file mutation",
+        "no rename, recursion, compression, sync, rollback, or scheduling"
+      ],
+      "source": {
+        "path": "Software Automation/file-automation-toolkit/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Software%20Automation/file-automation-toolkit/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/file-automation-toolkit.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed against a temporary directory; read-only by construction."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "personal-dashboard-web-app",
+      "name": "Personal Dashboard Web App",
+      "slug": "personal-dashboard-web-app",
+      "tier": "secondary",
+      "category": "software/automation",
+      "relationship": "retained legacy folder",
+      "summary": "Reports disk use, OS name, and null CPU/memory placeholders in JSON.",
+      "features": [
+        "disk-use percentage",
+        "OS name",
+        "JSON snapshot with null CPU/memory fields"
+      ],
+      "limitations": [
+        "no web server or UI",
+        "no REST, polling, weather, CPU, memory, network, persistence, or visualization"
+      ],
+      "source": {
+        "path": "Software Automation/personal-dashboard-web-app/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Software%20Automation/personal-dashboard-web-app/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/personal-dashboard-web-app.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed against a temporary directory; read-only disk query."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "portfolio-website",
+      "name": "Portfolio Website",
+      "slug": "portfolio-website",
+      "tier": "secondary",
+      "category": "software/automation",
+      "relationship": "retained legacy folder",
+      "summary": "Counts non-recursive HTML pages and returns a sorted page list.",
+      "features": [
+        "non-recursive HTML discovery",
+        "sorted page-name list",
+        "page count"
+      ],
+      "limitations": [
+        "paired script does not serve, render, deploy, or validate links",
+        "actual Flask HUD is in the repository root"
+      ],
+      "source": {
+        "path": "Software Automation/portfolio-website/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Software%20Automation/portfolio-website/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/portfolio-website.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed against a temporary directory; read-only glob."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "rest-api-backend",
+      "name": "REST API Backend",
+      "slug": "rest-api-backend",
+      "tier": "secondary",
+      "category": "software/automation",
+      "relationship": "retained legacy folder",
+      "summary": "Validates a name and quantity before creating one in-memory record.",
+      "features": [
+        "non-empty name validation",
+        "non-negative quantity validation",
+        "owner-scoped in-memory record"
+      ],
+      "limitations": [
+        "not an HTTP API",
+        "no FastAPI, JWT, authentication, database, persistence, service layer, or CRUD beyond create"
+      ],
+      "source": {
+        "path": "Software Automation/rest-api-backend/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/Software%20Automation/rest-api-backend/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/rest-api-backend.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-local",
+        "notes": "Executed with explicit item values; deterministic and side-effect free."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "operations-platform",
+      "name": "Operations Platform",
+      "slug": "operations-platform",
+      "tier": "flagship",
+      "category": "platform",
+      "relationship": "featured flagship",
+      "summary": "A FastAPI modular monolith with auth, RBAC, organization isolation, workflows, audits, and PostgreSQL configuration for a local-only platform layer.",
+      "features": [
+        "FastAPI and typed Pydantic API",
+        "SQLAlchemy with PostgreSQL production configuration and SQLite tests",
+        "Alembic migration",
+        "Argon2 passwords and expiring signed authentication",
+        "server-side RBAC and tenant isolation",
+        "six-category asset and work-item CRUD",
+        "guarded workflow transitions",
+        "immutable audit events",
+        "pagination and filtering",
+        "explicit error envelopes",
+        "health and readiness",
+        "correlation IDs and structured logs",
+        "OpenAPI",
+        "functional operator UI",
+        "approval-pending non-executing Alfred intents"
+      ],
+      "limitations": [
+        "not hosted",
+        "no MFA, SSO, password reset, refresh-token revocation, rate limiting, background jobs, or external integrations",
+        "Alfred never generates or executes content"
+      ],
+      "source": {
+        "path": "platform/app/main.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/platform/app/main.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/operations-platform.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-api-and-migration",
+        "notes": "Dedicated tests cover authentication, RBAC, cross-workspace denial, CRUD, workflow rules, audit immutability, validation, health, OpenAPI, and Alfred non-execution. CI applies the initial migration."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "orbital-data-lab",
+      "name": "Orbital Data Lab",
+      "slug": "orbital-data-lab",
+      "tier": "flagship",
+      "category": "simulation",
+      "relationship": "featured flagship",
+      "summary": "An educational deterministic 2D two-body lab with RK4 and Verlet integration, SQLite scenarios, exports, and browser visualization.",
+      "features": [
+        "bounded configurable two-body simulation",
+        "RK4 and velocity-Verlet integration",
+        "trajectory and energy-drift output",
+        "integrator comparison",
+        "browser canvas visualization",
+        "content-addressed idempotent SQLite scenarios",
+        "share paths",
+        "lineage metadata",
+        "JSON and CSV exports",
+        "liveness and database-readiness endpoints"
+      ],
+      "limitations": [
+        "educational and not flight grade",
+        "fixed two-dimensional point-mass central gravity only",
+        "no perturbations, atmosphere, burns, ephemerides, frames, uncertainty, or collision handling"
+      ],
+      "source": {
+        "path": "orbital-data-lab/orbital_lab/api.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/orbital-data-lab/orbital_lab/api.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/orbital-data-lab.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-numerical-api-storage",
+        "notes": "Tests cover a known circular-orbit case, energy drift, determinism, bounded validation, API behavior, health/readiness, idempotent storage, lineage, exports, and missing records."
+      },
+      "media": [],
+      "copyAssets": false
+    },
+    {
+      "id": "algorithm-quality-lab",
+      "name": "Algorithms & Quality",
+      "slug": "algorithm-quality-lab",
+      "tier": "flagship",
+      "category": "algorithms",
+      "relationship": "featured flagship",
+      "summary": "A dependency-free Python data-structure and algorithm lab with complexity notes and educational constraints.",
+      "features": [
+        "arrays and strings",
+        "hash maps",
+        "queue from stacks",
+        "binary search tree",
+        "graph breadth-first search",
+        "merge sort",
+        "binary search",
+        "recursive backtracking",
+        "dynamic programming",
+        "edge-case tests",
+        "complexity and trade-off documentation"
+      ],
+      "limitations": [
+        "educational implementations",
+        "unbalanced search tree",
+        "unweighted graph paths",
+        "factorial permutation output",
+        "not a replacement for optimized libraries"
+      ],
+      "source": {
+        "path": "algorithms-quality/algorithms/core.py",
+        "immutableUrl": "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/algorithms-quality/algorithms/core.py"
+      },
+      "evidenceUrls": [
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/projects/algorithm-quality-lab.html",
+        "https://github.com/grey-ghost-1/Batcomputer-Portfolio/blob/148ffe12f60d586d3b7e4769ae1c617e98c31289/project-evidence.json"
+      ],
+      "validation": {
+        "status": "passed-algorithm-tests",
+        "notes": "Deterministic tests cover normal, empty, duplicate, invalid, missing, ordering, mutation-safety, and error cases across all documented categories."
+      },
+      "media": [],
+      "copyAssets": false
+    }
+  ],
+  "media": [],
+  "copyAssets": false
+}

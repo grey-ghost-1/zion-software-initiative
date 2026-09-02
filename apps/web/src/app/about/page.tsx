@@ -54,7 +54,9 @@ export default function AboutPage() {
           The best way to reach me or review my work history is through GitHub.
           Zion has no contact form, mailing list, or account registration.
         </p>
-        <a href="https://github.com/grey-ghost-1">View my GitHub profile</a>
+        <a href="https://github.com/grey-ghost-1" target="_blank" rel="noopener noreferrer">
+          View my GitHub profile
+        </a>
       </section>
     </PageShell>
   );

@@ -24,6 +24,16 @@ EXPECTED_TABLES = {
     "auth_tokens",
     "memberships",
     "audit_events",
+    "beacon_workflow_definitions",
+    "beacon_workflow_runs",
+    "beacon_workflow_run_steps",
+    "beacon_fixture_provenance",
+    "beacon_allocation_proposals",
+    "harbor_capacities",
+    "harbor_needs",
+    "harbor_plans",
+    "harbor_resources",
+    "harbor_volunteer_availability",
     "alembic_version",
 }
 

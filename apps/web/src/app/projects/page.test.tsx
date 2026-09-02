@@ -17,14 +17,17 @@ describe("Projects page", () => {
   it("shows both an engineering and an impact case study without unsupported claims", () => {
     render(<ProjectsPage />);
 
-    expect(screen.getAllByText("Engineering case study").length).toBe(2);
+    expect(screen.getAllByText("Engineering case study").length).toBe(3);
     expect(screen.getByText("Impact case study")).toBeVisible();
     expect(screen.getAllByText("Implemented").length).toBeGreaterThan(0);
-    expect(screen.getByText("In development")).toBeVisible();
     expect(
-      screen.getByText(/no measured field impact, partner, or user to report/i),
+      screen.getByText(/no deployed service, aid provision, real user, partner/i),
     ).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    expect(screen.getByRole("link", { name: "Open the Harbor case study" })).toHaveAttribute(
+      "href",
+      "/harbor",
+    );
+    for (const forbidden of ["Haven", "Beacon"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });

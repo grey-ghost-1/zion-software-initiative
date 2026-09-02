@@ -7,32 +7,37 @@ branding.
 
 ## Current status
 
-**Shared foundation, stage one.** This layer provides a real, tested foundation
-that any future initiative can build on: an accessible Next.js shell, a modular
-FastAPI service with authentication and role-based access control, a
-PostgreSQL-backed schema (via SQLAlchemy 2 + Alembic) for synthetic users,
-organizations, memberships, and audit events, and a typed TypeScript API
-client. There are no live product workflows, production deployments, real
-users, partnerships, or measured field outcomes. See
+**Shared foundation, stage one, plus the first prototype slices.** This layer
+provides an accessible Next.js shell, a modular FastAPI service with
+authentication and role-based access control, a PostgreSQL-backed schema (via
+SQLAlchemy 2 + Alembic) for synthetic users, organizations, memberships, and
+audit events, a typed TypeScript API client, the static Zion Labs prior-work
+archive, the Harbor synthetic coordination workflow, and the Beacon synthetic
+coastal-storm readiness workflow demo. There are no live product workflows,
+production deployments, real users, partnerships, or measured field outcomes.
+See
 [GitHub issue #1](https://github.com/grey-ghost-1/zion-software-initiative/issues/1)
-for the scope this layer implements.
+for the foundation scope and [GitHub issue #5](https://github.com/grey-ghost-1/zion-software-initiative/issues/5)
+for the archive evidence.
 
-The proposed initiatives are still only proposed, not built:
+Harbor and Beacon are the implemented initiative prototypes. These directions
+remain unimplemented:
 
-- **Harbor** — exploration of care, resource, shelter, and volunteer coordination.
 - **Haven** — exploration of non-diagnostic health navigation.
-- **Beacon** — exploration of AI orchestration, social-impact workflow automation,
-  AI safety and governance, humanitarian logistics, and environmental/GeoAI.
+- **Beacon** — synthetic coastal-storm readiness workflow automation.
 
-These remain planned directions, not available products. No demo is currently
-published, and this foundation has no partners, users, or production impact to
-report.
+No demo is currently deployed. Harbor is software evidence, not an available
+coordination product or evidence of impact.
 
 ## What's implemented
 
-- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, Evidence, and
+- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, Labs, Evidence, and
   About Justin pages behind one accessible shared layout (skip link, semantic
   landmarks, current-page navigation) using a shared beach-palette token set.
+- **Prior-work archive** (`apps/web/src/app/labs`): a static Zion Labs page
+  backed by checked-in JSON from the Batcomputer Portfolio snapshot, featuring
+  four flagships and nineteen grouped secondary labs with no runtime GitHub
+  calls and no asset reuse.
 - **Reusable UI primitives** (`packages/ui`): a truthful `StatusBadge`
   (`implemented` / `in-development` / `planned`) and a `CaseStudyCard` for
   impact and engineering case studies.
@@ -43,7 +48,7 @@ report.
   models and an Alembic migration for synthetic users, organizations,
   memberships with roles, expiring session tokens, and append-only audit
   events (DB-enforced immutability).
-- **Auth and RBAC**: bcrypt password hashing, `/auth/login`, `/auth/me`,
+- **Auth and RBAC**: bcrypt password hashing, `/auth/login`, `/me`,
   server-side role checks, and organization isolation (cross-organization
   reads return not-found, never leak existence). One admin-only demonstration
   endpoint. Login and admin actions each write an audit event.
@@ -52,6 +57,18 @@ report.
   database.
 - **Typed TS client** (`packages/api-client`): covers every implemented
   endpoint above with types mirrored from the API schemas.
+- **Labs archive** (`apps/web/src/app/labs`): a static Zion Labs page backed by
+  checked-in JSON from the Batcomputer Portfolio snapshot, featuring four
+  flagships and nineteen grouped secondary labs with no runtime GitHub calls.
+- **Harbor** (`apps/api/zion_api/routes/harbor.py`, `apps/web/src/app/harbor`):
+  synthetic needs/resources, transparent deterministic matching, coordinator
+  triage and override reasons, atomic capacity reservation, volunteer plan
+  approval, fulfillment, an append-only audit timeline, and small metrics.
+- **Beacon** (`apps/api/zion_api/services/beacon`, `apps/web/src/app/initiatives/beacon`):
+  one fixed synthetic workflow with typed tools, idempotent runs, policy and
+  provenance checks, explainable allocation, and coordinator approval.
+  Unknown/stale capacity is unavailable, and protected traits are absent from
+  request and scoring contracts.
 
 ## Safety and data boundaries
 
@@ -69,8 +86,8 @@ and [evidence inventory](docs/evidence/inventory.json).
 
 | Path | Purpose |
 | --- | --- |
-| `apps/web` | Next.js App Router dual-audience shell (Home/Initiatives/Projects/Evidence/About) |
-| `apps/api` | Modular FastAPI service: config, errors, auth, RBAC, health, OpenAPI |
+| `apps/web` | Next.js App Router dual-audience shell and Harbor workflow |
+| `apps/api` | Modular FastAPI service: foundation plus Harbor routes/services |
 | `apps/api/migrations` | Alembic migrations for the shared schema |
 | `packages/config` | Shared beach-palette design tokens |
 | `packages/ui` | Reusable `StatusBadge` and `CaseStudyCard` primitives |
@@ -78,7 +95,7 @@ and [evidence inventory](docs/evidence/inventory.json).
 | `docs/architecture` | Architecture overview |
 | `docs/decisions` | Architecture decision records |
 | `docs/security` | Security boundaries and threat model |
-| `docs/case-studies` | Reserved for evidence-backed case studies |
+| `docs/case-studies` | Evidence-backed case studies, including Harbor |
 | `infra` | Docker Compose for local PostgreSQL only; no deployment infrastructure provisioned |
 
 ## Prerequisites

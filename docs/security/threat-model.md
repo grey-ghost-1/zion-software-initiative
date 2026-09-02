@@ -5,10 +5,10 @@
 This model covers the public source repository, the accessible Next.js
 dual-audience shell, the modular FastAPI service including authentication,
 role-based access control, and organization isolation, the PostgreSQL-backed
-shared schema (users, organizations, memberships, auth tokens, audit events),
-dependency supply chain, and CI. There is no deployed service, real user
-registration, external data/model provider integration, or AI execution in
-scope.
+shared schema plus Harbor's synthetic needs, resources, capacity, volunteer
+availability, and plans, dependency supply chain, and CI. There is no deployed
+service, real user registration, external data/model provider integration, or
+AI execution in scope.
 
 ## Assets and trust boundaries
 
@@ -43,6 +43,11 @@ scope.
 | Untraceable errors in production logs | Every request/response carries a request ID surfaced in both the error envelope and `X-Request-ID` header |
 | Accidental traffic routing to an unready service | Readiness checks real database connectivity and returns HTTP 503/`ready: false` when the database is unreachable |
 | Accessibility exclusion | Semantic landmarks, skip link, focus styles, reduced-motion handling, component tests |
+| Harmful or opaque matching | Fixed rules expose components, rejection reasons, and uncertainty; protected traits are absent; no automatic assignment |
+| Stale/unknown capacity presented as available | Missing, stale, or unknown capacity is rejected by matching and approval |
+| Concurrent overbooking | Approval uses an atomic conditional update and the table enforces reserved + fulfilled <= total |
+| Volunteer overexposure | Volunteer endpoint filters by the authenticated synthetic volunteer and returns assignment-only fields |
+| Script injection in resource text | Typed JSON plus React text rendering; tests use hostile synthetic resource text and verify no element injection |
 
 ## Deferred threats
 
@@ -51,7 +56,8 @@ personal data, external model calls, background job queues, notifications, or
 production deployment traffic, update this model for rate limiting/brute-force
 protection on login, token refresh/rotation, multi-factor authentication,
 prompt injection, model/data-provider retention, incident response, backups,
-geographic data sensitivity, and vulnerable-user safety.
+geographic data sensitivity, real capacity provenance/freshness, volunteer
+safety, coercion/retaliation risk, and vulnerable-user safety.
 
 ## Non-goals
 

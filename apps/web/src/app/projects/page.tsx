@@ -22,13 +22,32 @@ export default function ProjectsPage() {
       <section className="case-study-grid" aria-label="Case studies">
         <CaseStudyCard
           variant="engineering"
+          title="Harbor synthetic coordination workflow"
+          status="implemented"
+          summary="One end-to-end FastAPI and Next.js demonstration covering bounded
+            requests, explainable resource matching, human triage, transactional
+            capacity reservation, volunteer plan approval, fulfillment, audit, and
+            synthetic metrics."
+          detailsHref="/harbor"
+          detailsLabel="Open the Harbor case study"
+        >
+          <ul className="case-study-card__list">
+            <li>Deterministic scores expose every component, rejection, and uncertainty</li>
+            <li>Unknown or stale capacity cannot be matched or reserved</li>
+            <li>Role and organization boundaries are enforced by the API</li>
+            <li>No real people, sites, dispatch, maps, notifications, or model calls</li>
+          </ul>
+        </CaseStudyCard>
+
+        <CaseStudyCard
+          variant="engineering"
           title="Shared platform foundation"
           status="implemented"
           summary="A modular FastAPI service with typed errors, request IDs, safe logs,
             strict CORS, and DB-backed health checks, backed by a SQLAlchemy 2 +
             Alembic schema for users, organizations, memberships/roles, expiring
             session tokens, and append-only audit events."
-          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/tree/main/apps/api"
+          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/apps/api/README.md"
           detailsLabel="Browse apps/api"
         >
           <ul className="case-study-card__list">
@@ -41,18 +60,17 @@ export default function ProjectsPage() {
 
         <CaseStudyCard
           variant="impact"
-          title="A reusable foundation for public-interest tools"
-          status="in-development"
-          summary="The goal this foundation exists to serve: giving any future
-            public-interest initiative a working, secure base — accounts,
-            organizations, roles, and an accessible shell — instead of rebuilding
-            one from scratch each time."
-          detailsHref="/initiatives"
-          detailsLabel="Read the initiatives approach"
+          title="Harbor's intended public-interest use"
+          status="implemented"
+          summary="A synthetic exploration of how coordinators could review requests,
+            capacity, and volunteer proposals in one transparent workflow while
+            retaining human authority."
+          detailsHref="/harbor"
+          detailsLabel="Read Harbor's impact and safety track"
         >
           <p className="case-study-card__disclaimer">
-            No initiative has launched on this foundation yet, so there is no
-            measured field impact, partner, or user to report.
+            This demonstrates software behavior only. There is no deployed service,
+            aid provision, real user, partner, or measured field impact.
           </p>
         </CaseStudyCard>
 
@@ -64,7 +82,7 @@ export default function ProjectsPage() {
             keyboard-visible focus states, and a shared beach-palette design token
             set, serving both a public-interest reader and a recruiter reviewing
             engineering work."
-          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/tree/main/apps/web"
+          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/apps/web/src/app/page.tsx"
           detailsLabel="Browse apps/web"
         />
       </section>
