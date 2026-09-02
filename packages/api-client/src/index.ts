@@ -1,6 +1,12 @@
 import { ZionApiError } from "./errors";
 import type {
   ApiErrorBody,
+  BeaconApprovalRequest,
+  BeaconCapabilitiesResponse,
+  BeaconRunDetail,
+  BeaconRunListResponse,
+  BeaconStartRunRequest,
+  BeaconStartRunResponse,
   LivenessResponse,
   LoginRequest,
   LoginResponse,
@@ -12,6 +18,21 @@ import type {
 export type { ApiErrorBody } from "./types";
 export { ZionApiError } from "./errors";
 export type {
+  BeaconAllocationLine,
+  BeaconApprovalRequest,
+  BeaconCapabilitiesResponse,
+  BeaconPolicyCheck,
+  BeaconProposal,
+  BeaconProvenance,
+  BeaconRunDetail,
+  BeaconRunListResponse,
+  BeaconRunStep,
+  BeaconRunSummary,
+  BeaconScenario,
+  BeaconStartRunRequest,
+  BeaconStartRunResponse,
+  BeaconToolSpec,
+  BeaconWorkflowStep,
   LivenessResponse,
   LoginRequest,
   LoginResponse,
@@ -37,10 +58,10 @@ interface RequestOptions {
 }
 
 /**
- * A small, fully typed client for the Zion API endpoints implemented in this
- * foundation layer only: health, login, the caller's own profile, and the
- * one admin-only demonstration endpoint. Extend it only alongside a real,
- * implemented API endpoint — never speculatively.
+ * A small, fully typed client for the implemented Zion API endpoints: health,
+ * login, the caller's own profile, the admin-only demonstration endpoint, and
+ * the Beacon synthetic demonstration workflow. Extend it only alongside a
+ * real, implemented API endpoint — never speculatively.
  */
 export class ZionApiClient {
   private readonly baseUrl: string;
@@ -75,6 +96,74 @@ export class ZionApiClient {
     return this.request<OrganizationMembersResponse>(
       "GET",
       `/admin/organizations/${encodeURIComponent(organizationSlug)}/members`,
+      { accessToken },
+    );
+  }
+
+  /** Describe the fixed Beacon demo workflow, typed tools, and guardrails. */
+  getBeaconCapabilities(): Promise<BeaconCapabilitiesResponse> {
+    return this.request<BeaconCapabilitiesResponse>("GET", "/beacon/capabilities");
+  }
+
+  /** Idempotently start one Beacon demonstration run from the canned fixture. */
+  startBeaconRun(
+    organizationSlug: string,
+    payload: BeaconStartRunRequest,
+    accessToken: string,
+  ): Promise<BeaconStartRunResponse> {
+    return this.request<BeaconStartRunResponse>(
+      "POST",
+      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs`,
+      { body: payload, accessToken },
+    );
+  }
+
+  listBeaconRuns(
+    organizationSlug: string,
+    accessToken: string,
+  ): Promise<BeaconRunListResponse> {
+    return this.request<BeaconRunListResponse>(
+      "GET",
+      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs`,
+      { accessToken },
+    );
+  }
+
+  getBeaconRun(
+    organizationSlug: string,
+    runId: string,
+    accessToken: string,
+  ): Promise<BeaconRunDetail> {
+    return this.request<BeaconRunDetail>(
+      "GET",
+      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs/${encodeURIComponent(runId)}`,
+      { accessToken },
+    );
+  }
+
+  /** Approve or reject the pending allocation (coordinator/admin only). */
+  decideBeaconAllocation(
+    organizationSlug: string,
+    runId: string,
+    payload: BeaconApprovalRequest,
+    accessToken: string,
+  ): Promise<BeaconRunDetail> {
+    return this.request<BeaconRunDetail>(
+      "POST",
+      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs/${encodeURIComponent(runId)}/approval`,
+      { body: payload, accessToken },
+    );
+  }
+
+  /** Replay one dead-lettered Beacon run (coordinator/admin only). */
+  replayBeaconRun(
+    organizationSlug: string,
+    runId: string,
+    accessToken: string,
+  ): Promise<BeaconRunDetail> {
+    return this.request<BeaconRunDetail>(
+      "POST",
+      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs/${encodeURIComponent(runId)}/replay`,
       { accessToken },
     );
   }

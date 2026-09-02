@@ -78,6 +78,34 @@
       "status": "implemented",
       "evidence": "apps/web/src/components/PageShell.tsx",
       "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "beacon-typed-workflow-engine",
+      "claim": "The Beacon demonstration runs one fixed coastal-storm-readiness workflow through a deterministic state machine with typed, allowlisted tools, idempotent run creation, bounded retries, explicit timeout/dead-letter states, and coordinator-only replay.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/beacon/engine.py",
+      "verified_by": "apps/api/tests/test_beacon_workflow.py"
+    },
+    {
+      "id": "beacon-safety-governance",
+      "claim": "Beacon runs record a policy version and fixture provenance, treat retrieved fixture text as data so injection-like strings cannot alter steps or tools, guard sensitive-looking strings out of logs, reject malformed CRS/geometry/stale-timestamp fixtures, and refuse any autonomous purchasing, dispatch, or public-warning action.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/beacon/policy.py",
+      "verified_by": "apps/api/tests/test_beacon_safety.py"
+    },
+    {
+      "id": "beacon-explainable-allocation",
+      "claim": "Beacon proposes a deterministic, explainable synthetic supply allocation with per-line reasons, reported unmet demand, inventory conservation, never-negative quantities, and a required human approve/reject decision before completion.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/beacon/allocation.py",
+      "verified_by": "apps/api/tests/test_beacon_allocation.py"
+    },
+    {
+      "id": "beacon-demo-page",
+      "claim": "The web app publishes an accessible Beacon page that discloses the synthetic, exploratory, no-official-warning status and shows the recorded pipeline and allocation as both lists and equivalent tables.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/initiatives/beacon/page.tsx",
+      "verified_by": "apps/web/src/app/initiatives/beacon/page.test.tsx"
     }
   ]
 }

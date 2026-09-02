@@ -18,3 +18,38 @@ class Role(enum.StrEnum):
     NAVIGATOR = "navigator"
     VOLUNTEER = "volunteer"
     ADMIN = "admin"
+
+
+class RunStatus(enum.StrEnum):
+    """Lifecycle states of one Beacon workflow run.
+
+    The allowed transitions form a fixed state machine enforced by the
+    engine (`zion_api.services.beacon.engine.ALLOWED_TRANSITIONS`); nothing
+    in fixture data can add states or transitions.
+    """
+
+    RECEIVED = "received"
+    RUNNING = "running"
+    AWAITING_APPROVAL = "awaiting_approval"
+    APPROVED = "approved"
+    COMPLETED = "completed"
+    REJECTED = "rejected"
+    FAILED = "failed"
+    DEAD_LETTER = "dead_letter"
+
+
+class StepStatus(enum.StrEnum):
+    """Outcome of one attempt of one typed workflow step."""
+
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+    TIMED_OUT = "timed_out"
+    SKIPPED = "skipped"
+
+
+class ProposalStatus(enum.StrEnum):
+    """Human-review status of an allocation proposal."""
+
+    PROPOSED = "proposed"
+    APPROVED = "approved"
+    REJECTED = "rejected"

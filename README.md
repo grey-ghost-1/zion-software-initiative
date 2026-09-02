@@ -52,6 +52,15 @@ report.
   database.
 - **Typed TS client** (`packages/api-client`): covers every implemented
   endpoint above with types mirrored from the API schemas.
+- **Beacon demonstration** (`apps/api/zion_api/services/beacon`,
+  `/initiatives/beacon`): one fixed synthetic coastal-storm-readiness workflow —
+  a deterministic state machine with typed allowlisted tools, idempotent run
+  creation, bounded retries with explicit timeout/dead-letter states and replay,
+  fixture provenance and versioned policy checks (injection and sensitive-data
+  guards, CRS/geometry/freshness validation), an explainable allocation proposal
+  with conservation and never-negative invariants, and a required human
+  approve/reject decision. Synthetic fixture data only; no live AI, weather, or
+  map integrations and no official warnings.
 
 ## Safety and data boundaries
 
