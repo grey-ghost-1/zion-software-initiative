@@ -70,19 +70,65 @@ footer {
   font-weight: 700;
 }
 
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-ocean-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 main {
   overflow: hidden;
 }
 
 .hero,
-.initiatives,
+.page-hero,
+.explore,
+.status-section,
+.case-study-grid,
+.evidence-section,
 .boundaries {
   width: min(72rem, calc(100% - 2rem));
   margin-inline: auto;
 }
 
-.hero {
+.hero,
+.page-hero {
   padding: clamp(4rem, 10vw, 8rem) 0;
+}
+
+.page-hero {
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.page-intro {
+  max-width: 42rem;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
 }
 
 .eyebrow {
@@ -126,7 +172,9 @@ footer p {
   margin-bottom: 0;
 }
 
-.initiatives {
+.initiatives,
+.explore,
+.status-section {
   padding-block: clamp(3rem, 7vw, 5rem);
 }
 
@@ -175,6 +223,141 @@ article h3 {
 
 .boundaries a {
   font-weight: 800;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: 999px;
+  color: var(--color-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-badge--implemented {
+  border-color: var(--color-seafoam);
+  background: color-mix(in srgb, var(--color-seafoam) 25%, white);
+  color: var(--color-ocean-deep);
+}
+
+.status-badge--in-development {
+  border-color: var(--color-ocean-soft);
+  background: color-mix(in srgb, var(--color-ocean) 15%, white);
+  color: var(--color-ocean-deep);
+}
+
+.status-badge--planned {
+  border-color: var(--color-ink-muted);
+  background: var(--color-sand);
+  color: var(--color-ink-muted);
+}
+
+.case-study-grid {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: clamp(1rem, 4vw, 2rem) clamp(3rem, 7vw, 5rem);
+}
+
+.case-study-card {
+  padding: 1.75rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.case-study-card--impact {
+  border-left: 0.35rem solid var(--color-seafoam);
+}
+
+.case-study-card--engineering {
+  border-left: 0.35rem solid var(--color-ocean);
+}
+
+.case-study-card__eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--color-ocean);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.case-study-card__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.case-study-card__heading h3 {
+  margin: 0;
+  color: var(--color-ocean-deep);
+  font-size: 1.3rem;
+}
+
+.case-study-card__summary {
+  margin-bottom: 0;
+}
+
+.case-study-card__list {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.case-study-card__disclaimer {
+  margin-top: 1rem;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+.case-study-card__link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 800;
+}
+
+.evidence-list {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 0 0 clamp(3rem, 7vw, 5rem);
+  list-style: none;
+}
+
+.evidence-item {
+  padding: 1.5rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.evidence-item__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.evidence-item__heading h3 {
+  margin: 0;
+  color: var(--color-ocean-deep);
+  font-size: 1.15rem;
+}
+
+.evidence-item__verified {
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
 }
 
 footer {

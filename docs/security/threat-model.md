@@ -2,15 +2,25 @@
 
 ## Scope
 
-This model covers the public source repository, static Next.js landing shell,
-minimal FastAPI health routes, dependency supply chain, and CI. There is no
-deployed service, authentication, database, user submission, or AI execution in
+This model covers the public source repository, the accessible Next.js
+dual-audience shell, the modular FastAPI service including authentication,
+role-based access control, and organization isolation, the PostgreSQL-backed
+shared schema (users, organizations, memberships, auth tokens, audit events),
+dependency supply chain, and CI. There is no deployed service, real user
+registration, external data/model provider integration, or AI execution in
 scope.
 
 ## Assets and trust boundaries
 
 - Source integrity, branch history, and GitHub workflow permissions.
 - Maintainer and contributor credentials, which must remain outside the repository.
+- Synthetic demo account credentials and session tokens (bcrypt-hashed
+  passwords, expiring server-side tokens); no real personal data exists to
+  protect in this layer.
+- Organization boundaries: one organization's memberships, tokens, and audit
+  events must never be readable or actionable by a member of another
+  organization.
+- The append-only audit log as a record of login and admin-action events.
 - Public readers' ability to distinguish implemented evidence from plans.
 - The future boundary between a browser, Vercel frontend, Render API, managed
   PostgreSQL, and external data/model providers.
@@ -19,22 +29,33 @@ scope.
 
 | Threat | Current control |
 | --- | --- |
-| Secret or sensitive-data disclosure | Ignore rules, examples without values, contribution policy, public-data-only ADR |
+| Secret or sensitive-data disclosure | Ignore rules, examples without values, contribution policy, public-data-only ADR, no plaintext passwords/tokens in logs |
 | Dependency or CI compromise | Lock/pin strategy, read-only workflow token, Dependabot, bounded CI timeouts |
 | Misleading capability or impact claims | Explicit status disclosures, evidence inventory, unsupported-claim test |
-| Health endpoint information leakage | Minimal fixed liveness body; no version, host, dependency, or environment details |
-| Accidental traffic routing to an incomplete service | Readiness returns HTTP 503 and `ready: false` |
+| Health endpoint information leakage | Minimal fixed liveness body; readiness reports only `status`/`ready`/`detail`, no version, host, dependency, or environment details |
+| Password compromise via weak hashing | bcrypt password hashing; passwords never logged, returned, or stored in plaintext |
+| Session token theft or replay after expiry | Server-side session tokens with an enforced expiry (`ZION_SESSION_TOKEN_TTL_MINUTES`); expired or invalid tokens are rejected and tested |
+| Cross-organization data access | Server-side RBAC plus organization-scoped queries; a request scoped to another organization returns not-found rather than leaking existence |
+| Privilege escalation to admin-only actions | Server-side role check on the single admin-only demonstration endpoint, independent of any client-supplied role claim |
+| Audit log tampering (covering tracks) | Audit events are append-only; the database rejects `UPDATE`/`DELETE` on the audit table at the trigger level, not just in application code |
+| Unauthorized cross-origin requests | Strict, explicit `ZION_CORS_ALLOWED_ORIGINS` allow-list; no wildcard origin |
+| Malformed/attacker-supplied request bodies | Typed Pydantic request/response schemas reject unexpected shapes; typed error envelope avoids leaking stack traces |
+| Untraceable errors in production logs | Every request/response carries a request ID surfaced in both the error envelope and `X-Request-ID` header |
+| Accidental traffic routing to an unready service | Readiness checks real database connectivity and returns HTTP 503/`ready: false` when the database is unreachable |
 | Accessibility exclusion | Semantic landmarks, skip link, focus styles, reduced-motion handling, component tests |
 
 ## Deferred threats
 
-Before accepting user input, identity, database records, external model calls, or
-deployment traffic, update this model for authorization, tenant isolation, abuse
-prevention, prompt injection, model/data-provider retention, auditability,
-incident response, backups, geographic data sensitivity, and vulnerable-user
-safety.
+Before accepting real user registration, external identity providers, real
+personal data, external model calls, background job queues, notifications, or
+production deployment traffic, update this model for rate limiting/brute-force
+protection on login, token refresh/rotation, multi-factor authentication,
+prompt injection, model/data-provider retention, incident response, backups,
+geographic data sensitivity, and vulnerable-user safety.
 
 ## Non-goals
 
 The foundation is not a clinical system, emergency service, case-management
-system, autonomous decision maker, or production humanitarian platform.
+system, autonomous decision maker, or production humanitarian platform. It
+performs no diagnosis, aid provision, or autonomous action, and claims no
+partners, real users, or production impact.
