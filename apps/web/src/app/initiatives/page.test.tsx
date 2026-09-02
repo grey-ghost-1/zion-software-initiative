@@ -14,14 +14,14 @@ describe("Initiatives page", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 
-  it("describes the approach truthfully without naming an unbuilt product", () => {
+  it("names only the built demonstration and links to it truthfully", () => {
     render(<InitiativesPage />);
 
-    expect(
-      screen.getByText(/none is published or under active development yet/i),
-    ).toBeVisible();
-    expect(screen.getByText("Planned")).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    expect(screen.getByText("Working demonstration")).toBeVisible();
+    const beaconLink = screen.getByRole("link", { name: "Beacon" });
+    expect(beaconLink).toHaveAttribute("href", "/initiatives/beacon");
+    expect(screen.getByText(/fabricated fixture data only/i)).toBeVisible();
+    for (const forbidden of ["Harbor", "Haven", "Labs"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });

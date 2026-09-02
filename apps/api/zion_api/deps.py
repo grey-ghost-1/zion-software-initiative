@@ -86,3 +86,16 @@ def require_admin(
     if membership.role != Role.ADMIN:
         raise RoleDeniedError("This action requires the admin role in this organization.")
     return org_membership
+
+
+def require_coordinator_or_admin(
+    org_membership: tuple[Organization, Membership] = Depends(get_membership_for_org),
+) -> tuple[Organization, Membership]:
+    """Require a coordinator or admin role within the resolved organization."""
+
+    _, membership = org_membership
+    if membership.role not in (Role.COORDINATOR, Role.ADMIN):
+        raise RoleDeniedError(
+            "This action requires the coordinator or admin role in this organization."
+        )
+    return org_membership
