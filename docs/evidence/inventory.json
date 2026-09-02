@@ -136,11 +136,53 @@
       "verified_by": "apps/api/tests/test_beacon_allocation.py"
     },
     {
+      "id": "cloud-navy-palette",
+      "claim": "The shared design tokens now carry a navy accent while preserving the cloud-bright Zion palette and sky-based theme.",
+      "status": "implemented",
+      "evidence": "packages/config/tokens.css",
+      "verified_by": "apps/web production build"
+    },
+    {
       "id": "beacon-demo-page",
       "claim": "The web app publishes an accessible Beacon page that discloses the synthetic, exploratory, no-official-warning status and shows the recorded pipeline and allocation as both lists and equivalent tables.",
       "status": "implemented",
       "evidence": "apps/web/src/app/initiatives/beacon/page.tsx",
       "verified_by": "apps/web/src/app/initiatives/beacon/page.test.tsx"
+    },
+    {
+      "id": "homepage-project-index",
+      "claim": "The homepage surfaces the three first-class Zion project pages with direct links and keeps the cloud-bright, navy-accented direction explicit.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/page.tsx",
+      "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "projects-index-first-class",
+      "claim": "The projects index surfaces the three Zion project routes first and keeps the supporting foundation cards separate.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/page.tsx",
+      "verified_by": "apps/web/src/app/projects/page.test.tsx"
+    },
+    {
+      "id": "community-aid-hub-page",
+      "claim": "The Community Aid Hub page presents purpose, audience, features, limitations, and evidence for the synthetic community-aid coordination route.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/community-aid-hub/page.tsx",
+      "verified_by": "apps/web/src/app/projects/community-aid-hub/page.test.tsx"
+    },
+    {
+      "id": "health-navigator-page",
+      "claim": "The Health Navigator page presents purpose, audience, features, limitations, and evidence for the synthetic health-access route.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/health-navigator/page.tsx",
+      "verified_by": "apps/web/src/app/projects/health-navigator/page.test.tsx"
+    },
+    {
+      "id": "humanitarian-automation-pipeline-page",
+      "claim": "The Humanitarian Automation Pipeline page presents purpose, audience, features, limitations, and evidence for the synthetic automation route.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/humanitarian-automation-pipeline/page.tsx",
+      "verified_by": "apps/web/src/app/projects/humanitarian-automation-pipeline/page.test.tsx"
     }
   ]
 }

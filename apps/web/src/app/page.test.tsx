@@ -29,6 +29,13 @@ describe("Zion landing shell", () => {
     ]) {
       expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", href);
     }
+    for (const [label, href] of [
+      ["Community Aid Hub", "/projects/community-aid-hub"],
+      ["Health Navigator", "/projects/health-navigator"],
+      ["Humanitarian Automation Pipeline", "/projects/humanitarian-automation-pipeline"],
+    ]) {
+      expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", href);
+    }
     expect(within(nav).getByRole("link", { name: "Home" })).toHaveAttribute(
       "aria-current",
       "page",
@@ -65,6 +72,8 @@ describe("Zion landing shell", () => {
     expect(screen.getByText(/care for the vulnerable/i)).toBeVisible();
     expect(screen.getByText(/healing & health access/i)).toBeVisible();
     expect(screen.getByText(/AI infrastructure, automation & empowerment/i)).toBeVisible();
+    expect(screen.getByText(/cloud-bright, navy-accented feel/i)).toBeVisible();
+    expect(screen.getByText(/three first-class Zion project pages/i)).toBeVisible();
     expect(screen.getByText(/not profit\. not surveillance\. not division\./i)).toBeVisible();
     expect(
       screen.getByText(/one line of code, one act of service, one community at a time/i),

@@ -8,8 +8,8 @@ export default function Home() {
         <h1 id="hero-title">Zion — software rooted in peace, justice, and human goodwill.</h1>
         <p className="hero-copy">
           Zion is a peacekeeping software initiative built on three core avenues of
-          impact. Each one exists to prove a simple truth: technology can heal,
-          protect, and uplift — not harm.
+          impact. The site keeps a cloud-bright, navy-accented feel so the work stays
+          calm, legible, and grounded in a castle-like sense of structure.
         </p>
         <aside className="status" aria-labelledby="status-title">
           <h2 id="status-title">Foundation status</h2>
@@ -41,6 +41,26 @@ export default function Home() {
             <p>Humanitarian Automation Pipeline and AI Empowerment &amp; Education Suite.</p>
           </article>
         </div>
+      </section>
+
+      <section className="project-index" aria-labelledby="projects-title">
+        <div className="section-heading">
+          <p className="eyebrow">Project areas</p>
+          <h2 id="projects-title">Three first-class Zion project pages</h2>
+          <p>
+            Each project area has its own page with purpose, audience, features,
+            limitations, and evidence, so the site can point to real work instead of a
+            shell.
+          </p>
+        </div>
+        <nav className="project-index-nav" aria-label="Project pages">
+          <a href="/projects/community-aid-hub">Community Aid Hub</a>
+          <a href="/projects/health-navigator">Health Navigator</a>
+          <a href="/projects/humanitarian-automation-pipeline">
+            Humanitarian Automation Pipeline
+          </a>
+          <a href="/projects">Open the projects index</a>
+        </nav>
       </section>
 
       <section aria-labelledby="philosophy-title">

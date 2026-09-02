@@ -5,7 +5,8 @@ html {
 body {
   margin: 0;
   color: var(--color-ink);
-  background: var(--color-sky);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-sky) 95%, white) 0%, var(--color-sky) 45%, color-mix(in srgb, var(--color-sky) 78%, var(--color-navy)) 100%);
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -59,7 +60,7 @@ footer {
 }
 
 .brand {
-  color: var(--color-ocean-deep);
+  color: var(--color-navy);
   font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -85,7 +86,7 @@ footer {
 }
 
 .site-nav a[aria-current="page"] {
-  color: var(--color-ocean-deep);
+  color: var(--color-navy);
   text-decoration: underline;
   text-underline-offset: 0.3em;
 }
@@ -111,6 +112,9 @@ main {
 .explore,
 .status-section,
 .case-study-grid,
+.project-index,
+.project-hero,
+.project-section,
 .evidence-section,
 .boundaries {
   width: min(72rem, calc(100% - 2rem));
@@ -299,7 +303,7 @@ main {
 h1 {
   max-width: 14ch;
   margin-bottom: 1.5rem;
-  color: var(--color-ocean-deep);
+  color: var(--color-navy);
   font-size: clamp(2.8rem, 8vw, 5.8rem);
   letter-spacing: -0.055em;
 }
@@ -341,7 +345,7 @@ footer p {
 
 .section-heading h2,
 .boundaries h2 {
-  color: var(--color-ocean-deep);
+  color: var(--color-navy);
   font-size: clamp(2rem, 5vw, 3rem);
   letter-spacing: -0.035em;
 }
@@ -636,7 +640,7 @@ article h3 {
 
 .case-study-card__heading h3 {
   margin: 0;
-  color: var(--color-ocean-deep);
+  color: var(--color-navy);
   font-size: 1.3rem;
 }
 
@@ -688,7 +692,7 @@ article h3 {
 
 .evidence-item__heading h3 {
   margin: 0;
-  color: var(--color-ocean-deep);
+  color: var(--color-navy);
   font-size: 1.15rem;
 }
 
@@ -699,9 +703,98 @@ article h3 {
 
 footer {
   margin-top: 4rem;
-  border-top: 1px solid var(--color-ocean-soft);
+  border-top: 1px solid color-mix(in srgb, var(--color-ocean-soft) 55%, var(--color-navy));
   color: var(--color-ink-muted);
   font-size: 0.9rem;
+}
+
+.project-index {
+  padding-block: clamp(1rem, 4vw, 2.5rem) clamp(3rem, 7vw, 5rem);
+}
+
+.project-index-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.project-index-nav a {
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-white) 88%, var(--color-sky));
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.project-index-nav a:hover,
+.project-index-nav a:focus-visible {
+  border-color: var(--color-navy);
+}
+
+.project-hero p + .project-nav {
+  margin-top: 1.5rem;
+}
+
+.project-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.project-nav a {
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: 999px;
+  background: var(--color-white);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.project-nav a:hover,
+.project-nav a:focus-visible {
+  border-color: var(--color-navy);
+}
+
+.project-section {
+  margin-block: 1rem clamp(1.5rem, 4vw, 2rem);
+  padding: 1.5rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.project-section h2 {
+  margin-bottom: 0.75rem;
+  color: var(--color-navy);
+  font-size: 1.5rem;
+}
+
+.project-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.project-evidence-list {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-evidence-list li {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.project-evidence-list a {
+  font-weight: 800;
 }
 
 :focus-visible {

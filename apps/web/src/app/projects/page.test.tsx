@@ -14,21 +14,29 @@ describe("Projects page", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 
-  it("shows both an engineering and an impact case study without unsupported claims", () => {
+  it("surfaces the three Zion project routes before the supporting foundation cards", () => {
     render(<ProjectsPage />);
 
-    expect(screen.getAllByText("Engineering case study").length).toBe(3);
-    expect(screen.getByText("Impact case study")).toBeVisible();
-    expect(screen.getAllByText("Implemented").length).toBeGreaterThan(0);
-    expect(
-      screen.getByText(/no deployed service, aid provision, real user, partner/i),
-    ).toBeVisible();
-    expect(screen.getByRole("link", { name: "Open the Harbor case study" })).toHaveAttribute(
-      "href",
-      "/harbor",
-    );
-    for (const forbidden of ["Haven", "Beacon"]) {
-      expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
+    const projectNav = screen.getByRole("navigation", { name: "Project pages" });
+    for (const [label, href] of [
+      ["Community Aid Hub", "/projects/community-aid-hub"],
+      ["Health Navigator", "/projects/health-navigator"],
+      ["Humanitarian Automation Pipeline", "/projects/humanitarian-automation-pipeline"],
+      ["Initiatives", "/initiatives"],
+    ]) {
+      expect(within(projectNav).getByRole("link", { name: label })).toHaveAttribute(
+        "href",
+        href,
+      );
     }
+
+    expect(screen.getByText("Three first-class project pages, one shared foundation")).toBeVisible();
+    expect(screen.getAllByText("Community Aid Hub").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Health Navigator").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Humanitarian Automation Pipeline").length).toBeGreaterThan(0);
+    expect(screen.getByText("Shared platform foundation")).toBeVisible();
+    expect(screen.getByText("Accessible dual-audience web shell")).toBeVisible();
+    expect(screen.getAllByText("Impact case study").length).toBe(3);
+    expect(screen.getAllByText("Engineering case study").length).toBe(2);
   });
 });
