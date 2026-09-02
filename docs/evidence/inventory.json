@@ -78,6 +78,13 @@
       "status": "implemented",
       "evidence": "apps/web/src/components/PageShell.tsx",
       "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "zion-labs-prior-work-archive",
+      "claim": "The web app renders a static Zion Labs archive from a checked-in Batcomputer Portfolio snapshot with four featured flagships and nineteen grouped secondary labs, without runtime GitHub access or copied assets.",
+      "status": "implemented",
+      "evidence": "docs/evidence/zion-labs-prior-work.json",
+      "verified_by": "apps/web/src/app/labs/page.test.tsx"
     }
   ]
 }

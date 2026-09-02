@@ -25,6 +25,7 @@ describe("Zion landing shell", () => {
       ["Home", "/"],
       ["Initiatives", "/initiatives"],
       ["Projects", "/projects"],
+      ["Labs", "/labs"],
       ["Evidence", "/evidence"],
       ["About Justin", "/about"],
     ]) {
@@ -62,7 +63,7 @@ describe("Zion landing shell", () => {
     expect(screen.getByText(/no live product workflows, real users, partners/i)).toBeVisible();
     expect(screen.getByText(/synthetic examples only/i)).toBeVisible();
     expect(screen.getByText(/does not provide diagnosis, medical advice/i)).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    for (const forbidden of ["Harbor", "Haven", "Beacon"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });

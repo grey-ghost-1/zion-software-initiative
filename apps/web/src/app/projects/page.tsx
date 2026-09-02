@@ -28,7 +28,7 @@ export default function ProjectsPage() {
             strict CORS, and DB-backed health checks, backed by a SQLAlchemy 2 +
             Alembic schema for users, organizations, memberships/roles, expiring
             session tokens, and append-only audit events."
-          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/tree/main/apps/api"
+          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/apps/api/README.md"
           detailsLabel="Browse apps/api"
         >
           <ul className="case-study-card__list">
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
             keyboard-visible focus states, and a shared beach-palette design token
             set, serving both a public-interest reader and a recruiter reviewing
             engineering work."
-          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/tree/main/apps/web"
+          detailsHref="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/apps/web/src/app/page.tsx"
           detailsLabel="Browse apps/web"
         />
       </section>

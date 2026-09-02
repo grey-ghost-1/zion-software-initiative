@@ -51,7 +51,11 @@ export default function Home() {
           production humanitarian capability, and claims no partners, users, or
           autonomous operation.
         </p>
-        <a href="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/README.md">
+        <a
+          href="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/README.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Read the project boundaries
         </a>
       </section>

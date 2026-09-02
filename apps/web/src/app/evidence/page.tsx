@@ -19,7 +19,13 @@ export default function EvidencePage() {
         <h1 id="evidence-title">Every implemented claim, linked to proof</h1>
         <p className="page-intro">
           This list is generated from the same{" "}
-          <a href={`${REPO_BLOB_BASE}docs/evidence/inventory.json`}>evidence inventory</a>{" "}
+          <a
+            href={`${REPO_BLOB_BASE}docs/evidence/inventory.json`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            evidence inventory
+          </a>{" "}
           the repository&apos;s own tests validate, so it cannot drift from what is
           actually implemented.
         </p>
@@ -37,7 +43,13 @@ export default function EvidencePage() {
                 <StatusBadge status={claim.status} />
               </div>
               <p className="evidence-item__verified">Verified by: {claim.verified_by}</p>
-              <a href={`${REPO_BLOB_BASE}${claim.evidence}`}>View evidence: {claim.evidence}</a>
+              <a
+                href={`${REPO_BLOB_BASE}${claim.evidence}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View evidence: {claim.evidence}
+              </a>
             </li>
           ))}
         </ul>
