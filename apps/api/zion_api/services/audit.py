@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
+from zion_api.core.security import utcnow
 from zion_api.models.audit_event import AuditEvent
 
 
@@ -20,6 +21,7 @@ def record_audit_event(
     """Insert one append-only audit event. Never updates or deletes."""
 
     event = AuditEvent(
+        occurred_at=utcnow(),
         action=action,
         actor_user_id=actor_user_id,
         organization_id=organization_id,

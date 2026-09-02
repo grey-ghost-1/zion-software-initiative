@@ -55,14 +55,15 @@ describe("Zion landing shell", () => {
     expect(screen.queryByRole("link", { name: /demo/i })).not.toBeInTheDocument();
   });
 
-  it("discloses foundation status and safety boundaries without naming unbuilt products", () => {
+  it("discloses Harbor's synthetic status and safety boundaries", () => {
     render(<Home />);
 
     expect(screen.getByRole("heading", { name: "Foundation status" })).toBeVisible();
-    expect(screen.getByText(/no live product workflows, real users, partners/i)).toBeVisible();
+    expect(screen.getByText(/no deployed service, real users, partners/i)).toBeVisible();
     expect(screen.getByText(/synthetic examples only/i)).toBeVisible();
     expect(screen.getByText(/does not provide diagnosis, medical advice/i)).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
+    expect(screen.getByText(/Harbor, one synthetic care-coordination workflow/i)).toBeVisible();
+    for (const forbidden of ["Haven", "Beacon", "Labs"]) {
       expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
     }
   });

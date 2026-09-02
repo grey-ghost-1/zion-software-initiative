@@ -86,3 +86,36 @@ def require_admin(
     if membership.role != Role.ADMIN:
         raise RoleDeniedError("This action requires the admin role in this organization.")
     return org_membership
+
+
+def require_harbor_viewer(
+    org_membership: tuple[Organization, Membership] = Depends(get_membership_for_org),
+) -> tuple[Organization, Membership]:
+    """Allow safe Harbor demo views while keeping volunteers assignment-scoped."""
+
+    _, membership = org_membership
+    if membership.role not in {Role.VISITOR, Role.COORDINATOR, Role.ADMIN}:
+        raise RoleDeniedError("This role may not view Harbor coordination records.")
+    return org_membership
+
+
+def require_harbor_coordinator(
+    org_membership: tuple[Organization, Membership] = Depends(get_membership_for_org),
+) -> tuple[Organization, Membership]:
+    """Require a coordinator or admin for every Harbor state change."""
+
+    _, membership = org_membership
+    if membership.role not in {Role.COORDINATOR, Role.ADMIN}:
+        raise RoleDeniedError("This Harbor action requires a coordinator or admin role.")
+    return org_membership
+
+
+def require_harbor_volunteer(
+    org_membership: tuple[Organization, Membership] = Depends(get_membership_for_org),
+) -> tuple[Organization, Membership]:
+    """Allow volunteers to read only the assignment-specific endpoint."""
+
+    _, membership = org_membership
+    if membership.role not in {Role.VOLUNTEER, Role.ADMIN}:
+        raise RoleDeniedError("This Harbor view requires a volunteer or admin role.")
+    return org_membership

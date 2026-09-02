@@ -7,16 +7,16 @@ export default function Home() {
         <p className="eyebrow">Social-impact initiative hub + engineering portfolio</p>
         <h1 id="hero-title">Thoughtful software, built in the open.</h1>
         <p className="hero-copy">
-          Zion is an independent home for proposed public-interest software and
+          Zion is an independent home for public-interest software prototypes and
           Justin Wimmer&apos;s full-stack/backend engineering work.
         </p>
         <aside className="status" aria-labelledby="status-title">
           <h2 id="status-title">Foundation status</h2>
           <p>
-            This repository is an early technical foundation: a shared web shell, API,
-            database schema, and authentication/authorization core. It has no live
-            product workflows, real users, partners, or measured field outcomes, and
-            all accounts and data are synthetic demo material.
+            This repository includes a shared technical foundation and Harbor, one
+            synthetic care-coordination workflow. It has no deployed service, real
+            users, partners, or measured field outcomes; all accounts and workflow data
+            are synthetic demo material.
           </p>
         </aside>
       </section>
@@ -29,7 +29,7 @@ export default function Home() {
         <div className="card-grid">
           <article>
             <h3>Initiatives</h3>
-            <p>How Zion approaches proposed public-interest work, and what is not built yet.</p>
+            <p>Harbor&apos;s bounded prototype and how Zion approaches future work.</p>
           </article>
           <article>
             <h3>Projects</h3>

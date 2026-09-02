@@ -11,6 +11,25 @@ from zion_api.db import audit_guard as audit_guard  # noqa: F401  (registers eve
 from zion_api.models.audit_event import AuditEvent
 from zion_api.models.auth_token import AuthToken
 from zion_api.models.enums import Role
+from zion_api.models.harbor import (
+    AccessibilityRequirement,
+    AccessibilityStatus,
+    CapacityFreshness,
+    Eligibility,
+    HarborCapacity,
+    HarborNeed,
+    HarborPlan,
+    HarborResource,
+    HarborVolunteerAvailability,
+    HarborZone,
+    NeedCategory,
+    NeedStatus,
+    NeedUrgency,
+    PlanStatus,
+    ResourceStatus,
+    TriageDecision,
+    TriageReason,
+)
 from zion_api.models.membership import Membership
 from zion_api.models.organization import Organization
 from zion_api.models.user import User
@@ -18,8 +37,25 @@ from zion_api.models.user import User
 __all__ = [
     "AuditEvent",
     "AuthToken",
+    "AccessibilityRequirement",
+    "AccessibilityStatus",
+    "CapacityFreshness",
+    "Eligibility",
+    "HarborCapacity",
+    "HarborNeed",
+    "HarborPlan",
+    "HarborResource",
+    "HarborVolunteerAvailability",
+    "HarborZone",
     "Membership",
+    "NeedCategory",
+    "NeedStatus",
+    "NeedUrgency",
     "Organization",
     "Role",
+    "PlanStatus",
+    "ResourceStatus",
+    "TriageDecision",
+    "TriageReason",
     "User",
 ]

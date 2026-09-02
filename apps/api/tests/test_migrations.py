@@ -24,6 +24,11 @@ EXPECTED_TABLES = {
     "auth_tokens",
     "memberships",
     "audit_events",
+    "harbor_capacities",
+    "harbor_needs",
+    "harbor_plans",
+    "harbor_resources",
+    "harbor_volunteer_availability",
     "alembic_version",
 }
 
