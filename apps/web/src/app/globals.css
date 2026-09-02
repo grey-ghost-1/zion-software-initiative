@@ -117,6 +117,162 @@ main {
   margin-inline: auto;
 }
 
+.harbor-hero h1 {
+  max-width: 16ch;
+}
+
+.harbor-dual-track,
+.harbor-workflow {
+  width: min(72rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.harbor-dual-track {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.harbor-dual-track article {
+  min-height: auto;
+}
+
+.harbor-dual-track h2,
+.harbor-workflow h2 {
+  color: var(--color-ocean-deep);
+}
+
+.harbor-workflow {
+  padding: clamp(2rem, 6vw, 4rem);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--color-white) 86%, var(--color-seafoam));
+}
+
+.harbor-disclosure,
+.harbor-status,
+.harbor-error,
+.harbor-empty {
+  padding: 1rem 1.25rem;
+  border-left: 0.3rem solid var(--color-seafoam);
+  background: var(--color-white);
+}
+
+.harbor-error {
+  border-left-color: var(--color-focus);
+}
+
+.harbor-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.harbor-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-ocean-deep);
+  font-weight: 800;
+}
+
+.harbor-form input,
+.harbor-form select,
+.harbor-workflow button {
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: 0.5rem;
+  color: var(--color-ink);
+  background: var(--color-white);
+  font: inherit;
+}
+
+.harbor-workflow button {
+  width: fit-content;
+  border-color: var(--color-ocean-deep);
+  color: var(--color-white);
+  background: var(--color-ocean-deep);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.harbor-workflow button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.harbor-results,
+.harbor-plan,
+.harbor-audit,
+.harbor-metrics {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-ocean-soft);
+}
+
+.harbor-results fieldset {
+  padding: 0;
+  border: 0;
+}
+
+.harbor-results legend {
+  margin-bottom: 1rem;
+  color: var(--color-ocean-deep);
+  font-weight: 800;
+}
+
+.harbor-match-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.harbor-match {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border: 1px solid var(--color-ocean-soft);
+  border-radius: 0.75rem;
+  background: var(--color-white);
+}
+
+.harbor-match input {
+  margin-right: 0.65rem;
+}
+
+.harbor-rejections {
+  margin-top: 1.25rem;
+}
+
+.harbor-plan dl,
+.harbor-metrics dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.harbor-plan dl div,
+.harbor-metrics dl div {
+  padding: 1rem;
+  border-radius: 0.65rem;
+  background: var(--color-white);
+}
+
+.harbor-plan dt,
+.harbor-metrics dt {
+  color: var(--color-ink-muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.harbor-plan dd,
+.harbor-metrics dd {
+  margin: 0.25rem 0 0;
+  font-weight: 800;
+}
+
 .hero,
 .page-hero {
   padding: clamp(4rem, 10vw, 8rem) 0;
@@ -379,6 +535,17 @@ footer {
 
   article {
     min-height: auto;
+  }
+
+  .harbor-dual-track,
+  .harbor-form,
+  .harbor-plan dl,
+  .harbor-metrics dl {
+    grid-template-columns: 1fr;
+  }
+
+  .harbor-workflow {
+    padding: 1.25rem;
   }
 }
 

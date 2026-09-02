@@ -1,6 +1,19 @@
 import { ZionApiError } from "./errors";
 import type {
   ApiErrorBody,
+  HarborAuditTimeline,
+  HarborMatchResponse,
+  HarborMetrics,
+  HarborNeed,
+  HarborNeedCreate,
+  HarborNeedList,
+  HarborPlan,
+  HarborPlanProposal,
+  HarborResource,
+  HarborResourceList,
+  HarborTriageRequest,
+  HarborVolunteerAvailabilityList,
+  HarborVolunteerPlanList,
   LivenessResponse,
   LoginRequest,
   LoginResponse,
@@ -12,6 +25,27 @@ import type {
 export type { ApiErrorBody } from "./types";
 export { ZionApiError } from "./errors";
 export type {
+  AccessibilityRequirement,
+  AccessibilityStatus,
+  Eligibility,
+  HarborAuditItem,
+  HarborAuditTimeline,
+  HarborCapacity,
+  HarborMatch,
+  HarborMatchResponse,
+  HarborMetrics,
+  HarborNeed,
+  HarborNeedCreate,
+  HarborNeedList,
+  HarborPlan,
+  HarborPlanProposal,
+  HarborResource,
+  HarborResourceList,
+  HarborTriageRequest,
+  HarborVolunteerAvailability,
+  HarborVolunteerAvailabilityList,
+  HarborVolunteerPlanList,
+  HarborZone,
   LivenessResponse,
   LoginRequest,
   LoginResponse,
@@ -19,7 +53,14 @@ export type {
   MeResponse,
   OrganizationMember,
   OrganizationMembersResponse,
+  NeedCategory,
+  NeedStatus,
+  NeedUrgency,
+  PlanStatus,
   ReadinessResponse,
+  ScoreComponent,
+  TriageDecision,
+  TriageReason,
 } from "./types";
 
 export interface ZionApiClientOptions {
@@ -75,6 +116,168 @@ export class ZionApiClient {
     return this.request<OrganizationMembersResponse>(
       "GET",
       `/admin/organizations/${encodeURIComponent(organizationSlug)}/members`,
+      { accessToken },
+    );
+  }
+
+  listHarborNeeds(organizationSlug: string, accessToken: string): Promise<HarborNeedList> {
+    return this.request<HarborNeedList>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs`,
+      { accessToken },
+    );
+  }
+
+  getHarborNeed(
+    organizationSlug: string,
+    needId: string,
+    accessToken: string,
+  ): Promise<HarborNeed> {
+    return this.request<HarborNeed>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs/${encodeURIComponent(needId)}`,
+      { accessToken },
+    );
+  }
+
+  createHarborNeed(
+    organizationSlug: string,
+    payload: HarborNeedCreate,
+    accessToken: string,
+  ): Promise<HarborNeed> {
+    return this.request<HarborNeed>(
+      "POST",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs`,
+      { body: payload, accessToken },
+    );
+  }
+
+  listHarborResources(
+    organizationSlug: string,
+    accessToken: string,
+  ): Promise<HarborResourceList> {
+    return this.request<HarborResourceList>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/resources`,
+      { accessToken },
+    );
+  }
+
+  getHarborResource(
+    organizationSlug: string,
+    resourceId: string,
+    accessToken: string,
+  ): Promise<HarborResource> {
+    return this.request<HarborResource>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/resources/${encodeURIComponent(resourceId)}`,
+      { accessToken },
+    );
+  }
+
+  getHarborMatches(
+    organizationSlug: string,
+    needId: string,
+    accessToken: string,
+  ): Promise<HarborMatchResponse> {
+    return this.request<HarborMatchResponse>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs/${encodeURIComponent(needId)}/matches`,
+      { accessToken },
+    );
+  }
+
+  triageHarborNeed(
+    organizationSlug: string,
+    needId: string,
+    payload: HarborTriageRequest,
+    accessToken: string,
+  ): Promise<HarborNeed> {
+    return this.request<HarborNeed>(
+      "POST",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs/${encodeURIComponent(needId)}/triage`,
+      { body: payload, accessToken },
+    );
+  }
+
+  proposeHarborPlan(
+    organizationSlug: string,
+    needId: string,
+    payload: HarborPlanProposal,
+    accessToken: string,
+  ): Promise<HarborPlan> {
+    return this.request<HarborPlan>(
+      "POST",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs/${encodeURIComponent(needId)}/plans`,
+      { body: payload, accessToken },
+    );
+  }
+
+  listHarborVolunteerAvailability(
+    organizationSlug: string,
+    accessToken: string,
+  ): Promise<HarborVolunteerAvailabilityList> {
+    return this.request<HarborVolunteerAvailabilityList>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/volunteer-availability`,
+      { accessToken },
+    );
+  }
+
+  approveHarborPlan(
+    organizationSlug: string,
+    planId: string,
+    accessToken: string,
+  ): Promise<HarborPlan> {
+    return this.request<HarborPlan>(
+      "POST",
+      `/harbor/${encodeURIComponent(organizationSlug)}/plans/${encodeURIComponent(planId)}/approve`,
+      { accessToken },
+    );
+  }
+
+  fulfillHarborPlan(
+    organizationSlug: string,
+    planId: string,
+    accessToken: string,
+  ): Promise<HarborPlan> {
+    return this.request<HarborPlan>(
+      "POST",
+      `/harbor/${encodeURIComponent(organizationSlug)}/plans/${encodeURIComponent(planId)}/fulfill`,
+      { accessToken },
+    );
+  }
+
+  listHarborVolunteerPlans(
+    organizationSlug: string,
+    accessToken: string,
+  ): Promise<HarborVolunteerPlanList> {
+    return this.request<HarborVolunteerPlanList>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/volunteer-plans`,
+      { accessToken },
+    );
+  }
+
+  getHarborAudit(
+    organizationSlug: string,
+    needId: string,
+    accessToken: string,
+  ): Promise<HarborAuditTimeline> {
+    return this.request<HarborAuditTimeline>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/needs/${encodeURIComponent(needId)}/audit`,
+      { accessToken },
+    );
+  }
+
+  getHarborMetrics(
+    organizationSlug: string,
+    accessToken: string,
+  ): Promise<HarborMetrics> {
+    return this.request<HarborMetrics>(
+      "GET",
+      `/harbor/${encodeURIComponent(organizationSlug)}/metrics`,
       { accessToken },
     );
   }

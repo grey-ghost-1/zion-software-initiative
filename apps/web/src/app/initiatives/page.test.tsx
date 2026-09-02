@@ -14,15 +14,18 @@ describe("Initiatives page", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 
-  it("describes the approach truthfully without naming an unbuilt product", () => {
+  it("distinguishes the implemented Harbor prototype from unbuilt directions", () => {
     render(<InitiativesPage />);
 
     expect(
-      screen.getByText(/none is published or under active development yet/i),
+      screen.getByText(/one synthetic, inspectable prototype/i),
     ).toBeVisible();
-    expect(screen.getByText("Planned")).toBeVisible();
-    for (const forbidden of ["Harbor", "Haven", "Beacon", "Labs"]) {
-      expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
-    }
+    expect(screen.getByText("Synthetic prototype")).toBeVisible();
+    expect(
+      screen.getAllByRole("link", { name: "Harbor" }).some(
+        (link) => link.getAttribute("href") === "/harbor",
+      ),
+    ).toBe(true);
+    expect(screen.getByText(/Haven and Beacon remain unimplemented/i)).toBeVisible();
   });
 });

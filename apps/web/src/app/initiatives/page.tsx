@@ -13,9 +13,9 @@ export default function InitiativesPage() {
         <p className="eyebrow">Public-interest direction</p>
         <h1 id="initiatives-title">How Zion approaches initiatives</h1>
         <p className="page-intro">
-          An &quot;initiative&quot; is a proposed piece of public-interest software Zion
-          might build. None is published or under active development yet in this
-          repository — this page describes the approach, not a product.
+          An &quot;initiative&quot; is a bounded public-interest software exploration.
+          Harbor now provides one synthetic, inspectable prototype; it is not a deployed
+          service or evidence of real-world impact.
         </p>
       </section>
 
@@ -55,9 +55,10 @@ export default function InitiativesPage() {
       <section className="status-section" aria-labelledby="status-title">
         <h2 id="status-title">Current status</h2>
         <p>
-          <StatusBadge status="planned" /> No specific initiative has a name, scope, or
-          timeline in this repository yet. What exists today is the shared foundation
-          described on the <a href="/projects">Projects</a> page.
+          <StatusBadge status="implemented" label="Synthetic prototype" />{" "}
+          <a href="/harbor">Harbor</a> demonstrates transparent matching, coordinator
+          approval, capacity reservation, and audit with synthetic records only. Haven
+          and Beacon remain unimplemented directions without a timeline.
         </p>
       </section>
     </PageShell>

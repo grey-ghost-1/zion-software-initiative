@@ -24,6 +24,8 @@ def test_public_surfaces_do_not_make_unsupported_claims() -> None:
         ROOT / "apps/web/src/app/projects/page.tsx",
         ROOT / "apps/web/src/app/evidence/page.tsx",
         ROOT / "apps/web/src/app/about/page.tsx",
+        ROOT / "apps/web/src/app/harbor/page.tsx",
+        ROOT / "apps/web/src/app/harbor/HarborWorkflow.tsx",
         *sorted((ROOT / "docs/case-studies").glob("*.md")),
     ]
     prohibited_patterns = {

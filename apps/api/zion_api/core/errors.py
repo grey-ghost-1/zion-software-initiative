@@ -59,6 +59,16 @@ class OrganizationNotFoundError(AppError):
     code = "organization_not_found"
 
 
+class HarborNotFoundError(AppError):
+    status_code = status.HTTP_404_NOT_FOUND
+    code = "harbor_not_found"
+
+
+class HarborConflictError(AppError):
+    status_code = status.HTTP_409_CONFLICT
+    code = "harbor_conflict"
+
+
 def _request_id(request: Request) -> str:
     return str(getattr(request.state, "request_id", "unknown"))
 

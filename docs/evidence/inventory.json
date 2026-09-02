@@ -78,6 +78,34 @@
       "status": "implemented",
       "evidence": "apps/web/src/components/PageShell.tsx",
       "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "harbor-explainable-matching",
+      "claim": "Harbor deterministically compares synthetic need category, controlled eligibility, coarse zone, open status, capacity freshness and availability, and accessibility while returning score components, rejections, and uncertainty; protected traits are absent.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/harbor.py",
+      "verified_by": "apps/api/tests/test_harbor.py"
+    },
+    {
+      "id": "harbor-capacity-safety",
+      "claim": "Harbor reserves current capacity only after explicit coordinator approval using an atomic conditional update and a database no-overbooking constraint, including a concurrent SQLite test.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/models/harbor.py",
+      "verified_by": "apps/api/tests/test_harbor.py"
+    },
+    {
+      "id": "harbor-role-and-organization-boundaries",
+      "claim": "Harbor enforces organization scope and role boundaries server-side: visitors see safe demo records, coordinators and admins change workflow state, and volunteers receive assignment-only synthetic fields.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/routes/harbor.py",
+      "verified_by": "apps/api/tests/test_harbor.py"
+    },
+    {
+      "id": "harbor-accessible-workflow",
+      "claim": "The Harbor route presents impact and engineering evidence plus a keyboard-operable request-to-audit synthetic workflow with semantic loading, empty, and error states using the typed API client.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/harbor/HarborWorkflow.tsx",
+      "verified_by": "apps/web/src/app/harbor/page.test.tsx"
     }
   ]
 }
