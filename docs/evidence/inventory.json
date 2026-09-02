@@ -115,6 +115,13 @@
       "verified_by": "apps/web/src/app/harbor/page.test.tsx"
     },
     {
+      "id": "haven-accessible-navigation",
+      "claim": "The web app publishes an accessible Haven page that keeps diagnosis out, surfaces emergency 911/988 guidance, and demonstrates synthetic navigation with curated resources and reviewable plans.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/initiatives/haven/page.tsx",
+      "verified_by": "apps/web/src/app/initiatives/haven/page.test.tsx"
+    },
+    {
       "id": "beacon-typed-workflow-engine",
       "claim": "The Beacon demonstration runs one fixed coastal-storm-readiness workflow through a deterministic state machine with typed, allowlisted tools, idempotent run creation, bounded retries, explicit timeout/dead-letter states, and coordinator-only replay.",
       "status": "implemented",

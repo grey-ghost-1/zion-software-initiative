@@ -37,6 +37,11 @@ from zion_api.models.harbor import (
     TriageDecision,
     TriageReason,
 )
+from zion_api.models.haven import (
+    HavenGuidanceCard,
+    HavenNavigationPlan,
+    HavenResource,
+)
 from zion_api.models.membership import Membership
 from zion_api.models.organization import Organization
 from zion_api.models.user import User
@@ -56,6 +61,9 @@ __all__ = [
     "HarborVolunteerAvailability",
     "HarborZone",
     "FixtureProvenance",
+    "HavenGuidanceCard",
+    "HavenNavigationPlan",
+    "HavenResource",
     "Membership",
     "NeedCategory",
     "NeedStatus",

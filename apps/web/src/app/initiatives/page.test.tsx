@@ -14,15 +14,18 @@ describe("Initiatives page", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 
-  it("names only the built demonstration and links to it truthfully", () => {
+  it("links the Haven and Beacon demonstrations truthfully", () => {
     render(<InitiativesPage />);
 
-    expect(screen.getByText("Working demonstration")).toBeVisible();
-    const beaconLink = screen.getByRole("link", { name: "Beacon" });
-    expect(beaconLink).toHaveAttribute("href", "/initiatives/beacon");
-    expect(screen.getByText(/fabricated fixture data only/i)).toBeVisible();
-    for (const forbidden of ["Haven"]) {
-      expect(screen.queryByText(forbidden)).not.toBeInTheDocument();
-    }
+    expect(screen.getByRole("link", { name: /haven — health-access navigation/i })).toHaveAttribute(
+      "href",
+      "/initiatives/haven",
+    );
+    expect(
+      screen.getByRole("link", { name: /beacon — coastal-storm readiness workflow/i }),
+    ).toHaveAttribute("href", "/initiatives/beacon");
+    expect(screen.getAllByText("Working demonstration").length).toBeGreaterThan(0);
+    expect(screen.getByText(/non-diagnostic health-access navigation/i)).toBeVisible();
+    expect(screen.getByText(/synthetic, deterministic workflow demo/i)).toBeVisible();
   });
 });

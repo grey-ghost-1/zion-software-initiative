@@ -12,19 +12,16 @@ provides an accessible Next.js shell, a modular FastAPI service with
 authentication and role-based access control, a PostgreSQL-backed schema (via
 SQLAlchemy 2 + Alembic) for synthetic users, organizations, memberships, and
 audit events, a typed TypeScript API client, the static Zion Labs prior-work
-archive, the Harbor synthetic coordination workflow, and the Beacon synthetic
-coastal-storm readiness workflow demo. There are no live product workflows,
-production deployments, real users, partnerships, or measured field outcomes.
-See
+archive, the Harbor synthetic coordination workflow, the Haven non-diagnostic
+health-access navigation demo, and the Beacon synthetic coastal-storm readiness
+workflow demo. There are no live product workflows, production deployments,
+real users, partnerships, or measured field outcomes. See
 [GitHub issue #1](https://github.com/grey-ghost-1/zion-software-initiative/issues/1)
 for the foundation scope and [GitHub issue #5](https://github.com/grey-ghost-1/zion-software-initiative/issues/5)
 for the archive evidence.
 
-Harbor and Beacon are the implemented initiative prototypes. These directions
-remain unimplemented:
-
-- **Haven** — exploration of non-diagnostic health navigation.
-- **Beacon** — synthetic coastal-storm readiness workflow automation.
+Harbor, Haven, and Beacon are the implemented initiative prototypes. No other
+initiative directions are implemented here yet.
 
 No demo is currently deployed. Harbor is software evidence, not an available
 coordination product or evidence of impact.
@@ -64,6 +61,10 @@ coordination product or evidence of impact.
   synthetic needs/resources, transparent deterministic matching, coordinator
   triage and override reasons, atomic capacity reservation, volunteer plan
   approval, fulfillment, an append-only audit timeline, and small metrics.
+- **Haven** (`apps/api/zion_api/routes/haven.py`, `apps/web/src/app/initiatives/haven`):
+  non-diagnostic synthetic concern navigation with emergency and crisis bypass,
+  curated resources, validated guidance cards, and org-scoped review/close
+  actions.
 - **Beacon** (`apps/api/zion_api/services/beacon`, `apps/web/src/app/initiatives/beacon`):
   one fixed synthetic workflow with typed tools, idempotent runs, policy and
   provenance checks, explainable allocation, and coordinator approval.

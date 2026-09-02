@@ -14,7 +14,7 @@ export default function InitiativesPage() {
         <h1 id="initiatives-title">How Zion approaches initiatives</h1>
         <p className="page-intro">
           An &quot;initiative&quot; is a proposed piece of public-interest software Zion
-          might build. One synthetic demonstration exists so far; the rest of this
+          might build. Two synthetic demonstrations exist so far; the rest of this
           page describes the approach every initiative must follow.
         </p>
       </section>
@@ -52,15 +52,44 @@ export default function InitiativesPage() {
         </div>
       </section>
 
+      <section aria-labelledby="current-title">
+        <div className="section-heading">
+          <p className="eyebrow">Demonstrations</p>
+          <h2 id="current-title">Current initiative demonstrations</h2>
+        </div>
+        <div className="card-grid">
+          <article>
+            <h3>
+              <a href="/initiatives/haven">Haven — health-access navigation</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> A
+              non-diagnostic, synthetic-scenario demonstration of concern navigation with
+              deterministic 911/988 emergency and crisis routing, plain-language guidance
+              cards, and curated official resources.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="/initiatives/beacon">Beacon — coastal-storm readiness workflow</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> A
+              synthetic, deterministic workflow demo with typed steps, policy and
+              provenance checks, explainable allocation, and required human approval.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section className="status-section" aria-labelledby="status-title">
         <h2 id="status-title">Current status</h2>
         <p>
-          <StatusBadge status="implemented" label="Working demonstration" />{" "}
-          <a href="/initiatives/beacon">Beacon</a> is a synthetic coastal-storm
-          readiness workflow demonstration: typed steps, policy and provenance checks,
-          an explainable allocation proposal, and a required human approval. It builds
-          on the shared foundation described on the <a href="/projects">Projects</a>{" "}
-          page and uses fabricated fixture data only.
+          <StatusBadge status="implemented" label="Working demonstration" /> Haven and
+          Beacon are the implemented initiative demonstrations. Haven shows
+          non-diagnostic health-access navigation; Beacon shows the synthetic
+          coastal-storm readiness workflow. The shared foundation is described on the{" "}
+          <a href="/projects">Projects</a> page.
         </p>
       </section>
     </PageShell>

@@ -192,3 +192,132 @@ describe("ZionApiClient", () => {
     );
   });
 });
+
+describe("ZionApiClient Haven endpoints", () => {
+  const emergency = {
+    active: false,
+    kind: null,
+    headline: null,
+    steps: [],
+    no_monitoring_note: "This demonstration does not monitor you.",
+  };
+
+  it("fetches curated guidance cards and resources from the public endpoints", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({ cards: [] }))
+      .mockResolvedValueOnce(jsonResponse({ resources: [] }));
+    const client = new ZionApiClient({ baseUrl: "http://localhost:8000", fetch: fetchMock });
+
+    await client.listHavenGuidanceCards();
+    await client.listHavenResources();
+
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      1,
+      "http://localhost:8000/haven/guidance-cards",
+      expect.objectContaining({ method: "GET" }),
+    );
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      "http://localhost:8000/haven/resources",
+      expect.objectContaining({ method: "GET" }),
+    );
+  });
+
+  it("submits a bounded navigation request and parses the typed response", async () => {
+    const body = {
+      synthetic: true,
+      stored: false,
+      emergency: { ...emergency, active: true, kind: "crisis_988", headline: "988", steps: ["988"] },
+      outcome: "crisis_support_now",
+      next_steps: ["Call or text 988"],
+      resources: [],
+      guidance_cards: [],
+      disclaimer: "Not a medical service.",
+    };
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(body));
+    const client = new ZionApiClient({ baseUrl: "http://localhost:8000", fetch: fetchMock });
+
+    const result = await client.submitHavenNavigation({
+      concern_category: "general_question",
+      duration: "under_one_day",
+      severity: "mild",
+      self_harm_risk: true,
+    });
+
+    expect(result.emergency.kind).toBe("crisis_988");
+    expect(result.stored).toBe(false);
+    const [url, requestInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe("http://localhost:8000/haven/navigations");
+    expect(requestInit.method).toBe("POST");
+    expect(JSON.parse(requestInit.body as string).self_harm_risk).toBe(true);
+  });
+
+  it("scopes plan lifecycle calls to the encoded organization and plan", async () => {
+    const plan = {
+      id: "plan 1",
+      organization_slug: "zion-demo",
+      synthetic: true,
+      concern_category: "low_mood",
+      duration: "over_one_week",
+      severity: "moderate",
+      immediate_danger: false,
+      self_harm_risk: false,
+      crisis_language_detected: false,
+      routed_outcome: "mental_health_support",
+      status: "reviewed",
+      review_reason_code: "routing_confirmed",
+      created_at: "2026-09-01T00:00:00Z",
+      reviewed_at: "2026-09-01T00:05:00Z",
+      closed_at: null,
+    };
+    const fetchMock = vi.fn().mockImplementation(() => Promise.resolve(jsonResponse({ plan })));
+    const client = new ZionApiClient({ baseUrl: "http://localhost:8000", fetch: fetchMock });
+
+    const reviewed = await client.reviewHavenPlan(
+      "zion-demo",
+      "plan 1",
+      { reason_code: "routing_confirmed" },
+      "token-123",
+    );
+    await client.closeHavenPlan("zion-demo", "plan 1", "token-123");
+
+    expect(reviewed.plan.review_reason_code).toBe("routing_confirmed");
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      1,
+      "http://localhost:8000/haven/organizations/zion-demo/plans/plan%201/review",
+      expect.objectContaining({ method: "POST" }),
+    );
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      "http://localhost:8000/haven/organizations/zion-demo/plans/plan%201/close",
+      expect.objectContaining({ method: "POST" }),
+    );
+    const [, reviewInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect((reviewInit.headers as Record<string, string>).Authorization).toBe("Bearer token-123");
+  });
+
+  it("surfaces the typed 503 error when Haven is degraded for non-crisis requests", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      jsonResponse(
+        {
+          error: {
+            code: "haven_temporarily_unavailable",
+            message: "Curated guidance is temporarily unavailable.",
+            request_id: "req-9",
+          },
+        },
+        { status: 503 },
+      ),
+    );
+    const client = new ZionApiClient({ baseUrl: "http://localhost:8000", fetch: fetchMock });
+
+    await expect(
+      client.submitHavenNavigation({
+        concern_category: "general_question",
+        duration: "under_one_day",
+        severity: "mild",
+      }),
+    ).rejects.toMatchObject({ code: "haven_temporarily_unavailable", status: 503 });
+  });
+});

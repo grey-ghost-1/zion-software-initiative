@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 
 from zion_api.core.security import hash_password
 from zion_api.db.session import get_engine
+from zion_api.haven_seed import seed_haven_content
 from zion_api.models.enums import Role
 from zion_api.models.harbor import (
     AccessibilityRequirement,
@@ -259,6 +260,8 @@ def seed_demo_data(db: Session) -> None:
             )
         else:
             membership.role = demo_user.role
+
+    seed_haven_content(db)
 
     db.flush()
     harbor_org = organizations["zion-demo"]
