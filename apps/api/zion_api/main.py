@@ -11,6 +11,9 @@ from zion_api.core.logging import configure_logging
 from zion_api.core.middleware import RequestIDMiddleware
 from zion_api.routes.admin import router as admin_router
 from zion_api.routes.auth import router as auth_router
+from zion_api.routes.beacon import router as beacon_router
+from zion_api.routes.harbor import router as harbor_router
+from zion_api.routes.haven import router as haven_router
 from zion_api.routes.health import router as health_router
 
 settings = get_settings()
@@ -36,3 +39,6 @@ register_exception_handlers(app)
 app.include_router(health_router)
 app.include_router(auth_router)
 app.include_router(admin_router)
+app.include_router(harbor_router)
+app.include_router(beacon_router)
+app.include_router(haven_router)

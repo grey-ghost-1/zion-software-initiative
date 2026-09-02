@@ -4,19 +4,20 @@ export default function Home() {
   return (
     <PageShell active="home">
       <section className="hero" aria-labelledby="hero-title">
-        <p className="eyebrow">Social-impact initiative hub + engineering portfolio</p>
-        <h1 id="hero-title">Thoughtful software, built in the open.</h1>
+        <p className="eyebrow">Zion software platform</p>
+        <h1 id="hero-title">Zion — software rooted in peace, justice, and human goodwill.</h1>
         <p className="hero-copy">
-          Zion is an independent home for proposed public-interest software and
-          Justin Wimmer&apos;s full-stack/backend engineering work.
+          Zion is a peacekeeping software initiative built on three core avenues of
+          impact. The site keeps a cloud-bright, navy-accented feel so the work stays
+          calm, legible, and grounded in a castle-like sense of structure.
         </p>
         <aside className="status" aria-labelledby="status-title">
           <h2 id="status-title">Foundation status</h2>
           <p>
-            This repository is an early technical foundation: a shared web shell, API,
-            database schema, and authentication/authorization core. It has no live
-            product workflows, real users, partners, or measured field outcomes, and
-            all accounts and data are synthetic demo material.
+            This repository includes the shared technical foundation plus the three
+            Zion avenues of impact. It has no deployed service, real users,
+            partners, or measured field outcomes; all accounts and workflow data are
+            synthetic demo material.
           </p>
         </aside>
       </section>
@@ -24,34 +25,80 @@ export default function Home() {
       <section className="explore" aria-labelledby="explore-title">
         <div className="section-heading">
           <p className="eyebrow">Find your way around</p>
-          <h2 id="explore-title">Two audiences, one honest map</h2>
+          <h2 id="explore-title">Three core avenues, one honest map</h2>
         </div>
         <div className="card-grid">
           <article>
-            <h3>Initiatives</h3>
-            <p>How Zion approaches proposed public-interest work, and what is not built yet.</p>
+            <h3>Care for the Vulnerable</h3>
+            <p>Community Aid Hub connects food, shelter, transportation, and emergency support.</p>
           </article>
           <article>
-            <h3>Projects</h3>
-            <p>Engineering case studies of what has actually been implemented so far.</p>
+            <h3>Healing &amp; Health Access</h3>
+            <p>Health Navigator and Care Routing Directory make care easier to understand.</p>
           </article>
           <article>
-            <h3>Evidence</h3>
-            <p>Every implemented claim linked to the code and tests that back it up.</p>
+            <h3>AI Infrastructure, Automation &amp; Empowerment</h3>
+            <p>Humanitarian Automation Pipeline and AI Empowerment &amp; Education Suite.</p>
           </article>
         </div>
+      </section>
+
+      <section className="project-index" aria-labelledby="projects-title">
+        <div className="section-heading">
+          <p className="eyebrow">Project areas</p>
+          <h2 id="projects-title">Three first-class Zion project pages</h2>
+          <p>
+            Each project area has its own page with purpose, audience, features,
+            limitations, and evidence, so the site can point to real work instead of a
+            shell.
+          </p>
+        </div>
+        <nav className="project-index-nav" aria-label="Project pages">
+          <a href="/projects/community-aid-hub">Community Aid Hub</a>
+          <a href="/projects/health-navigator">Health Navigator</a>
+          <a href="/projects/humanitarian-automation-pipeline">
+            Humanitarian Automation Pipeline
+          </a>
+          <a href="/projects">Open the projects index</a>
+        </nav>
+      </section>
+
+      <section aria-labelledby="philosophy-title">
+        <div className="section-heading">
+          <p className="eyebrow">Our philosophy</p>
+          <h2 id="philosophy-title">Software should serve humanity</h2>
+        </div>
+        <p>
+          Not profit. Not surveillance. Not division. Zion builds tools that reflect
+          goodwill, justice, and peace — technology that protects instead of
+          exploits, clarifies instead of confuses, and empowers instead of replaces.
+        </p>
+      </section>
+
+      <section aria-labelledby="mission-title">
+        <div className="section-heading">
+          <p className="eyebrow">Our mission</p>
+          <h2 id="mission-title">Make the world gentler, safer, and more connected</h2>
+        </div>
+        <p>
+          One line of code, one act of service, one community at a time.
+        </p>
       </section>
 
       <section className="boundaries" aria-labelledby="boundaries-title">
         <h2 id="boundaries-title">Built around truthful boundaries</h2>
         <p>
           Current work uses synthetic examples only: demo user accounts, demo
-          organizations, and no real personal, health, or location data. Zion does not
-          provide diagnosis, medical advice, emergency response, aid provision, or
-          production humanitarian capability, and claims no partners, users, or
+          organizations, and no real personal, health, or location data. Zion does
+          not provide diagnosis, medical advice, emergency response, aid provision,
+          or production humanitarian capability, and claims no partners, users, or
           autonomous operation.
         </p>
-        <a href="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/README.md">
+        <a
+          href="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/README.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Read the project boundaries
         </a>
       </section>

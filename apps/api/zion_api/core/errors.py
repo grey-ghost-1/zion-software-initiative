@@ -48,6 +48,20 @@ class RoleDeniedError(AppError):
     code = "role_denied"
 
 
+class RunNotFoundError(AppError):
+    """Raised for a missing run or one outside the caller's organization."""
+
+    status_code = status.HTTP_404_NOT_FOUND
+    code = "run_not_found"
+
+
+class RunConflictError(AppError):
+    """Raised when an action conflicts with a run's current state or key."""
+
+    status_code = status.HTTP_409_CONFLICT
+    code = "run_conflict"
+
+
 class OrganizationNotFoundError(AppError):
     """Raised for a missing organization or a non-member.
 
@@ -57,6 +71,16 @@ class OrganizationNotFoundError(AppError):
 
     status_code = status.HTTP_404_NOT_FOUND
     code = "organization_not_found"
+
+
+class HarborNotFoundError(AppError):
+    status_code = status.HTTP_404_NOT_FOUND
+    code = "harbor_not_found"
+
+
+class HarborConflictError(AppError):
+    status_code = status.HTTP_409_CONFLICT
+    code = "harbor_conflict"
 
 
 def _request_id(request: Request) -> str:

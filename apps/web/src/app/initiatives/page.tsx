@@ -11,11 +11,11 @@ export default function InitiativesPage() {
     <PageShell active="initiatives">
       <section className="page-hero" aria-labelledby="initiatives-title">
         <p className="eyebrow">Public-interest direction</p>
-        <h1 id="initiatives-title">How Zion approaches initiatives</h1>
+        <h1 id="initiatives-title">Three original avenues of Zion</h1>
         <p className="page-intro">
-          An &quot;initiative&quot; is a proposed piece of public-interest software Zion
-          might build. None is published or under active development yet in this
-          repository — this page describes the approach, not a product.
+          Zion is built around three original avenues of impact. Each avenue is
+          synthetic here, but the structure is designed to prove that software can
+          heal, protect, and uplift.
         </p>
       </section>
 
@@ -52,12 +52,55 @@ export default function InitiativesPage() {
         </div>
       </section>
 
+      <section aria-labelledby="current-title">
+        <div className="section-heading">
+          <p className="eyebrow">Demonstrations</p>
+          <h2 id="current-title">Current initiative demonstrations</h2>
+        </div>
+        <div className="card-grid">
+          <article>
+            <h3>
+              <a href="/harbor">Care for the Vulnerable</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> Community
+              Aid Hub — Harbor — shows needs, matching, triage, capacity checks,
+              volunteer plans, and audit timelines.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="/initiatives/haven">Healing &amp; Health Access</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> Health
+              Navigator and Care Routing Directory — Haven — simplify navigation with
+              non-diagnostic guidance, emergency and crisis routing, plain-language
+              cards, and curated resources.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="/initiatives/beacon">AI Infrastructure, Automation &amp; Empowerment</a>
+            </h3>
+            <p>
+              <StatusBadge status="implemented" label="Working demonstration" /> Humanitarian
+              Automation Pipeline and AI Empowerment &amp; Education Suite — Beacon —
+              automate coordination with typed steps, policy and provenance checks,
+              explainable allocation, and required human approval.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section className="status-section" aria-labelledby="status-title">
         <h2 id="status-title">Current status</h2>
         <p>
-          <StatusBadge status="planned" /> No specific initiative has a name, scope, or
-          timeline in this repository yet. What exists today is the shared foundation
-          described on the <a href="/projects">Projects</a> page.
+          <StatusBadge status="implemented" label="Working demonstration" /> Harbor,
+          Haven, and Beacon are the implemented Zion demonstrations. They map to
+          care for the vulnerable, healing &amp; health access, and AI infrastructure,
+          automation &amp; empowerment. The shared foundation is described on the{" "}
+          <a href="/projects">Projects</a> page.
         </p>
       </section>
     </PageShell>

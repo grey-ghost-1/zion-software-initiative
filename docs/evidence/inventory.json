@@ -74,10 +74,115 @@
     },
     {
       "id": "dual-audience-page-shell",
-      "claim": "The web app renders Home, Initiatives, Projects, Evidence, and About Justin pages behind one accessible shared shell with a skip link and current-page navigation, and reuses shared status and case-study card primitives.",
+      "claim": "The web app renders Home, Initiatives, Projects, and Evidence pages behind one accessible shared shell with a skip link and current-page navigation, and reuses shared status and case-study card primitives.",
       "status": "implemented",
       "evidence": "apps/web/src/components/PageShell.tsx",
       "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "harbor-explainable-matching",
+      "claim": "Harbor deterministically compares synthetic need category, controlled eligibility, coarse zone, open status, capacity freshness and availability, and accessibility while returning score components, rejections, and uncertainty; protected traits are absent.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/harbor.py",
+      "verified_by": "apps/api/tests/test_harbor.py"
+    },
+    {
+      "id": "harbor-capacity-safety",
+      "claim": "Harbor reserves current capacity only after explicit coordinator approval using an atomic conditional update and a database no-overbooking constraint, including a concurrent SQLite test.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/models/harbor.py",
+      "verified_by": "apps/api/tests/test_harbor.py"
+    },
+    {
+      "id": "harbor-role-and-organization-boundaries",
+      "claim": "Harbor enforces organization scope and role boundaries server-side: visitors see safe demo records, coordinators and admins change workflow state, and volunteers receive assignment-only synthetic fields.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/routes/harbor.py",
+      "verified_by": "apps/api/tests/test_harbor.py"
+    },
+    {
+      "id": "harbor-accessible-workflow",
+      "claim": "The Harbor route presents impact and engineering evidence plus a keyboard-operable request-to-audit synthetic workflow with semantic loading, empty, and error states using the typed API client.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/harbor/HarborWorkflow.tsx",
+      "verified_by": "apps/web/src/app/harbor/page.test.tsx"
+    },
+    {
+      "id": "haven-accessible-navigation",
+      "claim": "The web app publishes an accessible Haven page that keeps diagnosis out, surfaces emergency 911/988 guidance, and demonstrates synthetic navigation with curated resources and reviewable plans.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/initiatives/haven/page.tsx",
+      "verified_by": "apps/web/src/app/initiatives/haven/page.test.tsx"
+    },
+    {
+      "id": "beacon-typed-workflow-engine",
+      "claim": "The Beacon demonstration runs one fixed coastal-storm-readiness workflow through a deterministic state machine with typed, allowlisted tools, idempotent run creation, bounded retries, explicit timeout/dead-letter states, and coordinator-only replay.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/beacon/engine.py",
+      "verified_by": "apps/api/tests/test_beacon_workflow.py"
+    },
+    {
+      "id": "beacon-safety-governance",
+      "claim": "Beacon runs record a policy version and fixture provenance, treat retrieved fixture text as data so injection-like strings cannot alter steps or tools, guard sensitive-looking strings out of logs, reject malformed CRS/geometry/stale-timestamp fixtures, and refuse any autonomous purchasing, dispatch, or public-warning action.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/beacon/policy.py",
+      "verified_by": "apps/api/tests/test_beacon_safety.py"
+    },
+    {
+      "id": "beacon-explainable-allocation",
+      "claim": "Beacon proposes a deterministic, explainable synthetic supply allocation with per-line reasons, reported unmet demand, inventory conservation, never-negative quantities, and a required human approve/reject decision before completion.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/services/beacon/allocation.py",
+      "verified_by": "apps/api/tests/test_beacon_allocation.py"
+    },
+    {
+      "id": "cloud-navy-palette",
+      "claim": "The shared design tokens now carry a navy accent while preserving the cloud-bright Zion palette and sky-based theme.",
+      "status": "implemented",
+      "evidence": "packages/config/tokens.css",
+      "verified_by": "apps/web production build"
+    },
+    {
+      "id": "beacon-demo-page",
+      "claim": "The web app publishes an accessible Beacon page that discloses the synthetic, exploratory, no-official-warning status and shows the recorded pipeline and allocation as both lists and equivalent tables.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/initiatives/beacon/page.tsx",
+      "verified_by": "apps/web/src/app/initiatives/beacon/page.test.tsx"
+    },
+    {
+      "id": "homepage-project-index",
+      "claim": "The homepage surfaces the three first-class Zion project pages with direct links and keeps the cloud-bright, navy-accented direction explicit.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/page.tsx",
+      "verified_by": "apps/web/src/app/page.test.tsx"
+    },
+    {
+      "id": "projects-index-first-class",
+      "claim": "The projects index surfaces the three Zion project routes first and keeps the supporting foundation cards separate.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/page.tsx",
+      "verified_by": "apps/web/src/app/projects/page.test.tsx"
+    },
+    {
+      "id": "community-aid-hub-page",
+      "claim": "The Community Aid Hub page presents purpose, audience, features, limitations, and evidence for the synthetic community-aid coordination route.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/community-aid-hub/page.tsx",
+      "verified_by": "apps/web/src/app/projects/community-aid-hub/page.test.tsx"
+    },
+    {
+      "id": "health-navigator-page",
+      "claim": "The Health Navigator page presents purpose, audience, features, limitations, and evidence for the synthetic health-access route.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/health-navigator/page.tsx",
+      "verified_by": "apps/web/src/app/projects/health-navigator/page.test.tsx"
+    },
+    {
+      "id": "humanitarian-automation-pipeline-page",
+      "claim": "The Humanitarian Automation Pipeline page presents purpose, audience, features, limitations, and evidence for the synthetic automation route.",
+      "status": "implemented",
+      "evidence": "apps/web/src/app/projects/humanitarian-automation-pipeline/page.tsx",
+      "verified_by": "apps/web/src/app/projects/humanitarian-automation-pipeline/page.test.tsx"
     }
   ]
 }

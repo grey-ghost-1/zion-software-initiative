@@ -4,8 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Zion Software Initiative",
-  description:
-    "A foundation-stage social-impact initiative hub and software-engineering portfolio.",
+  description: "A software platform rooted in peace, justice, and human goodwill.",
 };
 
 export default function RootLayout({

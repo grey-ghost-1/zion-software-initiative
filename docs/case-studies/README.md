@@ -1,5 +1,6 @@
 # Case studies
 
-No case studies are published in the foundation layer. Future entries must link
-inspectable implementation evidence, distinguish synthetic evaluation from real
-outcomes, and state limitations prominently.
+- [Harbor synthetic coordination vertical slice](harbor.md)
+
+Entries link inspectable implementation evidence, distinguish synthetic
+evaluation from real outcomes, and state limitations prominently.
