@@ -14,7 +14,7 @@ describe("unified Zion homepage", () => {
       "#main-content",
     );
     const nav = screen.getByRole("navigation", { name: "Primary" });
-    expect(within(nav).getAllByRole("link").map((link) => link.textContent)).toEqual([
+    expect(Array.from(nav.querySelectorAll(":scope > ul > li > a"), (link) => link.textContent)).toEqual([
       "Mission",
       "Architecture",
       "Flagships",

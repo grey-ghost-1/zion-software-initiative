@@ -7,16 +7,25 @@ describe("interoperability roadmap", () => {
     render(<InteroperabilityRoadmapPage />);
 
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    expect(screen.getByText("Unimplemented concepts")).toBeVisible();
-    expect(screen.getByText(/zero implementation and zero tests/i)).toBeVisible();
+    expect(screen.getByText("Concept / roadmap")).toBeVisible();
+    expect(screen.getByText(/zero functional implementation or runtime tests/i)).toBeVisible();
+    for (const [name, slug] of [
+      ["FHIR Dashboard", "fhir-dashboard"],
+      ["HL7-FHIR Converter", "hl7-fhir-converter"],
+      ["EHR Workflow Simulator", "ehr-workflow-simulator"],
+    ]) {
+      expect(screen.getByRole("heading", { name })).toBeVisible();
+      expect(screen.getByRole("link", { name: `Read the ${name} concept` })).toHaveAttribute(
+        "href", `/labs/interoperability/${slug}`,
+      );
+    }
+    expect(screen.getAllByText(/only a static concept route and web scaffold checks exist/i)).toHaveLength(3);
     for (const name of [
-      "Standards-shaped resource dashboard",
-      "Message-mapping teaching exercise",
-      "Human-review workflow simulator",
+      "Module purpose", "How it fits Zion", "Architecture summary", "Safety boundaries",
+      "GitHub links placeholder", "Interview story placeholder", "Technical highlights placeholder",
     ]) {
       expect(screen.getByRole("heading", { name })).toBeVisible();
     }
-    expect(screen.getAllByText(/not started; no code, tests, route/i)).toHaveLength(3);
   });
 
   it("rejects operational, clinical, compliance, and deployment claims", () => {
@@ -25,10 +34,9 @@ describe("interoperability roadmap", () => {
     expect(
       screen.getByText(/no real EHR connectivity, HL7 or FHIR exchange/i),
     ).toBeVisible();
-    expect(screen.getByText(/SMART on FHIR integration/i)).toBeVisible();
     expect(screen.getByText(/standards conformance, certification, clinical use/i)).toBeVisible();
     expect(screen.getByText(/HIPAA compliance, real PHI, diagnosis or treatment/i)).toBeVisible();
-    expect(screen.getByText(/no implementation, tests, external demo, or prior-work claim/i)).toBeVisible();
+    expect(screen.getByText(/no functional implementation, runtime tests, external demo, or prior-work claim/i)).toBeVisible();
     expect(screen.getByText(/no Batcomputer content or assets are copied/i)).toBeVisible();
   });
 });

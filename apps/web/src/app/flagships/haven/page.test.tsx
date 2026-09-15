@@ -7,12 +7,14 @@ describe("canonical Haven flagship", () => {
     render(<HavenFlagshipPage />);
 
     for (const heading of [
-      "Module Purpose",
+      "Module purpose",
       "How it fits Zion",
-      "Architecture Summary",
-      "Boundaries and Limitations",
+      "Architecture summary",
+      "Safety boundaries",
       "Demo and Evidence",
-      "Interview Story",
+      "Interview story",
+      "Technical highlights",
+      "GitHub links",
     ]) {
       expect(screen.getByRole("heading", { name: heading })).toBeVisible();
     }
@@ -20,5 +22,8 @@ describe("canonical Haven flagship", () => {
     expect(within(emergency).getByText(/call 911/i)).toBeVisible();
     expect(within(emergency).getByText(/call or text 988/i)).toBeVisible();
     expect(screen.getByRole("form", { name: "Synthetic concern demonstration" })).toBeVisible();
+    expect(screen.getByText(/content-preservation validation protects critical source facts/i)).toBeVisible();
+    expect(screen.getByText(/implemented slice demonstrates explainable navigation/i)).toBeVisible();
+    expect(screen.queryByText(/placeholder/i)).not.toBeInTheDocument();
   });
 });

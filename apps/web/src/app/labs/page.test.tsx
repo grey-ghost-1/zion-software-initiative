@@ -19,5 +19,10 @@ describe("Zion Labs index", () => {
       "/labs/prior-work",
     );
     expect(screen.getByText(/listing here is not a Zion capability/i)).toBeVisible();
+    for (const name of ["Module purpose", "How it fits Zion", "Architecture summary", "Safety boundaries"]) {
+      expect(screen.getByRole("heading", { name })).toBeVisible();
+    }
+    expect(screen.getByRole("region", { name: "Safety boundaries" }))
+      .toHaveTextContent("Concept / roadmap only: unimplemented, non-operational, synthetic-only");
   });
 });

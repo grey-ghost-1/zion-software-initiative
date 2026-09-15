@@ -56,5 +56,30 @@ describe("architecture page", () => {
     expect(screen.getByText(/health and readiness endpoints are implemented/i)).toBeVisible();
     expect(screen.getByText(/managed production PostgreSQL, public HTTPS verification/i)).toBeVisible();
     expect(screen.getByText(/rollback exercise remain pending or unverified/i)).toBeVisible();
+    const readiness = screen.getByRole("region", { name: "Implemented checks are not a production claim" });
+    for (const name of ["CI/CD", "Health", "Logging", "Rollback"]) {
+      const section = within(readiness).getByRole("heading", { name }).closest("article")!;
+      expect(section).toHaveTextContent("Production evidence placeholder");
+      expect(section).toHaveTextContent(/validation/i);
+    }
+  });
+
+  it("keeps implemented modules separate from non-operational concept scaffolds", () => {
+    render(<ArchitecturePage />);
+    const catalog = screen.getByRole("region", { name: "Platform catalog and implementation status" });
+    expect(within(catalog).getAllByText("Implemented synthetic demonstration")).toHaveLength(2);
+    expect(within(catalog).getAllByText("Concept / roadmap")).toHaveLength(2);
+    for (const [name, route] of [
+      ["Harbor", "/flagships/harbor"],
+      ["Haven", "/flagships/haven"],
+      ["Beacon governance/workflow concept", "/flagships/beacon"],
+      ["FHIR Dashboard", "/labs/interoperability/fhir-dashboard"],
+      ["HL7-FHIR Converter", "/labs/interoperability/hl7-fhir-converter"],
+      ["EHR Workflow Simulator", "/labs/interoperability/ehr-workflow-simulator"],
+    ]) {
+      expect(within(catalog).getByRole("link", { name })).toHaveAttribute("href", route);
+    }
+    expect(catalog).toHaveTextContent("not a restored runtime or a third implemented flagship");
+    expect(screen.getByText(/they are design requirements, not implemented protections/i)).toBeVisible();
   });
 });

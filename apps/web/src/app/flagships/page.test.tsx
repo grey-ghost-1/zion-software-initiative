@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import FlagshipsPage from "./page";
 
 describe("flagships page", () => {
   it("renders the two catalog modules and their canonical routes", () => {
-    const { container } = render(<FlagshipsPage />);
+    render(<FlagshipsPage />);
 
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("link", { name: "Flagships" })).toHaveAttribute(
@@ -22,8 +22,11 @@ describe("flagships page", () => {
       "/flagships/haven",
     );
 
-    const excludedModuleName = ["Bea", "con"].join("");
-    expect(container).not.toHaveTextContent(excludedModuleName);
+    const roadmap = screen.getByRole("region", { name: "Separate concept roadmap" });
+    expect(within(roadmap).getByRole("heading", { name: "Beacon" })).toBeVisible();
+    expect(roadmap).toHaveTextContent("Concept / roadmap");
+    expect(roadmap).toHaveTextContent("not a third implemented flagship");
+    expect(within(roadmap).getByRole("link")).toHaveAttribute("href", "/flagships/beacon");
   });
 
   it("shows truthful module status, boundaries, evidence, and interview structure", () => {
@@ -32,11 +35,12 @@ describe("flagships page", () => {
     expect(screen.getAllByText("Implemented synthetic demonstration")).toHaveLength(2);
     expect(screen.getAllByText("Not deployed or production-verified")).toHaveLength(2);
     for (const heading of [
-      "Module Purpose",
+      "Module purpose",
       "How it fits Zion",
-      "Architecture Summary",
-      "Boundaries and Limitations",
-      "Interview Story",
+      "Architecture summary",
+      "Safety boundaries",
+      "Interview story",
+      "Technical highlights",
       "Demo and Evidence",
     ]) {
       expect(screen.getAllByRole("heading", { name: heading })).toHaveLength(2);

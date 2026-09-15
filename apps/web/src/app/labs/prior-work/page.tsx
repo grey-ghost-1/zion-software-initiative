@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PriorWorkPage() {
   return (
-    <PageShell active="labs">
+    <PageShell active="labs" labsSection="prior-work">
       <section className="page-hero" aria-labelledby="prior-work-title">
         <p className="eyebrow">Audited external evidence</p>
         <h1 id="prior-work-title">Prior work inventory</h1>
@@ -18,6 +18,23 @@ export default function PriorWorkPage() {
           project ownership. It reproduces no Batcomputer branding, source code, project
           copy, or assets.
         </p>
+      </section>
+
+      <section aria-labelledby="prior-work-purpose">
+        <h2 id="prior-work-purpose">Module purpose</h2>
+        <p>Make the existing attributed audit snapshot inspectable without reproducing external project material.</p>
+      </section>
+      <section aria-labelledby="prior-work-fit">
+        <h2 id="prior-work-fit">How it fits Zion</h2>
+        <p>Prior work supplies historical context, not implementation evidence for Zion or its roadmap concepts.</p>
+      </section>
+      <section aria-labelledby="prior-work-architecture">
+        <h2 id="prior-work-architecture">Architecture summary</h2>
+        <p>A static page reads the audited inventory and links its immutable source references; it does not run or integrate the external projects.</p>
+      </section>
+      <section className="boundaries" aria-labelledby="prior-work-safety">
+        <h2 id="prior-work-safety">Safety boundaries</h2>
+        <p>This is an evidence index only, not an operational or clinical service. Do not submit real PHI or patient data. It makes no Zion EHR connectivity, HL7/FHIR exchange, conformance, HIPAA compliance, diagnosis or treatment, or production deployment claim.</p>
       </section>
 
       <aside className="status" aria-labelledby="prior-attribution-title">

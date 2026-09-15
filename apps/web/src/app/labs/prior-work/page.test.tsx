@@ -13,6 +13,11 @@ describe("Zion Labs prior work", () => {
     expect(screen.getByText(/no reuse license was identified/i)).toBeVisible();
     expect(screen.getByText(/reproduces no Batcomputer branding, source code, project copy, or assets/i)).toBeVisible();
     expect(screen.getByText(archive.sourceSnapshot.commit)).toBeVisible();
+    for (const name of ["Module purpose", "How it fits Zion", "Architecture summary", "Safety boundaries"]) {
+      expect(screen.getByRole("heading", { name })).toBeVisible();
+    }
+    expect(screen.getByRole("link", { name: "Prior Audited Work" }))
+      .toHaveAttribute("aria-current", "location");
     const inventory = screen.getByRole("heading", { name: "Evidence links" }).closest("section")!;
     expect(within(inventory).getAllByRole("listitem")).toHaveLength(archive.projects.length);
     for (const project of archive.projects) {

@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import nextConfig from "../../next.config";
+import { existsSync } from "node:fs";
+import path from "node:path";
 
 describe("canonical route redirects", () => {
   it("redirects legacy non-Beacon routes once without loops", async () => {
@@ -27,5 +29,11 @@ describe("canonical route redirects", () => {
         (redirect) => redirect.source !== "/projects/humanitarian-automation-pipeline",
       ),
     ).toBe(true);
+    for (const removed of [
+      "beacon", "initiatives/beacon", "projects/humanitarian-automation-pipeline",
+    ]) {
+      expect(existsSync(path.join(__dirname, removed, "page.tsx"))).toBe(false);
+    }
+    expect(existsSync(path.join(__dirname, "flagships", "beacon", "page.tsx"))).toBe(true);
   });
 });

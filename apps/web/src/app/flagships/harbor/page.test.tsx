@@ -7,12 +7,14 @@ describe("canonical Harbor flagship", () => {
     render(<HarborFlagshipPage />);
 
     for (const heading of [
-      "Module Purpose",
+      "Module purpose",
       "How it fits Zion",
-      "Architecture Summary",
-      "Boundaries and Limitations",
+      "Architecture summary",
+      "Safety boundaries",
       "Demo and Evidence",
-      "Interview Story",
+      "Interview story",
+      "Technical highlights",
+      "GitHub links",
     ]) {
       expect(screen.getByRole("heading", { name: heading })).toBeVisible();
     }
@@ -20,5 +22,8 @@ describe("canonical Harbor flagship", () => {
     expect(screen.getByText(/unknown or stale capacity is unavailable/i)).toBeVisible();
     expect(screen.getByText(/coordinator explicitly reviews and approves/i)).toBeVisible();
     expect(screen.getByRole("form", { name: "Synthetic Harbor workflow" })).toBeVisible();
+    expect(screen.getByText(/deterministic matching exposes score components/i)).toBeVisible();
+    expect(screen.getByText(/implemented slice makes a proposed match inspectable/i)).toBeVisible();
+    expect(screen.queryByText(/placeholder/i)).not.toBeInTheDocument();
   });
 });

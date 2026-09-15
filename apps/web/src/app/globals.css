@@ -85,10 +85,27 @@ footer {
   text-decoration: none;
 }
 
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current="page"],
+.site-nav a[aria-current="location"] {
   color: var(--color-navy);
   text-decoration: underline;
   text-underline-offset: 0.3em;
+}
+
+.labs-subnav {
+  max-width: 18rem;
+  font-size: 0.875rem;
+}
+
+.labs-subnav summary {
+  cursor: pointer;
+  color: var(--color-ocean-deep);
+}
+
+.labs-subnav ul {
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
 }
 
 .visually-hidden {

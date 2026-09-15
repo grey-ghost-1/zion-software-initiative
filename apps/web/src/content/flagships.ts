@@ -30,6 +30,7 @@ export type FlagshipModule = {
   status: FlagshipStatus;
   evidence: readonly EvidenceLink[];
   interviewStory: InterviewStory;
+  technicalHighlights: readonly string[];
 };
 
 const REPOSITORY_BASE =
@@ -69,6 +70,11 @@ export const flagshipModules = [
         label: "Inspect the typed API client",
         href: `${REPOSITORY_BASE}/packages/api-client/src/index.ts`,
       },
+    ],
+    technicalHighlights: [
+      "Typed request/response contracts connect the Next.js workflow to organization-scoped FastAPI endpoints.",
+      "Deterministic matching exposes score components and rejection reasons; capacity constraints prevent overbooking.",
+      "Coordinator approval and append-only audit events make sensitive workflow changes reviewable.",
     ],
     interviewStory: {
       problem:
@@ -116,6 +122,11 @@ export const flagshipModules = [
         label: "Inspect deterministic routing",
         href: `${REPOSITORY_BASE}/apps/api/zion_api/services/haven_routing.py`,
       },
+    ],
+    technicalHighlights: [
+      "Deterministic emergency and crisis routing precedes optional storage and bypasses database dependencies.",
+      "Content-preservation validation protects critical source facts and rejects prohibited clinical outputs.",
+      "Ephemeral synthetic visitor scenarios remain separate from organization-scoped review and audit records.",
     ],
     interviewStory: {
       problem:

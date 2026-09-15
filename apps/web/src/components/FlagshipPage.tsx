@@ -25,7 +25,7 @@ export function FlagshipPage({ module, safetyNotice, demo }: FlagshipPageProps) 
       {safetyNotice}
 
       <section aria-labelledby={`${module.id}-purpose`}>
-        <h2 id={`${module.id}-purpose`}>Module Purpose</h2>
+        <h2 id={`${module.id}-purpose`}>Module purpose</h2>
         <p>{module.purpose}</p>
       </section>
 
@@ -35,12 +35,12 @@ export function FlagshipPage({ module, safetyNotice, demo }: FlagshipPageProps) 
       </section>
 
       <section aria-labelledby={`${module.id}-architecture`}>
-        <h2 id={`${module.id}-architecture`}>Architecture Summary</h2>
+        <h2 id={`${module.id}-architecture`}>Architecture summary</h2>
         <p>{module.architecture}</p>
       </section>
 
       <section className="boundaries" aria-labelledby={`${module.id}-boundaries`}>
-        <h2 id={`${module.id}-boundaries`}>Boundaries and Limitations</h2>
+        <h2 id={`${module.id}-boundaries`}>Safety boundaries</h2>
         <ul>
           {module.boundaries.map((boundary) => (
             <li key={boundary}>{boundary}</li>
@@ -54,7 +54,7 @@ export function FlagshipPage({ module, safetyNotice, demo }: FlagshipPageProps) 
           <h2 id={`${module.id}-demo`}>Demo and Evidence</h2>
         </div>
         {demo}
-        <h3>Repository evidence</h3>
+        <h3>GitHub links</h3>
         <ul className="evidence-list">
           {module.evidence
             .filter((link) => link.href !== module.route)
@@ -67,7 +67,7 @@ export function FlagshipPage({ module, safetyNotice, demo }: FlagshipPageProps) 
       </section>
 
       <section aria-labelledby={`${module.id}-story`}>
-        <h2 id={`${module.id}-story`}>Interview Story</h2>
+        <h2 id={`${module.id}-story`}>Interview story</h2>
         <dl>
           {Object.entries(module.interviewStory).map(([part, detail]) => (
             <div key={part}>
@@ -78,6 +78,14 @@ export function FlagshipPage({ module, safetyNotice, demo }: FlagshipPageProps) 
             </div>
           ))}
         </dl>
+      </section>
+      <section aria-labelledby={`${module.id}-highlights`}>
+        <h2 id={`${module.id}-highlights`}>Technical highlights</h2>
+        <ul>
+          {module.technicalHighlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
       </section>
     </PageShell>
   );

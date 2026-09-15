@@ -18,6 +18,7 @@ const NAV_ITEMS: NavItem[] = [
 
 interface PageShellProps {
   active?: PageId;
+  labsSection?: "interoperability" | "prior-work";
   children: ReactNode;
 }
 
@@ -26,7 +27,7 @@ interface PageShellProps {
  * the `main` landmark, and a footer. Kept as one component so navigation
  * semantics (landmarks, skip link, `aria-current`) stay identical everywhere.
  */
-export function PageShell({ active, children }: PageShellProps) {
+export function PageShell({ active, labsSection, children }: PageShellProps) {
   return (
     <>
       <a className="skip-link" href="#main-content">
@@ -43,6 +44,29 @@ export function PageShell({ active, children }: PageShellProps) {
                 <Link href={item.href} aria-current={item.id === active ? "page" : undefined}>
                   {item.label}
                 </Link>
+                {item.id === "labs" && (
+                  <details className="labs-subnav" open={active === "labs"}>
+                    <summary>Zion Labs sections</summary>
+                    <ul aria-label="Zion Labs sections">
+                      <li>
+                        <Link
+                          href="/labs/interoperability"
+                          aria-current={labsSection === "interoperability" ? "location" : undefined}
+                        >
+                          Interoperability Engineering
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/labs/prior-work"
+                          aria-current={labsSection === "prior-work" ? "location" : undefined}
+                        >
+                          Prior Audited Work
+                        </Link>
+                      </li>
+                    </ul>
+                  </details>
+                )}
               </li>
             ))}
           </ul>
