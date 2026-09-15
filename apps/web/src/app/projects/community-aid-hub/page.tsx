@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function CommunityAidHubPage() {
   return (
     <ProjectPage
-      active="projects"
+      active="flagships"
       eyebrow="Project area"
       slug="community-aid-hub"
       title="Community Aid Hub"

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function HavenPage() {
   return (
-    <PageShell active="initiatives">
+    <PageShell active="flagships">
       <section className="page-hero" aria-labelledby="haven-title">
         <p className="eyebrow">Initiative demonstration</p>
         <h1 id="haven-title">Health Navigator: healing &amp; health access</h1>

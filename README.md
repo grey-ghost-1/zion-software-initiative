@@ -1,34 +1,40 @@
 # Zion Software Initiative
 
-Zion is a software platform rooted in peace, justice, and human goodwill. The
-repository is not connected to the Batcomputer project or its branding.
+Zion is a software platform rooted in peace, justice, and human goodwill. It
+does not incorporate Batcomputer branding, source, project copy, or assets;
+Zion Labs provides attribution and immutable external evidence links only.
 
 ## Current status
 
-**Shared foundation, stage one, plus two Zion flagships.** This layer
+**One shared foundation and two implemented Zion flagships.** The canonical
+site map is Mission, Architecture, Flagships, and Zion Labs. The repository
 provides an accessible Next.js shell, a modular FastAPI service with
 authentication and role-based access control, a PostgreSQL-backed schema (via
 SQLAlchemy 2 + Alembic) for synthetic users, organizations, memberships, and
-audit events, a typed TypeScript API client, and the Community Aid Hub and Health
-Navigator demonstrations. There are no
-live product workflows, production deployments, real users, partnerships, or
-measured field outcomes. See
+audit events, a typed TypeScript API client, and the Harbor and Haven synthetic
+demonstrations. There is no hosted production deployment, managed production
+PostgreSQL, public HTTPS verification, real-user or partner use, or measured
+field outcome. See
 [GitHub issue #1](https://github.com/grey-ghost-1/zion-software-initiative/issues/1)
 for the foundation scope and [GitHub issue #5](https://github.com/grey-ghost-1/zion-software-initiative/issues/5)
 for the archive evidence.
 
-Harbor and Haven are the implemented Zion flagship demonstrations, surfaced on
-the site as Community Aid Hub and Health Navigator. No other initiative
-directions are implemented here yet.
+Harbor and Haven are the only implemented Zion flagship demonstrations.
+Interoperability entries in Zion Labs are unimplemented learning concepts only.
+The prior-work page is an attributed index of an immutable external evidence
+snapshot; it does not copy or incorporate that project's branding, source,
+project copy, or assets.
 
 No demo is currently deployed. Harbor is software evidence, not an available
 coordination product or evidence of impact.
 
 ## What's implemented
 
-- **Frontend shell** (`apps/web`): Home, Initiatives, Projects, and Evidence
-  pages behind one accessible shared layout (skip link, semantic landmarks,
-  current-page navigation) using a shared beach-palette token set.
+- **Frontend shell** (`apps/web`): the homepage, Mission, Architecture,
+  Flagships, canonical Harbor and Haven pages, Zion Labs, its interoperability
+  roadmap, and its prior-work inventory behind one accessible shared layout
+  (skip link, semantic landmarks, current-page navigation, and global
+  disclosure).
 - **Reusable UI primitives** (`packages/ui`): a truthful `StatusBadge`
   (`implemented` / `in-development` / `planned`) and a `CaseStudyCard` for
   impact and engineering case studies.
@@ -48,13 +54,13 @@ coordination product or evidence of impact.
   database.
 - **Typed TS client** (`packages/api-client`): covers every implemented
   endpoint above with types mirrored from the API schemas.
-- **Harbor** (`apps/api/zion_api/routes/harbor.py`, `apps/web/src/app/harbor`):
+- **Harbor** (`apps/api/zion_api/routes/harbor.py`, `apps/web/src/app/flagships/harbor`):
   synthetic needs/resources, transparent deterministic matching, coordinator
   triage and override reasons, atomic capacity reservation, volunteer plan
   approval, fulfillment, an append-only audit timeline, and small metrics.
   Unknown or stale capacity is unavailable, and protected traits are absent
   from request and scoring contracts.
-- **Haven** (`apps/api/zion_api/routes/haven.py`, `apps/web/src/app/initiatives/haven`):
+- **Haven** (`apps/api/zion_api/routes/haven.py`, `apps/web/src/app/flagships/haven`):
   non-diagnostic synthetic concern navigation with emergency and crisis bypass,
   curated resources, validated guidance cards, and org-scoped review/close
   actions.
@@ -144,12 +150,12 @@ are otherwise platform-independent.
 
 ## Planned deployment
 
-The intended topology is Vercel for the frontend, Render for the API, and a
-managed PostgreSQL service using the SQLAlchemy/Alembic schema already in this
-repository. None is provisioned or activated in this layer — `infra/` only
-provides a local development database via Docker Compose. Architecture began
-as a modular monolith so domain boundaries can evolve without premature
-distributed-system complexity.
+CI and the API health/readiness contracts are implemented and tested. Hosted
+deployment, managed production PostgreSQL, public HTTPS verification,
+operational monitoring, and a rollback exercise remain pending or unverified.
+`infra/` provides a local development database via Docker Compose only. The
+modular monolith keeps domain boundaries clear without implying production
+infrastructure.
 
 ## Contributing
 

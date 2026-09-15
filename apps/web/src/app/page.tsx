@@ -2,7 +2,7 @@ import { PageShell } from "@/components/PageShell";
 
 export default function Home() {
   return (
-    <PageShell active="home">
+    <PageShell>
       <section className="hero" aria-labelledby="hero-title">
         <p className="eyebrow">Zion software platform</p>
         <h1 id="hero-title">Zion — software rooted in peace, justice, and human goodwill.</h1>
@@ -29,12 +29,12 @@ export default function Home() {
         </div>
         <div className="card-grid">
           <article>
-            <h3>Care for the Vulnerable</h3>
-            <p>Community Aid Hub connects food, shelter, transportation, and emergency support.</p>
+            <h3><a href="/flagships/harbor">Harbor</a></h3>
+            <p>A synthetic, human-approved community coordination workflow.</p>
           </article>
           <article>
-            <h3>Healing &amp; Health Access</h3>
-            <p>Health Navigator and Care Routing Directory make care easier to understand.</p>
+            <h3><a href="/flagships/haven">Haven</a></h3>
+            <p>Synthetic, non-diagnostic navigation with fixed safety guidance.</p>
           </article>
         </div>
       </section>
@@ -42,17 +42,17 @@ export default function Home() {
       <section className="project-index" aria-labelledby="projects-title">
         <div className="section-heading">
           <p className="eyebrow">Project areas</p>
-          <h2 id="projects-title">Two first-class Zion project pages</h2>
+          <h2 id="projects-title">Two canonical Zion flagship pages</h2>
           <p>
             Each project area has its own page with purpose, audience, features,
             limitations, and evidence, so the site can point to real work instead of a
             shell.
           </p>
         </div>
-        <nav className="project-index-nav" aria-label="Project pages">
-          <a href="/projects/community-aid-hub">Community Aid Hub</a>
-          <a href="/projects/health-navigator">Health Navigator</a>
-          <a href="/projects">Open the projects index</a>
+        <nav className="project-index-nav" aria-label="Flagship pages">
+          <a href="/flagships/harbor">Explore Harbor</a>
+          <a href="/flagships/haven">Explore Haven</a>
+          <a href="/flagships">Open the flagship catalog</a>
         </nav>
       </section>
 

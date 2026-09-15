@@ -2,8 +2,9 @@
 
 ## Scope
 
-This model covers the public source repository, the accessible Next.js
-dual-audience shell, the modular FastAPI service including authentication,
+This model covers the public source repository, the accessible Next.js shared
+shell and canonical Mission, Architecture, Flagships, and Zion Labs pages, the
+modular FastAPI service including authentication,
 role-based access control, and organization isolation, the PostgreSQL-backed
 shared schema plus Harbor's synthetic needs, resources, capacity, volunteer
 availability, and plans, Haven's synthetic navigation plans and curated
@@ -33,6 +34,7 @@ AI execution in scope.
 | Secret or sensitive-data disclosure | Ignore rules, examples without values, contribution policy, public-data-only ADR, no plaintext passwords/tokens in logs |
 | Dependency or CI compromise | Lock/pin strategy, read-only workflow token, Dependabot, bounded CI timeouts |
 | Misleading capability or impact claims | Explicit status disclosures, evidence inventory, unsupported-claim test |
+| Prior-work confusion or unlicensed reuse | Immutable external links, required creator/origin attribution, no copied branding, source, project copy, or assets |
 | Health endpoint information leakage | Minimal fixed liveness body; readiness reports only `status`/`ready`/`detail`, no version, host, dependency, or environment details |
 | Password compromise via weak hashing | bcrypt password hashing; passwords never logged, returned, or stored in plaintext |
 | Session token theft or replay after expiry | Server-side session tokens with an enforced expiry (`ZION_SESSION_TOKEN_TTL_MINUTES`); expired or invalid tokens are rejected and tested |
@@ -60,6 +62,10 @@ protection on login, token refresh/rotation, multi-factor authentication,
 prompt injection, model/data-provider retention, incident response, backups,
 geographic data sensitivity, real capacity provenance/freshness, volunteer
 safety, coercion/retaliation risk, and vulnerable-user safety.
+
+CI and health/readiness checks are implemented. Hosted deployment, managed
+production PostgreSQL, public HTTPS verification, and a rollback exercise are
+pending or unverified.
 
 ## Non-goals
 

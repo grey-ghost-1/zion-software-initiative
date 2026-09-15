@@ -54,6 +54,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.25rem;
   width: min(72rem, calc(100% - 2rem));
   margin-inline: auto;
   padding-block: 1.25rem;
@@ -85,10 +86,27 @@ footer {
   text-decoration: none;
 }
 
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current="page"],
+.site-nav a[aria-current="location"] {
   color: var(--color-navy);
   text-decoration: underline;
   text-underline-offset: 0.3em;
+}
+
+.labs-subnav {
+  max-width: 18rem;
+  font-size: 0.875rem;
+}
+
+.labs-subnav summary {
+  cursor: pointer;
+  color: var(--color-ocean-deep);
+}
+
+.labs-subnav ul {
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
 }
 
 .visually-hidden {
@@ -803,6 +821,12 @@ footer {
 }
 
 @media (max-width: 48rem) {
+  .site-header,
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
   }

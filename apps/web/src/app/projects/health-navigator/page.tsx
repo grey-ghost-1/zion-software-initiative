@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function HealthNavigatorPage() {
   return (
     <ProjectPage
-      active="projects"
+      active="flagships"
       eyebrow="Project area"
       slug="health-navigator"
       title="Health Navigator"

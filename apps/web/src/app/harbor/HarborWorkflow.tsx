@@ -46,6 +46,7 @@ export function HarborWorkflow({ client: suppliedClient }: HarborWorkflowProps) 
     () =>
       new ZionApiClient({
         baseUrl: process.env.NEXT_PUBLIC_ZION_API_URL ?? "http://localhost:8000",
+        fetch: globalThis.fetch.bind(globalThis),
       }),
     [],
   );
@@ -205,7 +206,11 @@ export function HarborWorkflow({ client: suppliedClient }: HarborWorkflowProps) 
         capacity, or aid delivery is represented.
       </p>
 
-      <form className="harbor-form" onSubmit={start}>
+      <form
+        className="harbor-form"
+        onSubmit={start}
+        aria-label="Synthetic Harbor workflow"
+      >
         <label>
           Synthetic request reference
           <input

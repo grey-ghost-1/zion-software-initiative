@@ -147,7 +147,7 @@ describe("Harbor page", () => {
     render(<HarborPage />);
 
     const nav = screen.getByRole("navigation", { name: "Primary" });
-    expect(within(nav).getByRole("link", { name: "Initiatives" })).toHaveAttribute(
+    expect(within(nav).getByRole("link", { name: "Flagships" })).toHaveAttribute(
       "aria-current",
       "page",
     );
@@ -204,5 +204,30 @@ describe("Harbor page", () => {
 
     expect(await screen.findByRole("alert")).toHaveTextContent("Synthetic API unavailable");
     expect(screen.getByRole("button", { name: /create synthetic request/i })).toBeEnabled();
+  });
+
+  it("binds global fetch for requests through the default client", async () => {
+    const browserFetch = vi.fn(function (this: unknown) {
+      if (this !== globalThis) {
+        throw new TypeError("Illegal invocation");
+      }
+      return Promise.reject(new Error("Synthetic API unavailable"));
+    });
+    vi.stubGlobal("fetch", browserFetch);
+
+    try {
+      render(<HarborWorkflow />);
+      fireEvent.submit(screen.getByRole("form", { name: "Synthetic Harbor workflow" }));
+
+      expect(await screen.findByRole("alert")).toHaveTextContent("Synthetic API unavailable");
+      expect(browserFetch).toHaveBeenCalledOnce();
+      expect(browserFetch).toHaveBeenCalledWith(
+        expect.stringMatching(/\/auth\/login$/),
+        expect.objectContaining({ method: "POST" }),
+      );
+      expect(screen.getByRole("button", { name: /create synthetic request/i })).toBeEnabled();
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

@@ -8,10 +8,7 @@ describe("Evidence page", () => {
     render(<EvidencePage />);
 
     const nav = screen.getByRole("navigation", { name: "Primary" });
-    expect(within(nav).getByRole("link", { name: "Evidence" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
+    expect(within(nav).queryByRole("link", { current: "page" })).toBeNull();
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 

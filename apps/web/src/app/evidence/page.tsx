@@ -13,7 +13,7 @@ export default function EvidencePage() {
   const claims = loadEvidenceClaims();
 
   return (
-    <PageShell active="evidence">
+    <PageShell>
       <section className="page-hero" aria-labelledby="evidence-title">
         <p className="eyebrow">Inspectable claims</p>
         <h1 id="evidence-title">Every implemented claim, linked to proof</h1>

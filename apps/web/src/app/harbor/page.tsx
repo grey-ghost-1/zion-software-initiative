@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function HarborPage() {
   return (
-    <PageShell active="initiatives">
+    <PageShell active="flagships">
       <section className="page-hero harbor-hero" aria-labelledby="harbor-title">
         <p className="eyebrow">Harbor vertical slice</p>
         <h1 id="harbor-title">Community Aid Hub: care for the vulnerable</h1>

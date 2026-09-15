@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function InitiativesPage() {
   return (
-    <PageShell active="initiatives">
+    <PageShell active="flagships">
       <section className="page-hero" aria-labelledby="initiatives-title">
         <p className="eyebrow">Public-interest direction</p>
         <h1 id="initiatives-title">Two implemented Zion flagships</h1>
