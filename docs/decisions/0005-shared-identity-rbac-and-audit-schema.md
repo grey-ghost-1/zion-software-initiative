@@ -6,7 +6,7 @@
 ## Context
 
 GitHub issue #1 asks for the smallest professional-ready foundation that
-Harbor, Haven, Beacon, or any other future initiative can share, without
+Harbor, Haven, or any other future initiative can share, without
 building initiative-specific features yet. Every plausible initiative needs
 accounts, organizations, roles, and an audit trail; building these once now
 avoids each future initiative inventing its own.
@@ -29,8 +29,7 @@ publish and safe to re-run.
 
 Explicitly out of scope for this layer: registration, email delivery,
 password reset, AI/agent execution, background queues, notifications,
-analytics, and any Harbor/Haven/Beacon/Labs-specific feature or deployed
-infrastructure.
+analytics, and any initiative-specific feature or deployed infrastructure.
 
 ## Consequences
 

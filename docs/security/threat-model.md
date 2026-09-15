@@ -6,7 +6,8 @@ This model covers the public source repository, the accessible Next.js
 dual-audience shell, the modular FastAPI service including authentication,
 role-based access control, and organization isolation, the PostgreSQL-backed
 shared schema plus Harbor's synthetic needs, resources, capacity, volunteer
-availability, and plans, dependency supply chain, and CI. There is no deployed
+availability, and plans, Haven's synthetic navigation plans and curated
+guidance/resources, dependency supply chain, and CI. There is no deployed
 service, real user registration, external data/model provider integration, or
 AI execution in scope.
 
@@ -48,6 +49,7 @@ AI execution in scope.
 | Concurrent overbooking | Approval uses an atomic conditional update and the table enforces reserved + fulfilled <= total |
 | Volunteer overexposure | Volunteer endpoint filters by the authenticated synthetic volunteer and returns assignment-only fields |
 | Script injection in resource text | Typed JSON plus React text rendering; tests use hostile synthetic resource text and verify no element injection |
+| Unsafe health guidance | Haven is non-diagnostic, routes emergency/crisis indicators first, accepts controlled synthetic fields only, and links curated resources |
 
 ## Deferred threats
 

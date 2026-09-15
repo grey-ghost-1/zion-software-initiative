@@ -5,21 +5,21 @@ repository is not connected to the Batcomputer project or its branding.
 
 ## Current status
 
-**Shared foundation, stage one, plus the three Zion avenues.** This layer
+**Shared foundation, stage one, plus two Zion flagships.** This layer
 provides an accessible Next.js shell, a modular FastAPI service with
 authentication and role-based access control, a PostgreSQL-backed schema (via
 SQLAlchemy 2 + Alembic) for synthetic users, organizations, memberships, and
-audit events, a typed TypeScript API client, and the Community Aid Hub, Health
-Navigator, and Humanitarian Automation Pipeline demonstrations. There are no
+audit events, a typed TypeScript API client, and the Community Aid Hub and Health
+Navigator demonstrations. There are no
 live product workflows, production deployments, real users, partnerships, or
 measured field outcomes. See
 [GitHub issue #1](https://github.com/grey-ghost-1/zion-software-initiative/issues/1)
 for the foundation scope and [GitHub issue #5](https://github.com/grey-ghost-1/zion-software-initiative/issues/5)
 for the archive evidence.
 
-Harbor, Haven, and Beacon are the implemented Zion demonstrations, surfaced on
-the site as Community Aid Hub, Health Navigator, and Humanitarian Automation
-Pipeline. No other initiative directions are implemented here yet.
+Harbor and Haven are the implemented Zion flagship demonstrations, surfaced on
+the site as Community Aid Hub and Health Navigator. No other initiative
+directions are implemented here yet.
 
 No demo is currently deployed. Harbor is software evidence, not an available
 coordination product or evidence of impact.
@@ -52,15 +52,12 @@ coordination product or evidence of impact.
   synthetic needs/resources, transparent deterministic matching, coordinator
   triage and override reasons, atomic capacity reservation, volunteer plan
   approval, fulfillment, an append-only audit timeline, and small metrics.
+  Unknown or stale capacity is unavailable, and protected traits are absent
+  from request and scoring contracts.
 - **Haven** (`apps/api/zion_api/routes/haven.py`, `apps/web/src/app/initiatives/haven`):
   non-diagnostic synthetic concern navigation with emergency and crisis bypass,
   curated resources, validated guidance cards, and org-scoped review/close
   actions.
-- **Beacon** (`apps/api/zion_api/services/beacon`, `apps/web/src/app/initiatives/beacon`):
-  one fixed synthetic workflow with typed tools, idempotent runs, policy and
-  provenance checks, explainable allocation, and coordinator approval.
-  Unknown/stale capacity is unavailable, and protected traits are absent from
-  request and scoring contracts.
 
 ## Safety and data boundaries
 
@@ -78,8 +75,8 @@ and [evidence inventory](docs/evidence/inventory.json).
 
 | Path | Purpose |
 | --- | --- |
-| `apps/web` | Next.js App Router dual-audience shell and Harbor workflow |
-| `apps/api` | Modular FastAPI service: foundation plus Harbor routes/services |
+| `apps/web` | Next.js App Router shell plus Harbor and Haven experiences |
+| `apps/api` | Modular FastAPI service: foundation plus Harbor and Haven routes/services |
 | `apps/api/migrations` | Alembic migrations for the shared schema |
 | `packages/config` | Shared beach-palette design tokens |
 | `packages/ui` | Reusable `StatusBadge` and `CaseStudyCard` primitives |
@@ -87,7 +84,7 @@ and [evidence inventory](docs/evidence/inventory.json).
 | `docs/architecture` | Architecture overview |
 | `docs/decisions` | Architecture decision records |
 | `docs/security` | Security boundaries and threat model |
-| `docs/case-studies` | Evidence-backed case studies, including Harbor |
+| `docs/case-studies` | Evidence-backed case studies |
 | `infra` | Docker Compose for local PostgreSQL only; no deployment infrastructure provisioned |
 
 ## Prerequisites

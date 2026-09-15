@@ -7,15 +7,15 @@ export default function Home() {
         <p className="eyebrow">Zion software platform</p>
         <h1 id="hero-title">Zion — software rooted in peace, justice, and human goodwill.</h1>
         <p className="hero-copy">
-          Zion is a peacekeeping software initiative built on three core avenues of
-          impact. The site keeps a cloud-bright, navy-accented feel so the work stays
+          Zion is a peacekeeping software initiative with two implemented flagship
+          projects. The site keeps a cloud-bright, navy-accented feel so the work stays
           calm, legible, and grounded in a castle-like sense of structure.
         </p>
         <aside className="status" aria-labelledby="status-title">
           <h2 id="status-title">Foundation status</h2>
           <p>
-            This repository includes the shared technical foundation plus the three
-            Zion avenues of impact. It has no deployed service, real users,
+            This repository includes the shared technical foundation plus the Harbor
+            and Haven flagship demonstrations. It has no deployed service, real users,
             partners, or measured field outcomes; all accounts and workflow data are
             synthetic demo material.
           </p>
@@ -25,7 +25,7 @@ export default function Home() {
       <section className="explore" aria-labelledby="explore-title">
         <div className="section-heading">
           <p className="eyebrow">Find your way around</p>
-          <h2 id="explore-title">Three core avenues, one honest map</h2>
+          <h2 id="explore-title">Two flagships, one honest map</h2>
         </div>
         <div className="card-grid">
           <article>
@@ -36,17 +36,13 @@ export default function Home() {
             <h3>Healing &amp; Health Access</h3>
             <p>Health Navigator and Care Routing Directory make care easier to understand.</p>
           </article>
-          <article>
-            <h3>AI Infrastructure, Automation &amp; Empowerment</h3>
-            <p>Humanitarian Automation Pipeline and AI Empowerment &amp; Education Suite.</p>
-          </article>
         </div>
       </section>
 
       <section className="project-index" aria-labelledby="projects-title">
         <div className="section-heading">
           <p className="eyebrow">Project areas</p>
-          <h2 id="projects-title">Three first-class Zion project pages</h2>
+          <h2 id="projects-title">Two first-class Zion project pages</h2>
           <p>
             Each project area has its own page with purpose, audience, features,
             limitations, and evidence, so the site can point to real work instead of a
@@ -56,9 +52,6 @@ export default function Home() {
         <nav className="project-index-nav" aria-label="Project pages">
           <a href="/projects/community-aid-hub">Community Aid Hub</a>
           <a href="/projects/health-navigator">Health Navigator</a>
-          <a href="/projects/humanitarian-automation-pipeline">
-            Humanitarian Automation Pipeline
-          </a>
           <a href="/projects">Open the projects index</a>
         </nav>
       </section>

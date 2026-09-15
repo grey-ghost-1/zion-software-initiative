@@ -45,7 +45,6 @@ from zion_api.models.harbor import (
 from zion_api.models.membership import Membership
 from zion_api.models.organization import Organization
 from zion_api.models.user import User
-from zion_api.services.beacon.engine import ensure_workflow_definition
 
 _NAMESPACE = uuid.UUID("2f9c9c14-9b0c-4e0f-8f0e-8b1a3f7d6c21")
 
@@ -327,9 +326,6 @@ def seed_demo_data(db: Session) -> None:
                     available=True,
                 )
             )
-    ensure_workflow_definition(db)
-
-
 def main() -> None:
     """Entry point for ``python -m zion_api.seed``."""
 

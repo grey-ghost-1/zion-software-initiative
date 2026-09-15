@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     <PageShell active="projects">
       <section className="page-hero" aria-labelledby="projects-title">
         <p className="eyebrow">Zion project areas</p>
-        <h1 id="projects-title">Three first-class project pages, one shared foundation</h1>
+        <h1 id="projects-title">Two first-class project pages, one shared foundation</h1>
         <p className="page-intro">
           These project pages are the front door for the Zion work. Each one now has a
           truthful page for purpose, audience, features, limitations, and evidence — not
@@ -20,9 +20,6 @@ export default function ProjectsPage() {
         <nav className="project-nav" aria-label="Project pages">
           <a href="/projects/community-aid-hub">Community Aid Hub</a>
           <a href="/projects/health-navigator">Health Navigator</a>
-          <a href="/projects/humanitarian-automation-pipeline">
-            Humanitarian Automation Pipeline
-          </a>
           <a href="/initiatives">Initiatives</a>
         </nav>
       </section>
@@ -30,7 +27,7 @@ export default function ProjectsPage() {
       <section className="project-index" aria-labelledby="project-pages-title">
         <div className="section-heading">
           <p className="eyebrow">Project index</p>
-          <h2 id="project-pages-title">The three Zion project routes</h2>
+          <h2 id="project-pages-title">The two Zion project routes</h2>
           <p>
             The index keeps the cloud theme calm and readable while the navy accents make
             the structure feel anchored instead of decorative.
@@ -67,20 +64,6 @@ export default function ProjectsPage() {
             </ul>
           </CaseStudyCard>
 
-          <CaseStudyCard
-            variant="impact"
-            title="Humanitarian Automation Pipeline"
-            status="implemented"
-            summary="A typed workflow that turns a fixed fixture into explainable allocation, policy checks, and human review."
-            detailsHref="/projects/humanitarian-automation-pipeline"
-            detailsLabel="Open Humanitarian Automation Pipeline"
-          >
-            <ul className="case-study-card__list">
-              <li>Purpose: reduce repetitive coordination work.</li>
-              <li>Audience: coordinators, learners, and engineers.</li>
-              <li>Evidence: Beacon page, engine, and allocation tests.</li>
-            </ul>
-          </CaseStudyCard>
         </div>
       </section>
 

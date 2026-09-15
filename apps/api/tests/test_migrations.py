@@ -14,6 +14,7 @@ from pathlib import Path
 
 from alembic import command
 from alembic.config import Config
+from alembic.script import ScriptDirectory
 from sqlalchemy import create_engine, inspect
 
 API_ROOT = Path(__file__).resolve().parents[1]
@@ -24,11 +25,6 @@ EXPECTED_TABLES = {
     "auth_tokens",
     "memberships",
     "audit_events",
-    "beacon_workflow_definitions",
-    "beacon_workflow_runs",
-    "beacon_workflow_run_steps",
-    "beacon_fixture_provenance",
-    "beacon_allocation_proposals",
     "haven_resources",
     "haven_guidance_cards",
     "haven_navigation_plans",
@@ -39,6 +35,8 @@ EXPECTED_TABLES = {
     "harbor_volunteer_availability",
     "alembic_version",
 }
+
+EXPECTED_REVISIONS = ["0003", "0002", "0001"]
 
 
 def _alembic_config(database_url: str) -> Config:
@@ -57,8 +55,15 @@ def test_upgrade_head_creates_the_expected_tables(tmp_path: Path) -> None:
 
     engine = create_engine(database_url)
     tables = set(inspect(engine).get_table_names())
-    assert EXPECTED_TABLES <= tables
+    assert tables == EXPECTED_TABLES
     engine.dispose()
+
+
+def test_migration_history_has_one_linear_head() -> None:
+    scripts = ScriptDirectory.from_config(_alembic_config("sqlite://"))
+
+    assert scripts.get_heads() == ["0003"]
+    assert [revision.revision for revision in scripts.walk_revisions()] == EXPECTED_REVISIONS
 
 
 def test_downgrade_base_removes_every_table(tmp_path: Path) -> None:
@@ -85,5 +90,5 @@ def test_upgrade_head_is_idempotent_when_rerun(tmp_path: Path) -> None:
 
     engine = create_engine(database_url)
     tables = set(inspect(engine).get_table_names())
-    assert EXPECTED_TABLES <= tables
+    assert tables == EXPECTED_TABLES
     engine.dispose()

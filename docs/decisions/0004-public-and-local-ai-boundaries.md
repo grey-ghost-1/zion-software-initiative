@@ -5,9 +5,9 @@
 
 ## Context
 
-Beacon may later explore AI orchestration in sensitive social-impact contexts.
-Public interfaces can invite prompt injection, data leakage, unsafe automation,
-and misleading claims of autonomy.
+Future initiatives may explore AI orchestration in sensitive social-impact
+contexts. Public interfaces can invite prompt injection, data leakage, unsafe
+automation, and misleading claims of autonomy.
 
 ## Decision
 
@@ -18,5 +18,5 @@ controls, observability, evaluation evidence, and a new security review.
 
 ## Consequences
 
-Beacon remains a documented direction rather than a working AI service. No user
-should infer autonomous humanitarian, health, or safety-critical operation.
+AI orchestration remains outside the implemented product. No user should infer
+autonomous humanitarian, health, or safety-critical operation.

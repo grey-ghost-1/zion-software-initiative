@@ -5,8 +5,8 @@ curated outbound resources with provenance/freshness metadata, and synthetic
 organization-scoped navigation plans that store only controlled enum values
 and boolean safety flags (never free text, identity, or location).
 
-Revision ID: 0004
-Revises: 0003
+Revision ID: 0003
+Revises: 0002
 Create Date: 2026-09-02 00:00:00.000000
 
 """
@@ -19,8 +19,8 @@ import sqlalchemy as sa
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision: str = "0004"
-down_revision: str | None = "0003"
+revision: str = "0003"
+down_revision: str | None = "0002"
 branch_labels: Sequence[str] | None = None
 depends_on: Sequence[str] | None = None
 
