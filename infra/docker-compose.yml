@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      # Synthetic local-development credentials only — never used outside a
+      # developer's own machine and never committed as real secrets.
+      POSTGRES_USER: zion
+      POSTGRES_PASSWORD: zion
+      POSTGRES_DB: zion
+    ports:
+      - "5432:5432"
+    volumes:
+      - zion-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zion -d zion"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  zion-postgres-data:

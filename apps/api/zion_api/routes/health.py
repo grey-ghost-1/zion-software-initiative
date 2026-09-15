@@ -1,9 +1,15 @@
-"""Minimal health contracts for the foundation service."""
+"""Health contracts: a minimal liveness probe and a truthful readiness probe."""
+
+from __future__ import annotations
 
 from typing import Literal
 
-from fastapi import APIRouter, status
+from fastapi import APIRouter, Depends, Response, status
 from pydantic import BaseModel
+from sqlalchemy import text
+from sqlalchemy.orm import Session
+
+from zion_api.db.session import get_db
 
 router = APIRouter(prefix="/health", tags=["health"])
 
@@ -15,11 +21,11 @@ class LivenessResponse(BaseModel):
 
 
 class ReadinessResponse(BaseModel):
-    """Truthful readiness response for the foundation-only service."""
+    """Truthful readiness response reflecting real database connectivity."""
 
-    status: Literal["foundation_only"] = "foundation_only"
-    ready: Literal[False] = False
-    detail: str = "Production dependencies and product modules are not configured."
+    status: Literal["ok", "degraded"]
+    ready: bool
+    detail: str
 
 
 @router.get("/live", response_model=LivenessResponse)
@@ -31,10 +37,27 @@ def liveness() -> LivenessResponse:
 
 @router.get(
     "/ready",
-    status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
     response_model=ReadinessResponse,
+    responses={
+        status.HTTP_200_OK: {"description": "The database is reachable."},
+        status.HTTP_503_SERVICE_UNAVAILABLE: {"description": "The database is not reachable."},
+    },
 )
-def readiness() -> ReadinessResponse:
-    """Remain unready until later layers configure real dependencies."""
+def readiness(response: Response, db: Session = Depends(get_db)) -> ReadinessResponse:
+    """Check real database connectivity and report it truthfully.
 
-    return ReadinessResponse()
+    This intentionally does not report readiness for domain/product modules
+    that do not exist yet in this foundation layer.
+    """
+
+    try:
+        db.execute(text("SELECT 1"))
+    except Exception:  # noqa: BLE001 - any connectivity failure means not ready
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+        return ReadinessResponse(
+            status="degraded", ready=False, detail="The database is not reachable."
+        )
+    response.status_code = status.HTTP_200_OK
+    return ReadinessResponse(
+        status="ok", ready=True, detail="The database connectivity check succeeded."
+    )

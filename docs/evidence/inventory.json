@@ -25,10 +25,59 @@
     },
     {
       "id": "foundation-readiness-contract",
-      "claim": "The API reports HTTP 503 and ready false while only the repository foundation exists.",
+      "claim": "The API checks real database connectivity and truthfully reports HTTP 200/ready when reachable or HTTP 503/not-ready when it is not.",
       "status": "implemented",
       "evidence": "apps/api/zion_api/routes/health.py",
       "verified_by": "apps/api/tests/test_health.py"
+    },
+    {
+      "id": "typed-error-envelope-and-request-ids",
+      "claim": "Every API error response uses a typed envelope with a stable error code and a request ID, and every response carries a matching X-Request-ID header.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/core/errors.py",
+      "verified_by": "apps/api/tests/test_errors_and_cors.py"
+    },
+    {
+      "id": "password-auth-and-session-tokens",
+      "claim": "Passwords are hashed with bcrypt, never logged or returned, and login issues an expiring, revocable session token that is rejected once expired or revoked.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/core/security.py",
+      "verified_by": "apps/api/tests/test_auth.py"
+    },
+    {
+      "id": "rbac-and-org-isolation",
+      "claim": "Server-side role checks and organization-scoped queries prevent a member of one organization from reading or acting on another organization's data, returning a not-found response instead of leaking existence.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/deps.py",
+      "verified_by": "apps/api/tests/test_rbac.py"
+    },
+    {
+      "id": "admin-action-audit-trail",
+      "claim": "Login and the admin-only demonstration endpoint each append an immutable audit event; audit rows reject in-place updates and deletes at the database level.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/db/audit_guard.py",
+      "verified_by": "apps/api/tests/test_audit.py"
+    },
+    {
+      "id": "deterministic-demo-seed",
+      "claim": "The seed script creates the same synthetic organizations, memberships, and demo accounts every time it runs against an empty database, with no real personal data.",
+      "status": "implemented",
+      "evidence": "apps/api/zion_api/seed.py",
+      "verified_by": "apps/api/tests/test_seed.py"
+    },
+    {
+      "id": "typed-frontend-api-client",
+      "claim": "A typed TypeScript client package covers every implemented API endpoint (health, login, /me, org members) with response types mirrored from the API schemas.",
+      "status": "implemented",
+      "evidence": "packages/api-client/src/index.ts",
+      "verified_by": "packages/api-client/src/index.test.ts"
+    },
+    {
+      "id": "dual-audience-page-shell",
+      "claim": "The web app renders Home, Initiatives, Projects, Evidence, and About Justin pages behind one accessible shared shell with a skip link and current-page navigation, and reuses shared status and case-study card primitives.",
+      "status": "implemented",
+      "evidence": "apps/web/src/components/PageShell.tsx",
+      "verified_by": "apps/web/src/app/page.test.tsx"
     }
   ]
 }
