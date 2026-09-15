@@ -11,11 +11,11 @@ export default function InitiativesPage() {
     <PageShell active="initiatives">
       <section className="page-hero" aria-labelledby="initiatives-title">
         <p className="eyebrow">Public-interest direction</p>
-        <h1 id="initiatives-title">Three original avenues of Zion</h1>
+        <h1 id="initiatives-title">Two implemented Zion flagships</h1>
         <p className="page-intro">
-          Zion is built around three original avenues of impact. Each avenue is
-          synthetic here, but the structure is designed to prove that software can
-          heal, protect, and uplift.
+          Harbor and Haven are Zion&apos;s implemented flagship demonstrations. Both
+          are synthetic here, with boundaries designed to keep the work truthful,
+          inspectable, and safe.
         </p>
       </section>
 
@@ -79,27 +79,15 @@ export default function InitiativesPage() {
               cards, and curated resources.
             </p>
           </article>
-          <article>
-            <h3>
-              <a href="/initiatives/beacon">AI Infrastructure, Automation &amp; Empowerment</a>
-            </h3>
-            <p>
-              <StatusBadge status="implemented" label="Working demonstration" /> Humanitarian
-              Automation Pipeline and AI Empowerment &amp; Education Suite — Beacon —
-              automate coordination with typed steps, policy and provenance checks,
-              explainable allocation, and required human approval.
-            </p>
-          </article>
         </div>
       </section>
 
       <section className="status-section" aria-labelledby="status-title">
         <h2 id="status-title">Current status</h2>
         <p>
-          <StatusBadge status="implemented" label="Working demonstration" /> Harbor,
-          Haven, and Beacon are the implemented Zion demonstrations. They map to
-          care for the vulnerable, healing &amp; health access, and AI infrastructure,
-          automation &amp; empowerment. The shared foundation is described on the{" "}
+          <StatusBadge status="implemented" label="Working demonstration" /> Harbor and
+          Haven are the implemented Zion flagships. They map to care for the vulnerable
+          and healing &amp; health access. The shared foundation is described on the{" "}
           <a href="/projects">Projects</a> page.
         </p>
       </section>

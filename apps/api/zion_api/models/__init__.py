@@ -10,14 +10,7 @@ from __future__ import annotations
 from zion_api.db import audit_guard as audit_guard  # noqa: F401  (registers event listener)
 from zion_api.models.audit_event import AuditEvent
 from zion_api.models.auth_token import AuthToken
-from zion_api.models.beacon import (
-    AllocationProposal,
-    FixtureProvenance,
-    WorkflowDefinition,
-    WorkflowRun,
-    WorkflowRunStep,
-)
-from zion_api.models.enums import ProposalStatus, Role, RunStatus, StepStatus
+from zion_api.models.enums import Role
 from zion_api.models.harbor import (
     AccessibilityRequirement,
     AccessibilityStatus,
@@ -47,7 +40,6 @@ from zion_api.models.organization import Organization
 from zion_api.models.user import User
 
 __all__ = [
-    "AllocationProposal",
     "AuditEvent",
     "AuthToken",
     "AccessibilityRequirement",
@@ -60,7 +52,6 @@ __all__ = [
     "HarborResource",
     "HarborVolunteerAvailability",
     "HarborZone",
-    "FixtureProvenance",
     "HavenGuidanceCard",
     "HavenNavigationPlan",
     "HavenResource",
@@ -69,16 +60,10 @@ __all__ = [
     "NeedStatus",
     "NeedUrgency",
     "Organization",
-    "ProposalStatus",
     "Role",
     "PlanStatus",
     "ResourceStatus",
     "TriageDecision",
     "TriageReason",
-    "RunStatus",
-    "StepStatus",
     "User",
-    "WorkflowDefinition",
-    "WorkflowRun",
-    "WorkflowRunStep",
 ]

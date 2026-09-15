@@ -56,7 +56,6 @@ export default function CommunityAidHubPage() {
       relatedLinks={[
         { href: "/projects", label: "Back to projects index" },
         { href: "/projects/health-navigator", label: "Health Navigator" },
-        { href: "/projects/humanitarian-automation-pipeline", label: "Humanitarian Automation Pipeline" },
       ]}
     />
   );

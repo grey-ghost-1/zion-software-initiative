@@ -1,12 +1,6 @@
 import { ZionApiError } from "./errors";
 import type {
   ApiErrorBody,
-  BeaconApprovalRequest,
-  BeaconCapabilitiesResponse,
-  BeaconRunDetail,
-  BeaconRunListResponse,
-  BeaconStartRunRequest,
-  BeaconStartRunResponse,
   HarborAuditTimeline,
   HarborMatchResponse,
   HarborMetrics,
@@ -42,21 +36,6 @@ export { ZionApiError } from "./errors";
 export type {
   AccessibilityRequirement,
   AccessibilityStatus,
-  BeaconAllocationLine,
-  BeaconApprovalRequest,
-  BeaconCapabilitiesResponse,
-  BeaconPolicyCheck,
-  BeaconProposal,
-  BeaconProvenance,
-  BeaconRunDetail,
-  BeaconRunListResponse,
-  BeaconRunStep,
-  BeaconRunSummary,
-  BeaconScenario,
-  BeaconStartRunRequest,
-  BeaconStartRunResponse,
-  BeaconToolSpec,
-  BeaconWorkflowStep,
   Eligibility,
   HarborAuditItem,
   HarborAuditTimeline,
@@ -317,70 +296,6 @@ export class ZionApiClient {
     return this.request<HarborMetrics>(
       "GET",
       `/harbor/${encodeURIComponent(organizationSlug)}/metrics`,
-      { accessToken },
-    );
-  }
-
-  getBeaconCapabilities(): Promise<BeaconCapabilitiesResponse> {
-    return this.request<BeaconCapabilitiesResponse>("GET", "/beacon/capabilities");
-  }
-
-  startBeaconRun(
-    organizationSlug: string,
-    payload: BeaconStartRunRequest,
-    accessToken: string,
-  ): Promise<BeaconStartRunResponse> {
-    return this.request<BeaconStartRunResponse>(
-      "POST",
-      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs`,
-      { body: payload, accessToken },
-    );
-  }
-
-  listBeaconRuns(
-    organizationSlug: string,
-    accessToken: string,
-  ): Promise<BeaconRunListResponse> {
-    return this.request<BeaconRunListResponse>(
-      "GET",
-      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs`,
-      { accessToken },
-    );
-  }
-
-  getBeaconRun(
-    organizationSlug: string,
-    runId: string,
-    accessToken: string,
-  ): Promise<BeaconRunDetail> {
-    return this.request<BeaconRunDetail>(
-      "GET",
-      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs/${encodeURIComponent(runId)}`,
-      { accessToken },
-    );
-  }
-
-  decideBeaconAllocation(
-    organizationSlug: string,
-    runId: string,
-    payload: BeaconApprovalRequest,
-    accessToken: string,
-  ): Promise<BeaconRunDetail> {
-    return this.request<BeaconRunDetail>(
-      "POST",
-      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs/${encodeURIComponent(runId)}/approval`,
-      { body: payload, accessToken },
-    );
-  }
-
-  replayBeaconRun(
-    organizationSlug: string,
-    runId: string,
-    accessToken: string,
-  ): Promise<BeaconRunDetail> {
-    return this.request<BeaconRunDetail>(
-      "POST",
-      `/beacon/organizations/${encodeURIComponent(organizationSlug)}/runs/${encodeURIComponent(runId)}/replay`,
       { accessToken },
     );
   }
