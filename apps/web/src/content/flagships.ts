@@ -22,7 +22,7 @@ export type FlagshipModule = {
   id: "harbor" | "haven";
   name: string;
   descriptor: string;
-  route: "/harbor" | "/initiatives/haven";
+  route: "/flagships/harbor" | "/flagships/haven";
   purpose: string;
   fit: string;
   architecture: string;
@@ -40,7 +40,7 @@ export const flagshipModules = [
     id: "harbor",
     name: "Harbor",
     descriptor: "Community coordination",
-    route: "/harbor",
+    route: "/flagships/harbor",
     purpose:
       "Demonstrate an understandable, human-approved workflow for coordinating synthetic assistance requests, constrained resources, volunteer plans, and fulfillment.",
     fit:
@@ -60,7 +60,7 @@ export const flagshipModules = [
       operationalLabel: "Not deployed or production-verified",
     },
     evidence: [
-      { label: "Open the Harbor demonstration", href: "/harbor" },
+      { label: "Open the Harbor demonstration", href: "/flagships/harbor" },
       {
         label: "Inspect the Harbor API routes",
         href: `${REPOSITORY_BASE}/apps/api/zion_api/routes/harbor.py`,
@@ -87,7 +87,7 @@ export const flagshipModules = [
     id: "haven",
     name: "Haven",
     descriptor: "Non-diagnostic navigation",
-    route: "/initiatives/haven",
+    route: "/flagships/haven",
     purpose:
       "Demonstrate plain-language, non-diagnostic navigation from a synthetic concern to bounded next steps and curated official resources.",
     fit:
@@ -107,7 +107,7 @@ export const flagshipModules = [
       operationalLabel: "Not deployed or production-verified",
     },
     evidence: [
-      { label: "Open the Haven demonstration", href: "/initiatives/haven" },
+      { label: "Open the Haven demonstration", href: "/flagships/haven" },
       {
         label: "Inspect the Haven API routes",
         href: `${REPOSITORY_BASE}/apps/api/zion_api/routes/haven.py`,

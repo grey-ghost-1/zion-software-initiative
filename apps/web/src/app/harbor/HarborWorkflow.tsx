@@ -205,7 +205,11 @@ export function HarborWorkflow({ client: suppliedClient }: HarborWorkflowProps) 
         capacity, or aid delivery is represented.
       </p>
 
-      <form className="harbor-form" onSubmit={start}>
+      <form
+        className="harbor-form"
+        onSubmit={start}
+        aria-label="Synthetic Harbor workflow"
+      >
         <label>
           Synthetic request reference
           <input

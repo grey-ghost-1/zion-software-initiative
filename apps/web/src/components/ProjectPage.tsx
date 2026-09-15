@@ -15,7 +15,7 @@ interface EvidenceLink {
 }
 
 interface ProjectPageProps {
-  active: "projects";
+  active: "flagships";
   eyebrow: string;
   slug: string;
   title: string;

@@ -73,8 +73,8 @@
       "verified_by": "packages/api-client/src/index.test.ts"
     },
     {
-      "id": "dual-audience-page-shell",
-      "claim": "The web app renders Home, Initiatives, Projects, and Evidence pages behind one accessible shared shell with a skip link and current-page navigation, and reuses shared status and case-study card primitives.",
+      "id": "unified-page-shell",
+      "claim": "The web app renders Mission, Architecture, Flagships, and Zion Labs navigation behind one accessible shared shell with a skip link, current-page navigation, source link, and global disclosure.",
       "status": "implemented",
       "evidence": "apps/web/src/components/PageShell.tsx",
       "verified_by": "apps/web/src/app/page.test.tsx"
@@ -102,17 +102,17 @@
     },
     {
       "id": "harbor-accessible-workflow",
-      "claim": "The Harbor route presents impact and engineering evidence plus a keyboard-operable request-to-audit synthetic workflow with semantic loading, empty, and error states using the typed API client.",
+      "claim": "The canonical Harbor page presents normalized case-study sections, capacity and approval controls, and a keyboard-operable request-to-audit synthetic workflow using the typed API client.",
       "status": "implemented",
       "evidence": "apps/web/src/app/harbor/HarborWorkflow.tsx",
-      "verified_by": "apps/web/src/app/harbor/page.test.tsx"
+      "verified_by": "apps/web/src/app/flagships/harbor/page.test.tsx"
     },
     {
       "id": "haven-accessible-navigation",
-      "claim": "The web app publishes an accessible Haven page that keeps diagnosis out, surfaces emergency 911/988 guidance, and demonstrates synthetic navigation with curated resources and reviewable plans.",
+      "claim": "The canonical Haven page presents normalized case-study sections, fixed emergency 911/988 guidance, and synthetic non-diagnostic navigation with curated resources and reviewable plans.",
       "status": "implemented",
-      "evidence": "apps/web/src/app/initiatives/haven/page.tsx",
-      "verified_by": "apps/web/src/app/initiatives/haven/page.test.tsx"
+      "evidence": "apps/web/src/app/flagships/haven/page.tsx",
+      "verified_by": "apps/web/src/app/flagships/haven/page.test.tsx"
     },
     {
       "id": "cloud-navy-palette",
@@ -122,32 +122,32 @@
       "verified_by": "apps/web production build"
     },
     {
-      "id": "homepage-project-index",
-      "claim": "The homepage surfaces the Harbor and Haven flagship project pages with direct links and keeps the cloud-bright, navy-accented direction explicit.",
+      "id": "homepage-flagship-index",
+      "claim": "The homepage surfaces exactly the Harbor and Haven canonical flagship pages with direct links.",
       "status": "implemented",
       "evidence": "apps/web/src/app/page.tsx",
       "verified_by": "apps/web/src/app/page.test.tsx"
     },
     {
-      "id": "projects-index-first-class",
-      "claim": "The projects index surfaces the Harbor and Haven project routes first and keeps the supporting foundation cards separate.",
+      "id": "zion-labs-boundaries",
+      "claim": "Zion Labs separates unimplemented interoperability concepts and attributed external prior-work evidence from Zion's implemented flagships.",
       "status": "implemented",
-      "evidence": "apps/web/src/app/projects/page.tsx",
-      "verified_by": "apps/web/src/app/projects/page.test.tsx"
+      "evidence": "apps/web/src/app/labs/page.tsx",
+      "verified_by": "apps/web/src/app/labs/page.test.tsx"
     },
     {
-      "id": "community-aid-hub-page",
-      "claim": "The Community Aid Hub page presents purpose, audience, features, limitations, and evidence for the synthetic community-aid coordination route.",
+      "id": "prior-work-immutable-attribution",
+      "claim": "The prior-work page attributes Justin Wimmer and the Batcomputer Portfolio origin and links only to audited immutable evidence without copying branding, source, project copy, or assets.",
       "status": "implemented",
-      "evidence": "apps/web/src/app/projects/community-aid-hub/page.tsx",
-      "verified_by": "apps/web/src/app/projects/community-aid-hub/page.test.tsx"
+      "evidence": "apps/web/src/app/labs/prior-work/page.tsx",
+      "verified_by": "apps/web/src/app/labs/prior-work/page.test.tsx"
     },
     {
-      "id": "health-navigator-page",
-      "claim": "The Health Navigator page presents purpose, audience, features, limitations, and evidence for the synthetic health-access route.",
+      "id": "canonical-route-redirects",
+      "claim": "Legacy Harbor, Haven, initiatives, and project routes redirect one way to canonical flagship destinations while removed Beacon routes remain absent.",
       "status": "implemented",
-      "evidence": "apps/web/src/app/projects/health-navigator/page.tsx",
-      "verified_by": "apps/web/src/app/projects/health-navigator/page.test.tsx"
+      "evidence": "apps/web/next.config.ts",
+      "verified_by": "apps/web/src/app/routes.test.ts"
     }
   ]
 }

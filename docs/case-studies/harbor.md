@@ -44,7 +44,8 @@ data feeds.
 - Database constraints: `apps/api/zion_api/models/harbor.py`
 - Backend and concurrency tests: `apps/api/tests/test_harbor.py`
 - Typed client: `packages/api-client/src/index.ts`
-- Accessible workflow: `apps/web/src/app/harbor`
+- Canonical case study: `apps/web/src/app/flagships/harbor/page.tsx`
+- Accessible workflow component: `apps/web/src/app/harbor/HarborWorkflow.tsx`
 
 ## Roadmap boundary
 

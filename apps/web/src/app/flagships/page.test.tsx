@@ -3,19 +3,23 @@ import { describe, expect, it } from "vitest";
 import FlagshipsPage from "./page";
 
 describe("flagships page", () => {
-  it("renders the two catalog modules and their existing routes", () => {
+  it("renders the two catalog modules and their canonical routes", () => {
     const { container } = render(<FlagshipsPage />);
 
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+    expect(screen.getByRole("link", { name: "Flagships" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
     expect(screen.getByRole("heading", { name: "Harbor" })).toBeVisible();
     expect(screen.getByRole("heading", { name: "Haven" })).toBeVisible();
-    expect(screen.getByRole("link", { name: "Open the existing Harbor route" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Open Harbor" })).toHaveAttribute(
       "href",
-      "/harbor",
+      "/flagships/harbor",
     );
-    expect(screen.getByRole("link", { name: "Open the existing Haven route" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Open Haven" })).toHaveAttribute(
       "href",
-      "/initiatives/haven",
+      "/flagships/haven",
     );
 
     const excludedModuleName = ["Bea", "con"].join("");
@@ -28,12 +32,12 @@ describe("flagships page", () => {
     expect(screen.getAllByText("Implemented synthetic demonstration")).toHaveLength(2);
     expect(screen.getAllByText("Not deployed or production-verified")).toHaveLength(2);
     for (const heading of [
-      "Purpose",
+      "Module Purpose",
       "How it fits Zion",
-      "Actual architecture",
-      "Boundaries and limitations",
-      "Interview story",
-      "Evidence",
+      "Architecture Summary",
+      "Boundaries and Limitations",
+      "Interview Story",
+      "Demo and Evidence",
     ]) {
       expect(screen.getAllByRole("heading", { name: heading })).toHaveLength(2);
     }

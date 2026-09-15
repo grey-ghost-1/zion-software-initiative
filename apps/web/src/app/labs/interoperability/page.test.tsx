@@ -10,9 +10,9 @@ describe("interoperability roadmap", () => {
     expect(screen.getByText("Unimplemented concepts")).toBeVisible();
     expect(screen.getByText(/zero implementation and zero tests/i)).toBeVisible();
     for (const name of [
-      "FHIR Dashboard",
-      "HL7-to-FHIR Converter",
-      "EHR Workflow Simulator",
+      "Standards-shaped resource dashboard",
+      "Message-mapping teaching exercise",
+      "Human-review workflow simulator",
     ]) {
       expect(screen.getByRole("heading", { name })).toBeVisible();
     }
@@ -28,6 +28,7 @@ describe("interoperability roadmap", () => {
     expect(screen.getByText(/SMART on FHIR integration/i)).toBeVisible();
     expect(screen.getByText(/standards conformance, certification, clinical use/i)).toBeVisible();
     expect(screen.getByText(/HIPAA compliance, real PHI, diagnosis or treatment/i)).toBeVisible();
+    expect(screen.getByText(/no implementation, tests, external demo, or prior-work claim/i)).toBeVisible();
     expect(screen.getByText(/no Batcomputer content or assets are copied/i)).toBeVisible();
   });
 });

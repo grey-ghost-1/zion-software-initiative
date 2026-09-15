@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MissionPage() {
   return (
-    <PageShell active="home">
+    <PageShell active="mission">
       <section className="page-hero" aria-labelledby="mission-title">
         <p className="eyebrow">One responsible-engineering platform</p>
         <h1 id="mission-title">Human judgment stays at the center of consequential workflows</h1>

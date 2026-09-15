@@ -7,7 +7,7 @@ describe("Initiatives page", () => {
     render(<InitiativesPage />);
 
     const nav = screen.getByRole("navigation", { name: "Primary" });
-    expect(within(nav).getByRole("link", { name: "Initiatives" })).toHaveAttribute(
+    expect(within(nav).getByRole("link", { name: "Flagships" })).toHaveAttribute(
       "aria-current",
       "page",
     );

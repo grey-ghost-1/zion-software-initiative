@@ -7,6 +7,10 @@ describe("architecture page", () => {
     render(<ArchitecturePage />);
 
     expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Architecture" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(
       screen.getByText(/requests move from the Next\.js user interface/i),
@@ -50,7 +54,7 @@ describe("architecture page", () => {
 
     expect(screen.getByText(/Automated CI runs lint, type, test, and build checks/i)).toBeVisible();
     expect(screen.getByText(/health and readiness endpoints are implemented/i)).toBeVisible();
-    expect(screen.getByText(/managed PostgreSQL, HTTPS termination/i)).toBeVisible();
-    expect(screen.getByText(/rollback verification remain pending/i)).toBeVisible();
+    expect(screen.getByText(/managed production PostgreSQL, public HTTPS verification/i)).toBeVisible();
+    expect(screen.getByText(/rollback exercise remain pending or unverified/i)).toBeVisible();
   });
 });

@@ -9,17 +9,17 @@ export const metadata: Metadata = {
 
 const concepts = [
   {
-    name: "FHIR Dashboard",
+    name: "Standards-shaped resource dashboard",
     question:
       "Could a future synthetic-data interface make standards-shaped resource relationships understandable without implying clinical authority?",
   },
   {
-    name: "HL7-to-FHIR Converter",
+    name: "Message-mapping teaching exercise",
     question:
       "Could a future offline teaching tool explain mapping tradeoffs using fabricated examples and explicit validation failures?",
   },
   {
-    name: "EHR Workflow Simulator",
+    name: "Human-review workflow simulator",
     question:
       "Could a future simulator help engineers study human review points without connecting to a real care environment?",
   },
@@ -27,7 +27,7 @@ const concepts = [
 
 export default function InteroperabilityRoadmapPage() {
   return (
-    <PageShell active="initiatives">
+    <PageShell active="labs">
       <section className="page-hero" aria-labelledby="interoperability-title">
         <p className="eyebrow">Roadmap only · no implementation</p>
         <h1 id="interoperability-title">Interoperability lab concepts</h1>
@@ -63,7 +63,9 @@ export default function InteroperabilityRoadmapPage() {
           Zion has no real EHR connectivity, HL7 or FHIR exchange, SMART on FHIR
           integration, standards conformance, certification, clinical use, HIPAA
           compliance, real PHI, diagnosis or treatment capability, or deployed
-          interoperability service. No Batcomputer content or assets are copied here.
+          interoperability service. These concepts have no implementation, tests,
+          external demo, or prior-work claim. No Batcomputer content or assets are
+          copied here.
         </p>
       </section>
     </PageShell>

@@ -10,14 +10,13 @@ export const metadata: Metadata = {
 
 export default function FlagshipsPage() {
   return (
-    <PageShell active="initiatives">
+    <PageShell active="flagships">
       <section className="page-hero" aria-labelledby="flagships-title">
         <p className="eyebrow">Shipping platform modules</p>
         <h1 id="flagships-title">Harbor and Haven</h1>
         <p className="page-intro">
           Two bounded demonstrations share Zion&apos;s responsible-engineering foundation.
-          Their current routes remain unchanged while the unified information architecture
-          is introduced.
+          Each has one canonical case study and demonstration route.
         </p>
       </section>
 
@@ -35,19 +34,19 @@ export default function FlagshipsPage() {
                 <StatusBadge status={module.status.implementation} label={module.status.label} />{" "}
                 <strong>{module.status.operationalLabel}</strong>
               </p>
-              <h4>Purpose</h4>
+              <h4>Module Purpose</h4>
               <p>{module.purpose}</p>
               <h4>How it fits Zion</h4>
               <p>{module.fit}</p>
-              <h4>Actual architecture</h4>
+              <h4>Architecture Summary</h4>
               <p>{module.architecture}</p>
-              <h4>Boundaries and limitations</h4>
+              <h4>Boundaries and Limitations</h4>
               <ul>
                 {module.boundaries.map((boundary) => (
                   <li key={boundary}>{boundary}</li>
                 ))}
               </ul>
-              <h4>Interview story</h4>
+              <h4>Interview Story</h4>
               <dl>
                 {Object.entries(module.interviewStory).map(([part, detail]) => (
                   <div key={part}>
@@ -58,7 +57,7 @@ export default function FlagshipsPage() {
                   </div>
                 ))}
               </dl>
-              <h4>Evidence</h4>
+              <h4>Demo and Evidence</h4>
               <ul>
                 {module.evidence.map((link) => (
                   <li key={link.href}>
@@ -67,7 +66,7 @@ export default function FlagshipsPage() {
                 ))}
               </ul>
               <p>
-                <a href={module.route}>Open the existing {module.name} route</a>
+                <a href={module.route}>Open {module.name}</a>
               </p>
             </article>
           ))}

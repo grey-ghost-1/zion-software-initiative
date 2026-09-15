@@ -7,6 +7,10 @@ describe("mission page", () => {
     render(<MissionPage />);
 
     expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Mission" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("heading", { name: /human judgment stays/i })).toBeVisible();
     expect(screen.getByText("For the public")).toBeVisible();

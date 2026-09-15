@@ -23,7 +23,7 @@ const principles = [
 
 export default function ArchitecturePage() {
   return (
-    <PageShell active="projects">
+    <PageShell active="architecture">
       <section className="page-hero" aria-labelledby="architecture-title">
         <p className="eyebrow">Platform architecture</p>
         <h1 id="architecture-title">One bounded foundation, two domain modules</h1>
@@ -122,8 +122,9 @@ export default function ArchitecturePage() {
             <h3>Pending production verification</h3>
             <p>
               <StatusBadge status="planned" label="Not production-verified" /> Deployment,
-              managed PostgreSQL, HTTPS termination, operational monitoring, and rollback
-              verification remain pending. No production environment or service-level
+              hosted deployment, managed production PostgreSQL, public HTTPS verification,
+              operational monitoring, and a rollback exercise remain pending or unverified.
+              No production environment or service-level
               claim is presented.
             </p>
           </article>

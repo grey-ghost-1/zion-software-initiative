@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export type PageId = "home" | "initiatives" | "projects" | "evidence";
+export type PageId = "mission" | "architecture" | "flagships" | "labs";
 
 interface NavItem {
   id: PageId;
@@ -10,15 +10,14 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: "home", href: "/", label: "Home" },
-  { id: "initiatives", href: "/initiatives", label: "Initiatives" },
-  { id: "projects", href: "/projects", label: "Projects" },
-  { id: "evidence", href: "/evidence", label: "Evidence" },
+  { id: "mission", href: "/mission", label: "Mission" },
+  { id: "architecture", href: "/architecture", label: "Architecture" },
+  { id: "flagships", href: "/flagships", label: "Flagships" },
+  { id: "labs", href: "/labs", label: "Zion Labs" },
 ];
 
 interface PageShellProps {
-  /** Which nav item is the current page, for `aria-current="page"`. */
-  active: PageId;
+  active?: PageId;
   children: ReactNode;
 }
 
@@ -59,7 +58,15 @@ export function PageShell({ active, children }: PageShellProps) {
       </header>
       <main id="main-content">{children}</main>
       <footer>
-        <p>Zion Software Initiative - Foundation stage</p>
+        <aside aria-labelledby="global-disclosure-title">
+          <h2 id="global-disclosure-title">Global disclosure</h2>
+          <p>
+            This platform uses synthetic data, does not diagnose or treat, does not collect
+            real health information, and is not an operational public service. There is no
+            hosted production deployment, real-user or partner use, or measured field outcome.
+          </p>
+        </aside>
+        <p>Zion Software Initiative — foundation stage</p>
       </footer>
     </>
   );

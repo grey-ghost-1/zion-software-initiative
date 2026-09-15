@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <PageShell active="projects">
+    <PageShell active="flagships">
       <section className="page-hero" aria-labelledby="projects-title">
         <p className="eyebrow">Zion project areas</p>
         <h1 id="projects-title">Two first-class project pages, one shared foundation</h1>

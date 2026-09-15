@@ -22,7 +22,7 @@ describe("flagship content catalog", () => {
   });
 
   it("returns catalog entries by typed identifier", () => {
-    expect(getFlagshipModule("harbor").route).toBe("/harbor");
-    expect(getFlagshipModule("haven").route).toBe("/initiatives/haven");
+    expect(getFlagshipModule("harbor").route).toBe("/flagships/harbor");
+    expect(getFlagshipModule("haven").route).toBe("/flagships/haven");
   });
 });
