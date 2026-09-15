@@ -46,6 +46,7 @@ export function HarborWorkflow({ client: suppliedClient }: HarborWorkflowProps) 
     () =>
       new ZionApiClient({
         baseUrl: process.env.NEXT_PUBLIC_ZION_API_URL ?? "http://localhost:8000",
+        fetch: globalThis.fetch.bind(globalThis),
       }),
     [],
   );
