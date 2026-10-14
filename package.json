@@ -10,7 +10,9 @@
   },
   "workspaces": [
     "apps/web",
-    "packages/config"
+    "packages/config",
+    "packages/ui",
+    "packages/api-client"
   ],
   "scripts": {
     "dev:web": "npm run dev --workspace=@zion/web",
@@ -19,13 +21,21 @@
     "lint": "npm run lint:web && npm run lint:api",
     "lint:web": "npm run lint --workspace=@zion/web",
     "lint:api": "python -m ruff check apps/api tests",
-    "typecheck": "npm run typecheck:web && npm run typecheck:api",
+    "typecheck": "npm run typecheck:web && npm run typecheck:ui && npm run typecheck:api-client && npm run typecheck:api",
     "typecheck:web": "npm run typecheck --workspace=@zion/web",
+    "typecheck:ui": "npm run typecheck --workspace=@zion/ui",
+    "typecheck:api-client": "npm run typecheck --workspace=@zion/api-client",
     "typecheck:api": "python -m mypy apps/api/zion_api apps/api/tests tests",
-    "test": "npm run test:web && npm run test:python",
+    "test": "npm run test:web && npm run test:api-client && npm run test:python",
     "test:web": "npm run test --workspace=@zion/web",
+    "test:api-client": "npm run test --workspace=@zion/api-client",
     "test:python": "python -m pytest apps/api/tests tests",
     "check:python": "python -m compileall -q apps/api/zion_api apps/api/tests tests",
-    "check": "npm run lint && npm run typecheck && npm test && npm run check:python && npm run build"
+    "check": "npm run lint && npm run typecheck && npm test && npm run check:python && npm run build",
+    "db:up": "docker compose -f infra/docker-compose.yml up -d",
+    "db:down": "docker compose -f infra/docker-compose.yml down",
+    "db:migrate": "cd apps/api && python -m alembic upgrade head",
+    "db:seed": "cd apps/api && python -m zion_api.seed"
   }
+
 }

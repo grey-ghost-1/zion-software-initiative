@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  transpilePackages: ["@zion/ui", "@zion/api-client"],
 };
 
 export default nextConfig;

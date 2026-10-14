@@ -20,6 +20,10 @@ def test_public_surfaces_do_not_make_unsupported_claims() -> None:
     paths = [
         ROOT / "README.md",
         ROOT / "apps/web/src/app/page.tsx",
+        ROOT / "apps/web/src/app/initiatives/page.tsx",
+        ROOT / "apps/web/src/app/projects/page.tsx",
+        ROOT / "apps/web/src/app/evidence/page.tsx",
+        ROOT / "apps/web/src/app/about/page.tsx",
         *sorted((ROOT / "docs/case-studies").glob("*.md")),
     ]
     prohibited_patterns = {

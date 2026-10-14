@@ -32,8 +32,14 @@ jobs:
         run: npm run lint:web
       - name: Type-check web
         run: npm run typecheck:web
+      - name: Type-check @zion/ui
+        run: npm run typecheck:ui
+      - name: Type-check @zion/api-client
+        run: npm run typecheck:api-client
       - name: Test web
         run: npm run test:web
+      - name: Test @zion/api-client
+        run: npm run test:api-client
       - name: Build web
         run: npm run build
 
