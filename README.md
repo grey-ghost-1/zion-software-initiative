@@ -2,7 +2,7 @@
 
 Zion is an independent social-impact software initiative hub and a recruiter-facing
 engineering portfolio for **Justin Wimmer**, an entry-level full-stack/backend
-developer. The repository is not connected to the Batcomputer project or its
+developer. The repository is not connected to the portfolio website project or its
 branding.
 
 ## Current status
