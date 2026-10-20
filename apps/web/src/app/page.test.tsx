@@ -38,6 +38,12 @@ describe("Zion landing shell", () => {
     expect(screen.getByRole("heading", { name: "Foundation status" })).toBeVisible();
     expect(screen.getByText(/no live workflows, real users, partnerships/i)).toBeVisible();
     expect(screen.getByText(/synthetic examples and curated public data only/i)).toBeVisible();
-    expect(screen.getByText(/does not provide diagnosis, medical advice/i)).toBeVisible();
+    expect(
+      screen.getByText(/does not provide diagnosis, medical or legal advice, emergency response/i),
+    ).toBeVisible();
+    expect(screen.getByRole("heading", { level: 3, name: "Harbor" })).toBeVisible();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "GreenHub (Roanoke Green Hub)" }),
+    ).toBeVisible();
   });
 });

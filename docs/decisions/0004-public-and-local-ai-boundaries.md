@@ -1,5 +1,9 @@
 # ADR 0004: Keep AI execution local or explicitly bounded
 
+> Update 2026-10-20: Beacon was dropped from the initiative focus; see
+> [ADR 0005](0005-harbor-greenhub-focus.md). The original decision below is
+> retained as historical context.
+
 - **Status:** Accepted
 - **Date:** 2026-09-01
 
