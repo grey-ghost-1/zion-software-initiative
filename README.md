@@ -12,15 +12,17 @@ a minimal FastAPI service, shared visual tokens, tests, CI, and project governan
 There are no live product workflows, production deployments, users, partnerships,
 or measured field outcomes.
 
-The proposed initiatives are:
+The focused initiatives are:
 
-- **Harbor** — exploration of care, resource, shelter, and volunteer coordination.
-- **Haven** — exploration of non-diagnostic health navigation.
-- **Beacon** — exploration of AI orchestration, social-impact workflow automation,
-  AI safety and governance, humanitarian logistics, and environmental/GeoAI.
+- **Harbor** — a planned community-resource coordination platform, starting with a
+  Roanoke, Virginia pilot for food banks, shelters, and veteran services.
+- **GreenHub (Roanoke Green Hub)** — a planned effort to coordinate Roanoke-area
+  environmental initiatives, such as cleanups, trail days, volunteer sign-ups, and
+  an impact counter. It is intended as the first implementation of Harbor's
+  community-coordination model.
 
-These are planned directions, not available products. No demo is currently
-published.
+Both initiatives are planned, not live products. No users, partners, or field
+outcomes are claimed, and no demo is currently published.
 
 ## Safety and data boundaries
 

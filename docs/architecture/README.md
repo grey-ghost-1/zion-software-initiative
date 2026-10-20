@@ -16,8 +16,8 @@ layer. Shared packages are introduced only when code is genuinely shared.
 
 ## Principles
 
-- Keep Harbor, Haven, and Beacon as explicit backend module boundaries when their
-  first workflows arrive.
+- Keep Harbor and GreenHub as explicit backend module boundaries if and when
+  their first workflows are approved and implemented.
 - Keep transport, domain, and persistence concerns separable without distributing
   them into independent services prematurely.
 - Treat evidence, safety disclosures, accessibility, and data provenance as

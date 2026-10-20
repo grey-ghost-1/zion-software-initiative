@@ -37,21 +37,22 @@ export default function Home() {
         <section className="initiatives" aria-labelledby="initiatives-title">
           <div className="section-heading">
             <p className="eyebrow">Proposed initiatives</p>
-            <h2 id="initiatives-title">Three directions, not yet products</h2>
+            <h2 id="initiatives-title">Two planned initiatives</h2>
           </div>
           <div className="card-grid">
             <article>
               <h3>Harbor</h3>
-              <p>Exploring care, resource, shelter, and volunteer coordination.</p>
-            </article>
-            <article>
-              <h3>Haven</h3>
-              <p>Exploring non-diagnostic health navigation with clear safety limits.</p>
-            </article>
-            <article>
-              <h3>Beacon</h3>
               <p>
-                Exploring responsible AI orchestration and public-interest workflows.
+                Planned community-resource coordination, starting with a Roanoke,
+                Virginia pilot for food banks, shelters, and veteran services.
+              </p>
+            </article>
+            <article>
+              <h3>GreenHub (Roanoke Green Hub)</h3>
+              <p>
+                Planned coordination for local cleanups, trail days, volunteer
+                sign-ups, and environmental impact tracking. It is intended as the
+                first implementation of Harbor&apos;s community-coordination model.
               </p>
             </article>
           </div>
@@ -61,8 +62,9 @@ export default function Home() {
           <h2 id="boundaries-title">Built around truthful boundaries</h2>
           <p>
             Current work uses synthetic examples and curated public data only.
-            Zion does not provide diagnosis, medical advice, emergency response,
-            or production humanitarian capability.
+            Both initiatives are planned, not live. Zion does not provide
+            diagnosis, medical or legal advice, emergency response, or production
+            humanitarian capability.
           </p>
           <a href="https://github.com/grey-ghost-1/zion-software-initiative/blob/main/README.md">
             Read the project boundaries

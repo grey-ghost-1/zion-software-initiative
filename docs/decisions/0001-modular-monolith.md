@@ -1,5 +1,9 @@
 # ADR 0001: Begin with a modular monolith
 
+> Update 2026-10-20: Haven and Beacon were dropped; the initiative focus is now
+> Harbor and GreenHub. See [ADR 0005](0005-harbor-greenhub-focus.md). The
+> original decision below is retained as historical context.
+
 - **Status:** Accepted
 - **Date:** 2026-09-01
 
